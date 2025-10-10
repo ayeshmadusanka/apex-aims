@@ -425,32 +425,7 @@ export default function AcademicPillarPage() {
                         </div>
                       </div>
                       <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        <div className="space-y-2 mb-4 mt-auto">
-                          <div className="flex items-center text-sm text-gray-600">
-                            <span className="text-green-600 font-bold text-lg">
-                              {new Intl.NumberFormat("en-LK", {
-                                minimumFractionDigits: 0,
-                              }).format(course.fee)}{" "}
-                              LKR
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex space-x-2">
-                          <Button
-                            size="sm"
-                            className="bg-red-600 hover:bg-red-700 text-white flex-1"
-                          >
-                            Learn More
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white bg-transparent"
-                          >
-                            Enroll
-                          </Button>
-                        </div>
+                        {/* Removed price and buttons */}
                       </CardContent>
                     </Card>
                   ))}
@@ -555,32 +530,7 @@ export default function AcademicPillarPage() {
                         </div>
                       </div>
                       <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        <div className="space-y-2 mb-4 mt-auto">
-                          <div className="flex items-center text-sm text-gray-600">
-                            <span className="text-green-600 font-bold text-lg">
-                              {new Intl.NumberFormat("en-LK", {
-                                minimumFractionDigits: 0,
-                              }).format(course.fee)}{" "}
-                              LKR
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex space-x-2">
-                          <Button
-                            size="sm"
-                            className="bg-green-600 hover:bg-green-700 text-white flex-1"
-                          >
-                            Learn More
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white bg-transparent"
-                          >
-                            Enroll
-                          </Button>
-                        </div>
+                        {/* Removed price and buttons */}
                       </CardContent>
                     </Card>
                   ))}
