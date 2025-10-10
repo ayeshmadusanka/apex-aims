@@ -7,8 +7,19 @@ export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative text-white py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/1 Web Banner/2.png"
+            alt="Project Pillar - Hero Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6">
             <Target className="h-10 w-10 text-blue-600" />
           </div>
@@ -42,158 +53,106 @@ export default function ProjectPillarPage() {
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Solutions</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-1.png"
-                  alt="Problem-Solving Tools"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Problem-Solving Tools</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Advanced methodologies and tools for identifying, analyzing, and solving complex business problems.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-2.png"
-                  alt="Product Integration"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Product Integration</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Seamless integration of products and systems to optimize workflow and enhance operational efficiency.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-3.png"
-                  alt="Process Map and SOP"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Process Map and SOP</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Comprehensive process mapping and standard operating procedures for streamlined operations.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-4.png"
-                  alt="Quality Management Systems"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Quality Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Implementation of quality management systems to ensure consistent product and service excellence.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-5.png"
-                  alt="Lean Manufacturing"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Lean Manufacturing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Lean principles implementation to eliminate waste and maximize value in manufacturing processes.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-6.png"
-                  alt="Performance Optimization"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Performance Optimization</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Strategic performance improvement initiatives to enhance productivity and operational efficiency.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-7.png"
-                  alt="Training and Development"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Training & Development</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Comprehensive training programs to develop workforce capabilities and leadership skills.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="relative h-48 bg-gray-100">
-                <Image
-                  src="/images/solution-8.png"
-                  alt="Strategic Consulting"
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-lg text-gray-900 text-center">Strategic Consulting</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 text-center">
-                  Expert strategic consulting services to guide organizational transformation and growth initiatives.
-                </CardDescription>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+            {[
+              {
+                image: "/images/project-pillar/Our Solutions/1.png",
+                title: "Process Excellence",
+                description: "Streamline operations with advanced process optimization methodologies"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/2.png",
+                title: "Quality Management",
+                description: "Implement robust quality systems for consistent excellence"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/3.png",
+                title: "Lean Transformation",
+                description: "Eliminate waste and maximize value through lean principles"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/4.png",
+                title: "Performance Management",
+                description: "Drive productivity with strategic performance optimization"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/5.png",
+                title: "Business Analysis",
+                description: "Data-driven insights for informed decision making"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/6.png",
+                title: "Supply Chain Optimization",
+                description: "Enhance efficiency across your entire supply chain"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/7.png",
+                title: "Strategic Planning",
+                description: "Develop comprehensive strategies for sustainable growth"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/8.png",
+                title: "Operational Excellence",
+                description: "Achieve peak performance through operational improvements"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/9.png",
+                title: "Change Management",
+                description: "Successfully navigate organizational transformations"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/10.png",
+                title: "Business Process Reengineering",
+                description: "Redesign processes for maximum efficiency and effectiveness"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/11.png",
+                title: "Continuous Improvement",
+                description: "Foster a culture of ongoing enhancement and innovation"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/12.png",
+                title: "Project Management",
+                description: "Execute projects with precision and proven methodologies"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/13.png",
+                title: "Leadership Development",
+                description: "Build strong leaders to drive organizational success"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/14.png",
+                title: "Digital Transformation",
+                description: "Leverage technology for competitive advantage"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/15.png",
+                title: "Risk Management",
+                description: "Identify and mitigate risks for business resilience"
+              }
+            ].map((solution, index) => (
+              <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+                <div className="relative h-48 bg-gray-100 overflow-hidden">
+                  <Image
+                    src={solution.image}
+                    alt={solution.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-gray-900 text-center font-semibold group-hover:text-blue-600 transition-colors duration-300">
+                    {solution.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-gray-600 text-center text-sm leading-relaxed">
+                    {solution.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -212,7 +171,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="https://apexinstituteedu.com/wp-content/uploads/2023/01/hirdaramani-logo.jpg"
+                      src="/images/project-pillar/Our Major Assistance/Hidramani Logo.png"
                       alt="Hirdaramani Logo"
                       width={64}
                       height={64}
@@ -243,7 +202,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="https://apexinstituteedu.com/wp-content/uploads/2023/01/tudawe-logo.png"
+                      src="/images/project-pillar/Our Major Assistance/TTCL .png"
                       alt="Tucking Trading Company Logo"
                       width={64}
                       height={64}
@@ -276,7 +235,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="https://apexinstituteedu.com/wp-content/uploads/2023/01/Ru-Salu-Clothing-PVT-LTD-Logo.jpg"
+                      src="/images/project-pillar/Our Major Assistance/Rusalu Logo.png"
                       alt="Ru Salu Clothing Logo"
                       width={64}
                       height={64}
@@ -306,8 +265,8 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      {/* AIMS Gallery */}
-      <section className="py-20 bg-white">
+      {/* AIMS Gallery - Commented out (placeholder images not available) */}
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">AIMS Gallery</h2>
@@ -345,7 +304,7 @@ export default function ProjectPillarPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Our Assistance in Leading Companies */}
       <section className="py-20 bg-gray-50">
@@ -358,23 +317,25 @@ export default function ProjectPillarPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
               {[
-                { name: "Leading Manufacturing Company", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/12/1.png" },
-                { name: "JB Manufacturing", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/jb-logo.jpg" },
-                { name: "Midas Safety", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/midas-logo.png" },
-                { name: "Brandix Lanka Limited", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/brandix-logo.png" },
-                { name: "Lanwa Holdings", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/lanwa-logo.jpg" },
-                { name: "Hirdaramani Group", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/hirdaramani-logo.jpg" },
-                { name: "Undil Lanka", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/undil-logo.jpg" },
-                { name: "Empire Teas", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/empire-teas-logp.jpg" },
-                { name: "Renuka Foods", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/renuka-logo.jpg" },
-                { name: "Ansell Lanka", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/ansell-logo.png" },
-                { name: "Singer Sri Lanka", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/singer-logo.jpg" },
-                { name: "Solex Lanka", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/solex-logo.jpg" },
-                { name: "Benji Limited", logo: "https://apexinstituteedu.com/wp-content/uploads/2023/01/Benji-Ltd-min.png" },
+                { name: "AIMS Partner", logo: "/images/4 Company Logos/1 AIMS WEB Site Logos.png" },
+                { name: "Jo Lanka", logo: "/images/4 Company Logos/4 Jo Lanka Logo.png" },
+                { name: "Delta Galil", logo: "/images/4 Company Logos/5 Delta Galil.png" },
+                { name: "BAM Holdings", logo: "/images/4 Company Logos/6 BAM Holdings.png" },
+                { name: "JB Apparel", logo: "/images/4 Company Logos/7 JB Apparel.png" },
+                { name: "Partner Company 1", logo: "/images/4 Company Logos/AIMS WEB Site Logos (1).png" },
+                { name: "Partner Company 2", logo: "/images/4 Company Logos/AIMS WEB Site Logos (2).png" },
+                { name: "Partner Company 3", logo: "/images/4 Company Logos/AIMS WEB Site Logos (3).png" },
+                { name: "Partner Company 4", logo: "/images/4 Company Logos/AIMS WEB Site Logos (5).png" },
+                { name: "Partner Company 5", logo: "/images/4 Company Logos/AIMS WEB Site Logos (6).png" },
+                { name: "Partner Company 6", logo: "/images/4 Company Logos/AIMS WEB Site Logos (7).png" },
+                { name: "Partner Company 7", logo: "/images/4 Company Logos/AIMS WEB Site Logos (9).png" },
+                { name: "Partner Company 8", logo: "/images/4 Company Logos/AIMS WEB Site Logos (10).png" },
+                { name: "Partner Company 9", logo: "/images/4 Company Logos/AIMS WEB Site Logos (11).png" },
+                { name: "Partner Company 10", logo: "/images/4 Company Logos/AIMS WEB Site Logos (12).png" },
               ].map((company, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center p-6"
+                  className="flex items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-300"
                 >
                   <Image
                     src={company.logo}
@@ -390,43 +351,30 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-white">
+      {/* Contact Section - Commented out */}
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <div className="bg-gray-100 rounded-2xl h-64 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto">
-                      <Target className="h-8 w-8 text-white" />
-                    </div>
-                    <p className="text-gray-700">Professional Consulting Services</p>
-                  </div>
-                </div>
+            <div className="text-center space-y-8">
+              <h2 className="text-3xl font-bold text-gray-900">What you are looking for is not on the list?</h2>
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-gray-900">Don't worry:</h3>
+                <p className="text-gray-700">Please contact us. We will provide the best solution for you.</p>
               </div>
-
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold text-gray-900">What you are looking for is not on the list?</h2>
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Don't worry:</h3>
-                  <p className="text-gray-700">Please contact us. We will provide the best solution for you.</p>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg">Contact us</Button>
+              <div className="flex items-center justify-center space-x-3 pt-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <Building2 className="h-6 w-6 text-white" />
                 </div>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg">Contact us</Button>
-                <div className="flex items-center space-x-3 pt-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <Building2 className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Trusted by 500+</p>
-                    <p className="text-gray-600">Clients</p>
-                  </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Trusted by 500+</p>
+                  <p className="text-gray-600">Clients</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-red-600 text-white">

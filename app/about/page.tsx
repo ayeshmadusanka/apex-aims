@@ -7,10 +7,17 @@ import { Target, Users, Globe, Award } from "lucide-react"
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Solid Color Background */}
-      <section className="relative bg-slate-800 text-white py-20 overflow-hidden">
-        {/* Removed Hexagonal Background Pattern */}
-        {/* Removed Hexagonal Design Elements */}
+      {/* Hero Section with Background Image */}
+      <section className="relative text-white py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/1 Web Banner/1.png"
+            alt="About AIMS - Hero Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">About Us</h1>
@@ -49,8 +56,8 @@ export default function AboutPage() {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   {/* Replaced Next.js Image with standard <img> tag */}
                   <img
-                    src="https://apexinstituteedu.com/wp-content/uploads/2023/02/0.1-min-1.png"
-                    alt="AIMS Professional Team and Global Presence"
+                    src="/images/about/1 Global Branches Photo/Global Photo.png"
+                    alt="AIMS Global Team and Professional Network"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
@@ -85,7 +92,7 @@ export default function AboutPage() {
                     <div className="w-16 h-16 flex items-center justify-center">
                       {/* Replaced Next.js Image with standard <img> tag */}
                       <img
-                        src="https://apexinstituteedu.com/wp-content/uploads/2023/01/vision_icon-min.png"
+                        src="/images/about/2 Mission Vision/Vission.png"
                         alt="Vision Icon"
                         width={64}
                         height={64}
@@ -113,7 +120,7 @@ export default function AboutPage() {
                     <div className="w-16 h-16 flex items-center justify-center">
                       {/* Replaced Next.js Image with standard <img> tag */}
                       <img
-                        src="https://apexinstituteedu.com/wp-content/uploads/2023/01/mission_icon-min.png"
+                        src="/images/about/2 Mission Vision/Mission.png"
                         alt="Mission Icon"
                         width={64}
                         height={64}
@@ -152,7 +159,7 @@ export default function AboutPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
                 {/* Replaced Next.js Image with standard <img> tag */}
                 <img
-                  src="https://apexinstituteedu.com/wp-content/uploads/2023/11/Copy-of-www.apexinstituteedu.com-1.png"
+                  src="/images/about/3 Team Photo/AIMS TEAM.png"
                   alt="AIMS Team Photo"
                   width={800}
                   height={500}
@@ -179,7 +186,7 @@ export default function AboutPage() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               {/* Replaced Next.js Image with standard <img> tag */}
               <img
-                src="https://apexinstituteedu.com/wp-content/uploads/2023/01/Group-2192.png"
+                src="/images/about/4 Branches & International Online Platform/Branches & International Online Platform.png"
                 alt="AIMS Global Branches and International Online Platform"
                 width={1200}
                 height={500}

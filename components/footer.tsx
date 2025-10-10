@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Clock } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -90,17 +90,29 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-red-500" />
-                <span className="text-gray-300">123 Education Street, City, State 12345</span>
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 text-red-500 mt-1" />
+                <span className="text-gray-300">
+                  No 546/4, Galle Road<br />
+                  Colombo 03<br />
+                  Colombo, Sri Lanka
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-500" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">077 724 5172</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-red-500" />
-                <span className="text-gray-300">info@aims.edu</span>
+                <span className="text-gray-300">hello@apexinstituteedu.com</span>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Clock className="h-5 w-5 text-green-500 mt-1" />
+                <span className="text-gray-300 text-sm">
+                  Mon-Fri: 9:00 AM - 6:00 PM<br />
+                  Saturday: 9:00 AM - 2:00 PM<br />
+                  Sunday: Closed
+                </span>
               </div>
             </div>
           </div>

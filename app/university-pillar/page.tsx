@@ -6,8 +6,19 @@ export default function UniversityPillarPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-600 to-blue-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative text-white py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/1 Web Banner/4.png"
+            alt="University Pillar - Hero Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6">
             <GraduationCap className="h-10 w-10 text-red-600" />
           </div>
@@ -61,17 +72,17 @@ export default function UniversityPillarPage() {
                 {
                   name: "Rajarata University of Sri Lanka",
                   subtitle: "2021 Online & 2022 Physical Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/Rajarata_logo.png",
+                  logo: "/images/university-pillar/UNI Logos/rajarata.png",
                 },
                 {
                   name: "University of Moratuwa",
                   subtitle: "2016-2021 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/University_of_Moratuwa_logo.png",
+                  logo: "/images/university-pillar/UNI Logos/Moratu.png",
                 },
                 {
                   name: "University of Sri Jayewardenepura",
                   subtitle: "2020-2022 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/usjp-logo-300x300.png",
+                  logo: "/images/university-pillar/UNI Logos/Japura.png",
                 },
               ].map((university, index) => (
                 <div key={index} className="flex flex-col items-center justify-end p-4 bg-white h-64"> {/* Removed border and shadow classes */}
@@ -97,17 +108,17 @@ export default function UniversityPillarPage() {
                 {
                   name: "University of Peradeniya",
                   subtitle: "2022 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/University_of_Peradeniya_crest.png",
+                  logo: "/images/university-pillar/UNI Logos/Pera.png",
                 },
                 {
                   name: "University of Vavuniya",
                   subtitle: "2021 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/University-of-Vavuniya-Logo-1024x1024-1-300x300.png",
+                  logo: "/images/university-pillar/UNI Logos/Vavuniya.png",
                 },
                 {
-                  name: "NDT students - UOM",
+                  name: "SLTC Research University",
                   subtitle: "2021-2022 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/MicrosoftTeams-image.png",
+                  logo: "/images/university-pillar/UNI Logos/SLTC logo.png",
                 },
               ].map((university, index) => (
                 <div key={index} className="flex flex-col items-center justify-end p-4 bg-white h-64"> {/* Removed border and shadow classes */}
@@ -133,17 +144,17 @@ export default function UniversityPillarPage() {
                 {
                   name: "University of Sabaragamuwa",
                   subtitle: "2021 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/Logo-SUSL.png",
+                  logo: "/images/university-pillar/UNI Logos/Sabaragamuwa.png",
                 },
                 {
                   name: "University of Wayamba",
                   subtitle: "2016-2021 Online Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/UniLogo.png",
+                  logo: "/images/university-pillar/UNI Logos/Wayamaba.png",
                 },
                 {
-                  name: "SLIIT Research University",
-                  subtitle: "2022 Physical Webinar",
-                  logo: "https://apexinstituteedu.com/wp-content/uploads/2023/03/logo-1-600x201.png",
+                  name: "Professional Development Programs",
+                  subtitle: "Industry-University Collaboration",
+                  logo: "/images/university-pillar/UNI Logos/Japura.png",
                 },
               ].map((university, index) => (
                 <div key={index} className="flex flex-col items-center justify-end p-4 bg-white h-64"> {/* Removed border and shadow classes */}
@@ -167,8 +178,8 @@ export default function UniversityPillarPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Contact Section - Commented out */}
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -215,7 +226,7 @@ export default function UniversityPillarPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-red-600 to-blue-600 text-white">

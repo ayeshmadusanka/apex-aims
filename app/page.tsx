@@ -10,8 +10,10 @@ import { useState, useEffect } from "react"
 
 export default function HomePage() {
   const heroImages = [
-    { src: "/images/hero-1.png", alt: "AIMS Professional Services - Hero 1" },
-    { src: "/images/hero-2.png", alt: "AIMS Professional Services - Hero 2" },
+    { src: "/images/1 Web Banner/1.png", alt: "AIMS Professional Services - Banner 1" },
+    { src: "/images/1 Web Banner/2.png", alt: "AIMS Professional Services - Banner 2" },
+    { src: "/images/1 Web Banner/3.png", alt: "AIMS Professional Services - Banner 3" },
+    { src: "/images/1 Web Banner/4.png", alt: "AIMS Professional Services - Banner 4" },
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -30,7 +32,26 @@ export default function HomePage() {
   }, [])
   
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <style jsx>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll-left {
+          animation: scroll-left 30s linear infinite;
+        }
+
+        .animate-scroll-left:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden mt-0">
         {/* Aspect Ratio Container (15:8) */}
@@ -45,38 +66,73 @@ export default function HomePage() {
                 className="object-cover transition-opacity duration-1000"
                 priority
               />
-              <div className="absolute inset-0 bg-black/40"></div>
-            </div>
-            
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-all duration-200"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-all duration-200"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-            
-            {/* Image Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
-              {heroImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+
+              {/* Hero Content */}
+              <div className="absolute inset-0 flex items-center">
+                <div className="container mx-auto px-4">
+                  <div className="max-w-4xl">
+                    <div className="space-y-6">
+                      <Badge variant="outline" className="border-white/30 text-white bg-white/10 backdrop-blur-sm">
+                        Excellence in Management Education
+                      </Badge>
+                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                        Transform Your
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">
+                          Career Today
+                        </span>
+                      </h1>
+                      <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
+                        Join AIMS and unlock your potential with world-class professional education and training programs designed for success.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg">
+                          Explore Programs
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                        <Button
+                          size="lg"
+                          variant="outline"
+                          className="border-white text-white hover:bg-white hover:text-black bg-transparent backdrop-blur-sm px-8 py-4 rounded-full text-lg"
+                        >
+                          Learn More
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-200"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-200"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+
+              {/* Image Indicators */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3">
+                {heroImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -94,11 +150,11 @@ export default function HomePage() {
               <div className="flex flex-col items-center text-center">
                 <div className="mb-4">
                   <Image
-                    src="https://apexinstituteedu.com/wp-content/uploads/2023/02/Vector.png"
+                    src="/images/2 Icon Set/Specialised courses.png"
                     alt="Specialized Courses Icon"
-                    width={56}
-                    height={56}
-                    className="object-contain"
+                    width={80}
+                    height={80}
+                    className="object-contain hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 {/* Reduced text size for mobile (text-base) and kept text-lg for md screens and up */}
@@ -108,11 +164,11 @@ export default function HomePage() {
               <div className="flex flex-col items-center text-center">
                 <div className="mb-4">
                   <Image
-                    src="https://apexinstituteedu.com/wp-content/uploads/2023/02/Vector-1.png"
+                    src="/images/2 Icon Set/Expert Lecturers.png"
                     alt="Expert Lecturers Icon"
-                    width={56}
-                    height={56}
-                    className="object-contain"
+                    width={80}
+                    height={80}
+                    className="object-contain hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 {/* Reduced text size for mobile (text-base) and kept text-lg for md screens and up */}
@@ -122,11 +178,11 @@ export default function HomePage() {
               <div className="flex flex-col items-center text-center">
                 <div className="mb-4">
                   <Image
-                    src="https://apexinstituteedu.com/wp-content/uploads/2023/02/Group-23.png"
+                    src="/images/2 Icon Set/Certificates.png"
                     alt="Global Certificates Icon"
-                    width={56}
-                    height={56}
-                    className="object-contain"
+                    width={80}
+                    height={80}
+                    className="object-contain hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 {/* Reduced text size for mobile (text-base) and kept text-lg for md screens and up */}
@@ -183,7 +239,7 @@ export default function HomePage() {
                 {/* Use order-1 on mobile for image first, no order on large screens, and add bottom margin for spacing on mobile */}
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://apexinstituteedu.com/wp-content/uploads/2023/02/0.1-min.png"
+                    src="/images/3 Aims Team/AIMS TEAM.png"
                     alt="AIMS Professional Team"
                     width={500}
                     height={300}
@@ -242,34 +298,26 @@ export default function HomePage() {
               <p className="text-sm font-medium text-gray-500 mb-8 tracking-wider uppercase">
                 Trusted by Leading Organizations
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-center opacity-70">
+
+              {/* 8 Column Grid */}
+              <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8 items-center justify-center">
                 {[
-                  {
-                    src: "https://apexinstituteedu.com/wp-content/uploads/2021/12/Brandix_Apparel_Limited_Logo.png",
-                    alt: "Brandix Apparel Limited",
-                  },
-                  { src: "https://apexinstituteedu.com/wp-content/uploads/2021/12/unnamed.png", alt: "Renuka Foods" },
-                  {
-                    src: "https://apexinstituteedu.com/wp-content/uploads/2021/12/hela-clothing-logo.png",
-                    alt: "Hela Clothing",
-                  },
-                  {
-                    src: "https://apexinstituteedu.com/wp-content/uploads/2021/12/HIR_MasterLogo_Pos_RGB-1200x800-1.png",
-                    alt: "Hayleys Industrial Solutions",
-                  },
-                  { src: "https://apexinstituteedu.com/wp-content/uploads/2021/12/images.png", alt: "Unilever" },
-                  {
-                    src: "https://apexinstituteedu.com/wp-content/uploads/2021/12/Logo_of_MAS_Holdings.png",
-                    alt: "MAS Holdings",
-                  },
+                  { src: "/images/4 Company Logos/1 AIMS WEB Site Logos.png", alt: "Partner Company 1" },
+                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (1).png", alt: "Partner Company 2" },
+                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (10).png", alt: "Partner Company 3" },
+                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (5).png", alt: "Partner Company 4" },
+                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (9).png", alt: "Partner Company 5" },
+                  { src: "/images/4 Company Logos/2 AIMS WEB Site Logos (11).png", alt: "Partner Company 6" },
+                  { src: "/images/4 Company Logos/3 AIMS WEB Site Logos (37).png", alt: "Partner Company 7" },
+                  { src: "/images/4 Company Logos/4 Jo Lanka Logo.png", alt: "Jo Lanka" },
                 ].map((partner, index) => (
-                  <div key={index} className="flex items-center justify-center h-20">
+                  <div key={index} className="flex items-center justify-center w-36 h-24 opacity-70 hover:opacity-100 transition-opacity duration-300 group">
                     <Image
-                      src={partner.src || "/placeholder.svg"}
+                      src={partner.src}
                       alt={partner.alt}
-                      width={160}
-                      height={80}
-                      className="object-contain max-h-full max-w-full"
+                      width={120}
+                      height={60}
+                      className="object-contain max-h-full max-w-full filter grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
                     />
                   </div>
                 ))}
@@ -322,13 +370,13 @@ export default function HomePage() {
               </div>
 
               {/* Directly show the image without the extra card background */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl order-1 lg:order-2">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl order-1 lg:order-2 group">
                 <Image
-                  src="https://apexinstituteedu.com/wp-content/uploads/2022/10/PHOTO-2021-09-10-11-49-21-3.jpg"
-                  alt="Benefits of Learning from AIMS"
+                  src="/images/5 Benefits of Learning section/5.png"
+                  alt="Benefits of Learning with AIMS"
                   width={600}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -447,5 +495,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

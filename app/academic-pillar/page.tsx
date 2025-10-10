@@ -22,7 +22,6 @@ export default function AcademicPillarPage() {
     "Certified PMTS and costing practitioner program",
     "Advance certificate in apparel production management performance rating practices",
     "Certificate in soft skills development",
-    "Certificate in ergonomics & work design program of lean BIQ Excellence Tool kit",
     "Certificate Programs",
   ];
 
@@ -51,8 +50,19 @@ export default function AcademicPillarPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-red-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative text-white py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/1 Web Banner/3.png"
+            alt="Academic Pillar - Hero Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
             Academic Pillar
           </h1>
@@ -94,12 +104,18 @@ export default function AcademicPillarPage() {
 
           <div className="max-w-6xl mx-auto">
             <Tabs defaultValue="certificate" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 bg-gray-100 mb-8">
+              <TabsList className="grid w-full grid-cols-4 bg-gray-100 mb-8">
                 <TabsTrigger
                   value="certificate"
                   className="text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
                 >
                   CERTIFICATE COURSES
+                </TabsTrigger>
+                <TabsTrigger
+                  value="university"
+                  className="text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                >
+                  COURSES FOR UNIVERSITY STUDENTS
                 </TabsTrigger>
                 <TabsTrigger
                   value="diploma"
@@ -124,8 +140,7 @@ export default function AcademicPillarPage() {
                         "Comprehensive training in work measurement and method study techniques",
                       duration: "30 days",
                       fee: 45000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/10.png",
+                      image: "/images/academic-pillar/Certificate Courses/1.png",
                       modules: 8,
                       level: "Beginner to Intermediate",
                     },
@@ -135,8 +150,7 @@ export default function AcademicPillarPage() {
                         "Foundation course covering basic work study principles and applications",
                       duration: "21 days",
                       fee: 35000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/8-min.png",
+                      image: "/images/academic-pillar/Certificate Courses/2.png",
                       modules: 6,
                       level: "Beginner",
                     },
@@ -146,8 +160,7 @@ export default function AcademicPillarPage() {
                         "Specialized training in retail merchandising and product management",
                       duration: "25 days",
                       fee: 40000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/7-min.png",
+                      image: "/images/academic-pillar/Certificate Courses/3.png",
                       modules: 7,
                       level: "Intermediate",
                     },
@@ -157,8 +170,7 @@ export default function AcademicPillarPage() {
                         "Core industrial engineering principles and optimization techniques",
                       duration: "60 days",
                       fee: 75000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/8-min-1.png",
+                      image: "/images/academic-pillar/Certificate Courses/4.png",
                       modules: 12,
                       level: "Intermediate",
                     },
@@ -168,8 +180,7 @@ export default function AcademicPillarPage() {
                         "Advanced quality systems, auditing, and continuous improvement",
                       duration: "45 days",
                       fee: 60000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/10.png",
+                      image: "/images/academic-pillar/Certificate Courses/5.png",
                       modules: 10,
                       level: "Advanced",
                     },
@@ -179,8 +190,7 @@ export default function AcademicPillarPage() {
                         "Predetermined motion time systems and accurate costing methods",
                       duration: "35 days",
                       fee: 55000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/8-min.png",
+                      image: "/images/academic-pillar/Certificate Courses/6.png",
                       modules: 9,
                       level: "Intermediate",
                     },
@@ -190,81 +200,127 @@ export default function AcademicPillarPage() {
                         "Essential communication, leadership, and professional skills",
                       duration: "21 days",
                       fee: 35000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/7-min.png",
+                      image: "/images/academic-pillar/Certificate Courses/7.png",
                       modules: 6,
                       level: "All Levels",
-                    },
-                    {
-                      title: "Certificate in Ergonomics & Work Design",
-                      description:
-                        "Workplace design and ergonomic principles for safety and efficiency",
-                      duration: "28 days",
-                      fee: 42000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/8-min-1.png",
-                      modules: 8,
-                      level: "Intermediate",
                     },
                   ].map((course, index) => (
                     <Card
                       key={index}
                       className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
                     >
-                      <div className="relative w-full pb-[75%] bg-gray-100">
-                        {/* 4:3 Aspect Ratio (height / width = 3 / 4 = 0.75 = 75%) */}
+                      <div className="relative w-full pb-[100%] bg-gray-100">
+                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
                         <Image
                           src={course.image || "/placeholder.svg"}
                           alt={course.title}
                           fill
                           className="object-cover"
                         />
-                      </div>
-                      <CardHeader>
-                        <div className="flex justify-between items-start mb-2">
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        {/* Title Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
+                            {course.title}
+                          </h3>
+                        </div>
+                        {/* Badges Overlay */}
+                        <div className="absolute top-4 left-4 right-4 flex justify-between">
                           <Badge
                             variant="outline"
-                            className="bg-blue-100 text-blue-800 border-blue-600 text-xs"
+                            className="bg-blue-600 text-white border-blue-600 text-xs"
                           >
                             Certificate
                           </Badge>
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
                             {course.duration}
                           </Badge>
                         </div>
-                        <CardTitle className="text-lg text-gray-900">
-                          {course.title}
-                        </CardTitle>
-                      </CardHeader>
+                      </div>
                       <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed CardDescription */}
-                        {/* Removed modules and level details */}
-                        <div className="space-y-2 mb-4 mt-auto">
-                          <div className="flex items-center text-sm text-gray-600">
-                            <span className="text-green-600 font-bold text-lg">
-                              {new Intl.NumberFormat("en-LK", {
-                                minimumFractionDigits: 0,
-                              }).format(course.fee)}{" "}
-                              LKR
-                            </span>
-                          </div>
-                        </div>
+                        {/* Removed price and buttons */}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
 
-                        <div className="flex space-x-2">
-                          <Button
-                            size="sm"
-                            className="bg-blue-600 hover:bg-blue-700 text-white flex-1"
-                          >
-                            Learn More
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white bg-transparent"
-                          >
-                            Enroll
-                          </Button>
+              <TabsContent value="university" className="space-y-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    {
+                      title: "University Bridge Program",
+                      description:
+                        "Bridge program designed for university students transitioning to professional careers",
+                      duration: "45 days",
+                      image: "/images/academic-pillar/Courses for University Students/23.png",
+                      modules: 10,
+                      level: "University Level",
+                    },
+                    {
+                      title: "Professional Skills Development",
+                      description:
+                        "Essential professional skills and workplace readiness for university graduates",
+                      duration: "30 days",
+                      image: "/images/academic-pillar/Courses for University Students/24.png",
+                      modules: 8,
+                      level: "University Level",
+                    },
+                    {
+                      title: "Industry Internship Preparation",
+                      description:
+                        "Comprehensive preparation for successful industry internships and practical experience",
+                      duration: "60 days",
+                      image: "/images/academic-pillar/Courses for University Students/25.png",
+                      modules: 12,
+                      level: "University Level",
+                    },
+                    {
+                      title: "Career Foundation Program",
+                      description:
+                        "Foundation program for career planning and professional development strategies",
+                      duration: "90 days",
+                      image: "/images/academic-pillar/Courses for University Students/Academic Pillar Images.png",
+                      modules: 15,
+                      level: "University Level",
+                    },
+                  ].map((course, index) => (
+                    <Card
+                      key={index}
+                      className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
+                    >
+                      <div className="relative w-full pb-[100%] bg-gray-100">
+                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
+                        <Image
+                          src={course.image || "/placeholder.svg"}
+                          alt={course.title}
+                          fill
+                          className="object-cover"
+                        />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        {/* Title Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
+                            {course.title}
+                          </h3>
                         </div>
+                        {/* Badges Overlay */}
+                        <div className="absolute top-4 left-4 right-4 flex justify-between">
+                          <Badge
+                            variant="outline"
+                            className="bg-green-600 text-white border-green-600 text-xs"
+                          >
+                            University
+                          </Badge>
+                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
+                            {course.duration}
+                          </Badge>
+                        </div>
+                      </div>
+                      <CardContent className="flex flex-col flex-grow p-6 pt-0">
+                        {/* Removed price and buttons */}
                       </CardContent>
                     </Card>
                   ))}
@@ -280,8 +336,7 @@ export default function AcademicPillarPage() {
                         "Comprehensive manufacturing operations and strategic management",
                       duration: "180 days",
                       fee: 200000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/14.png",
+                      image: "/images/academic-pillar/Diploma Courses/9.png",
                       modules: 20,
                       level: "Advanced",
                     },
@@ -291,8 +346,7 @@ export default function AcademicPillarPage() {
                         "Advanced quality systems implementation and management",
                       duration: "150 days",
                       fee: 175000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/16.png",
+                      image: "/images/academic-pillar/Diploma Courses/10.png",
                       modules: 18,
                       level: "Advanced",
                     },
@@ -302,8 +356,7 @@ export default function AcademicPillarPage() {
                         "Strategic operations planning and optimization",
                       duration: "120 days",
                       fee: 160000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/12.png",
+                      image: "/images/academic-pillar/Diploma Courses/11.png",
                       modules: 16,
                       level: "Advanced",
                     },
@@ -313,8 +366,7 @@ export default function AcademicPillarPage() {
                         "Professional project management with PMP preparation",
                       duration: "120 days",
                       fee: 180000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/13.png",
+                      image: "/images/academic-pillar/Diploma Courses/12.png",
                       modules: 16,
                       level: "Intermediate to Advanced",
                     },
@@ -324,8 +376,7 @@ export default function AcademicPillarPage() {
                         "End-to-end supply chain optimization and logistics",
                       duration: "135 days",
                       fee: 165000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/15.png",
+                      image: "/images/academic-pillar/Diploma Courses/13.png",
                       modules: 17,
                       level: "Advanced",
                     },
@@ -335,31 +386,8 @@ export default function AcademicPillarPage() {
                         "Advanced industrial engineering and process optimization",
                       duration: "160 days",
                       fee: 185000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/14.png",
+                      image: "/images/academic-pillar/Diploma Courses/14.png",
                       modules: 19,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Diploma in Production Planning",
-                      description:
-                        "Strategic production planning and scheduling systems",
-                      duration: "110 days",
-                      fee: 155000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/16.png",
-                      modules: 15,
-                      level: "Intermediate to Advanced",
-                    },
-                    {
-                      title: "Diploma in Business Process Improvement",
-                      description:
-                        "Advanced process analysis and improvement methodologies",
-                      duration: "125 days",
-                      fee: 170000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/12.png",
-                      modules: 16,
                       level: "Advanced",
                     },
                   ].map((course, index) => (
@@ -367,34 +395,36 @@ export default function AcademicPillarPage() {
                       key={index}
                       className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
                     >
-                      <div className="relative w-full pb-[75%] bg-gray-100">
-                        {/* 4:3 Aspect Ratio (height / width = 3 / 4 = 0.75 = 75%) */}
+                      <div className="relative w-full pb-[100%] bg-gray-100">
+                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
                         <Image
                           src={course.image || "/placeholder.svg"}
                           alt={course.title}
                           fill
                           className="object-cover"
                         />
-                      </div>
-                      <CardHeader>
-                        <div className="flex justify-between items-start mb-2">
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        {/* Title Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
+                            {course.title}
+                          </h3>
+                        </div>
+                        {/* Badges Overlay */}
+                        <div className="absolute top-4 left-4 right-4 flex justify-between">
                           <Badge
                             variant="outline"
-                            className="bg-red-100 text-red-800 border-red-600 text-xs"
+                            className="bg-red-600 text-white border-red-600 text-xs"
                           >
                             Diploma
                           </Badge>
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
                             {course.duration}
                           </Badge>
                         </div>
-                        <CardTitle className="text-lg text-gray-900">
-                          {course.title}
-                        </CardTitle>
-                      </CardHeader>
+                      </div>
                       <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed CardDescription */}
-                        {/* Removed modules and level details */}
                         <div className="space-y-2 mb-4 mt-auto">
                           <div className="flex items-center text-sm text-gray-600">
                             <span className="text-green-600 font-bold text-lg">
@@ -436,8 +466,7 @@ export default function AcademicPillarPage() {
                         "Foundation level lean principles and basic improvement tools",
                       duration: "14 days",
                       fee: 35000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/17.png",
+                      image: "/images/academic-pillar/Lean/16.png",
                       modules: 5,
                       level: "Beginner",
                     },
@@ -447,8 +476,7 @@ export default function AcademicPillarPage() {
                         "Intermediate lean practitioner with project leadership skills",
                       duration: "60 days",
                       fee: 110000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/18.png",
+                      image: "/images/academic-pillar/Lean/17.png",
                       modules: 12,
                       level: "Intermediate",
                     },
@@ -458,8 +486,7 @@ export default function AcademicPillarPage() {
                         "Advanced lean expert with change management capabilities",
                       duration: "90 days",
                       fee: 150000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-27-at-18.01.08.jpeg",
+                      image: "/images/academic-pillar/Lean/18.png",
                       modules: 18,
                       level: "Advanced",
                     },
@@ -469,8 +496,7 @@ export default function AcademicPillarPage() {
                         "Combined lean and six sigma foundation certification",
                       duration: "21 days",
                       fee: 45000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/19.png",
+                      image: "/images/academic-pillar/Lean/19.png",
                       modules: 7,
                       level: "Beginner",
                     },
@@ -480,8 +506,7 @@ export default function AcademicPillarPage() {
                         "Intermediate lean six sigma with statistical analysis",
                       duration: "75 days",
                       fee: 125000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/20.png",
+                      image: "/images/academic-pillar/Lean/20.png",
                       modules: 15,
                       level: "Intermediate",
                     },
@@ -491,31 +516,8 @@ export default function AcademicPillarPage() {
                         "Expert level lean six sigma with advanced statistics",
                       duration: "120 days",
                       fee: 180000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/21.png",
+                      image: "/images/academic-pillar/Lean/21.png",
                       modules: 22,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Lean Manufacturing Excellence",
-                      description:
-                        "Comprehensive lean manufacturing implementation program",
-                      duration: "45 days",
-                      fee: 85000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/22.png",
-                      modules: 10,
-                      level: "Intermediate",
-                    },
-                    {
-                      title: "Lean Leadership Development",
-                      description:
-                        "Leadership skills for lean transformation initiatives",
-                      duration: "30 days",
-                      fee: 65000,
-                      image:
-                        "https://apexinstituteedu.com/wp-content/uploads/2023/03/23.png",
-                      modules: 8,
                       level: "Advanced",
                     },
                   ].map((course, index) => (
@@ -523,34 +525,36 @@ export default function AcademicPillarPage() {
                       key={index}
                       className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
                     >
-                      <div className="relative w-full pb-[75%] bg-gray-100">
-                        {/* 4:3 Aspect Ratio (height / width = 3 / 4 = 0.75 = 75%) */}
+                      <div className="relative w-full pb-[100%] bg-gray-100">
+                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
                         <Image
                           src={course.image || "/placeholder.svg"}
                           alt={course.title}
                           fill
                           className="object-cover"
                         />
-                      </div>
-                      <CardHeader>
-                        <div className="flex justify-between items-start mb-2">
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        {/* Title Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
+                            {course.title}
+                          </h3>
+                        </div>
+                        {/* Badges Overlay */}
+                        <div className="absolute top-4 left-4 right-4 flex justify-between">
                           <Badge
                             variant="outline"
-                            className="bg-green-100 text-green-800 border-green-600 text-xs"
+                            className="bg-green-600 text-white border-green-600 text-xs"
                           >
                             Lean
                           </Badge>
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
                             {course.duration}
                           </Badge>
                         </div>
-                        <CardTitle className="text-lg text-gray-900">
-                          {course.title}
-                        </CardTitle>
-                      </CardHeader>
+                      </div>
                       <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed CardDescription */}
-                        {/* Removed modules and level details */}
                         <div className="space-y-2 mb-4 mt-auto">
                           <div className="flex items-center text-sm text-gray-600">
                             <span className="text-green-600 font-bold text-lg">
@@ -587,8 +591,8 @@ export default function AcademicPillarPage() {
         </div>
       </section>
 
-      {/* Client Testimonials */}
-      <section className="py-20 bg-gray-50">
+      {/* Client Testimonials - Commented out */}
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
@@ -641,10 +645,10 @@ export default function AcademicPillarPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Contact Section */}
-      <section className="py-20 bg-white">
+      {/* Contact Section - Commented out */}
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -692,7 +696,7 @@ export default function AcademicPillarPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       
       {/* CTA */}

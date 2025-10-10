@@ -92,13 +92,11 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 mb-4">
-                    123 Education Street
+                    No 546/4, Galle Road
                     <br />
-                    Business District
+                    Colombo 03
                     <br />
-                    City, State 12345
-                    <br />
-                    Country
+                    Colombo, Sri Lanka
                   </p>
                   <Button
                     variant="outline"
@@ -119,13 +117,10 @@ export default function ContactPage() {
                 <CardContent>
                   <div className="space-y-2">
                     <p className="text-gray-700">
-                      <strong>Admissions:</strong> +1 (555) 123-4567
+                      <strong>Hotline:</strong> 077 724 5172
                     </p>
                     <p className="text-gray-700">
-                      <strong>General Inquiry:</strong> +1 (555) 123-4568
-                    </p>
-                    <p className="text-gray-700">
-                      <strong>Corporate Training:</strong> +1 (555) 123-4569
+                      <strong>WhatsApp:</strong> 077 724 5172
                     </p>
                   </div>
                 </CardContent>
@@ -141,13 +136,13 @@ export default function ContactPage() {
                 <CardContent>
                   <div className="space-y-2">
                     <p className="text-gray-700">
-                      <strong>General:</strong> info@aims.edu
+                      <strong>General:</strong> hello@apexinstituteedu.com
                     </p>
                     <p className="text-gray-700">
-                      <strong>Admissions:</strong> admissions@aims.edu
+                      <strong>Admissions:</strong> hello@apexinstituteedu.com
                     </p>
                     <p className="text-gray-700">
-                      <strong>Corporate:</strong> corporate@aims.edu
+                      <strong>Corporate:</strong> hello@apexinstituteedu.com
                     </p>
                   </div>
                 </CardContent>
@@ -238,14 +233,14 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Find Us</h2>
-            <p className="text-xl text-gray-600">Located in the heart of the business district</p>
+            <p className="text-xl text-gray-600">Located on Galle Road, Colombo 03</p>
           </div>
 
           <div className="bg-gray-300 h-96 rounded-lg flex items-center justify-center">
             <div className="text-center">
               <MapPin className="h-16 w-16 text-gray-600 mx-auto mb-4" />
               <p className="text-gray-600 text-lg">Interactive Map Coming Soon</p>
-              <p className="text-gray-500">123 Education Street, Business District</p>
+              <p className="text-gray-500">No 546/4, Galle Road, Colombo 03, Sri Lanka</p>
             </div>
           </div>
         </div>
