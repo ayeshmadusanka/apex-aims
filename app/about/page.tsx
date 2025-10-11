@@ -35,9 +35,6 @@ export default function AboutPage() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="container mx-auto px-4 text-center">
                 <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">About Us</h1>
-                <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
-                  Apex Institute of Management Services - A premier institution dedicated to shaping the future of management education
-                </p>
               </div>
             </div>
           </div>
