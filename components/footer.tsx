@@ -23,14 +23,11 @@ export default function Footer() {
               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600">
                 <Facebook className="h-5 w-5" />
               </Button>
-              <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600">
-                <Linkedin className="h-5 w-5" />
-              </Button>
-              <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600">
-                <Linkedin className="h-5 w-5" />
-              </Button>
               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-red-600">
                 <Instagram className="h-5 w-5" />
+              </Button>
+               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600">
+                <Linkedin className="h-5 w-5" />
               </Button>
               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-red-600">
                 <Youtube className="h-5 w-5" />

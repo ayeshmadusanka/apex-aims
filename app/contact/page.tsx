@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, MessageCircle, Building2, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import { MapPin, Phone, Mail, MessageCircle, Building2, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -177,9 +177,9 @@ export default function ContactPage() {
                     <a href="#" target="_blank" rel="noopener noreferrer"
                        className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
                       <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                        <Linkedin className="w-4 h-4 text-white" />
+                        <Youtube className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-sm font-medium text-gray-700">LinkedIn</span>
+                      <span className="text-sm font-medium text-gray-700">YouTube</span>
                     </a>
                   </div>
                 </div>
