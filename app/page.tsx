@@ -51,6 +51,23 @@ export default function HomePage() {
         .animate-scroll-left:hover {
           animation-play-state: paused;
         }
+
+        @keyframes scroll-logos {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll-logos {
+          animation: scroll-logos 30s linear infinite;
+        }
+
+        .animate-scroll-logos:hover {
+          animation-play-state: paused;
+        }
       `}</style>
       <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -180,10 +197,12 @@ export default function HomePage() {
                     students around the globe.
                   </p>
                 </div>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full">
-                  Learn More About Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <a href="/about">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full">
+                    Learn More About Us
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </a>
               </div>
               {/* This div contains the image */}
               <div className="relative order-1 lg:order-2 mb-8 lg:mb-0">
@@ -247,28 +266,123 @@ export default function HomePage() {
               Trusted by Leading Organizations
             </p>
 
-            {/* 8 Column Grid */}
-            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8 items-center justify-center">
-              {[
-                { src: "/images/4 Company Logos/1 AIMS WEB Site Logos.png", alt: "Partner Company 1" },
-                { src: "/images/4 Company Logos/AIMS WEB Site Logos (1).png", alt: "Partner Company 2" },
-                { src: "/images/4 Company Logos/AIMS WEB Site Logos (10).png", alt: "Partner Company 3" },
-                { src: "/images/4 Company Logos/AIMS WEB Site Logos (5).png", alt: "Partner Company 4" },
-                { src: "/images/4 Company Logos/AIMS WEB Site Logos (9).png", alt: "Partner Company 5" },
-                { src: "/images/4 Company Logos/2 AIMS WEB Site Logos (11).png", alt: "Partner Company 6" },
-                { src: "/images/4 Company Logos/3 AIMS WEB Site Logos (37).png", alt: "Partner Company 7" },
-                { src: "/images/4 Company Logos/4 Jo Lanka Logo.png", alt: "Jo Lanka" },
-              ].map((partner, index) => (
-                <div key={index} className="flex items-center justify-center w-36 h-24 opacity-70 hover:opacity-100 transition-opacity duration-300 group">
-                  <Image
-                    src={partner.src}
-                    alt={partner.alt}
-                    width={120}
-                    height={60}
-                    className="object-contain max-h-full max-w-full filter grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
-                  />
+            {/* Infinite Auto Slider */}
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll-left">
+                {/* First set of logos */}
+                <div className="flex gap-8 items-center px-4">
+                  {[
+                    { src: "/images/company/company-logo-100.png", alt: "Partner Company 1" },
+                    { src: "/images/company/company-logo-101.png", alt: "Partner Company 2" },
+                    { src: "/images/company/company-logo-102.png", alt: "Partner Company 3" },
+                    { src: "/images/company/company-logo-103.png", alt: "Partner Company 4" },
+                    { src: "/images/company/company-logo-104.png", alt: "Partner Company 5" },
+                    { src: "/images/company/company-logo-105.png", alt: "Partner Company 6" },
+                    { src: "/images/company/company-logo-106.png", alt: "Partner Company 7" },
+                    { src: "/images/company/company-logo-107.png", alt: "Partner Company 8" },
+                    { src: "/images/company/company-logo-108.png", alt: "Partner Company 9" },
+                    { src: "/images/company/company-logo-109.png", alt: "Partner Company 10" },
+                    { src: "/images/company/company-logo-110.png", alt: "Partner Company 11" },
+                    { src: "/images/company/company-logo-111.png", alt: "Partner Company 12" },
+                    { src: "/images/company/company-logo-112.png", alt: "Partner Company 13" },
+                    { src: "/images/company/company-logo-113.png", alt: "Partner Company 14" },
+                    { src: "/images/company/company-logo-114.png", alt: "Partner Company 15" },
+                    { src: "/images/company/company-logo-115.png", alt: "Partner Company 16" },
+                    { src: "/images/company/company-logo-116.png", alt: "Partner Company 17" },
+                    { src: "/images/company/company-logo-117.png", alt: "Partner Company 18" },
+                    { src: "/images/company/company-logo-118.png", alt: "Partner Company 19" },
+                    { src: "/images/company/company-logo-119.png", alt: "Partner Company 20" },
+                    { src: "/images/company/company-logo-120.png", alt: "Partner Company 21" },
+                    { src: "/images/company/company-logo-121.png", alt: "Partner Company 22" },
+                    { src: "/images/company/company-logo-122.png", alt: "Partner Company 23" },
+                    { src: "/images/company/company-logo-123.png", alt: "Partner Company 24" },
+                    { src: "/images/company/company-logo-124.png", alt: "Partner Company 25" },
+                    { src: "/images/company/company-logo-125.png", alt: "Partner Company 26" },
+                    { src: "/images/company/company-logo-126.png", alt: "Partner Company 27" },
+                    { src: "/images/company/company-logo-127.png", alt: "Partner Company 28" },
+                    { src: "/images/company/company-logo-128.png", alt: "Partner Company 29" },
+                    { src: "/images/company/company-logo-129.png", alt: "Partner Company 30" },
+                    { src: "/images/company/company-logo-130.png", alt: "Partner Company 31" },
+                    { src: "/images/company/company-logo-131.png", alt: "Partner Company 32" },
+                    { src: "/images/company/company-logo-132.png", alt: "Partner Company 33" },
+                    { src: "/images/company/company-logo-133.png", alt: "Partner Company 34" },
+                    { src: "/images/company/company-logo-134.png", alt: "Partner Company 35" },
+                    { src: "/images/company/company-logo-135.png", alt: "Partner Company 36" },
+                    { src: "/images/company/company-logo-136.png", alt: "Partner Company 37" },
+                    { src: "/images/company/company-logo-137.png", alt: "Partner Company 38" },
+                    { src: "/images/company/company-logo-138.png", alt: "Partner Company 39" },
+                    { src: "/images/company/company-logo-139.png", alt: "Partner Company 40" },
+                    { src: "/images/company/company-logo-140.png", alt: "Partner Company 41" },
+                  ].map((partner, index) => (
+                    <div key={`first-${index}`} className="flex items-center justify-center w-48 h-32 opacity-80 hover:opacity-100 transition-all duration-300 flex-shrink-0 group">
+                      <Image
+                        src={partner.src}
+                        alt={partner.alt}
+                        width={180}
+                        height={100}
+                        className="object-contain max-h-full max-w-full transition-all duration-300 group-hover:scale-110"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+
+                {/* Duplicate set for seamless infinite loop */}
+                <div className="flex gap-8 items-center px-4">
+                  {[
+                    { src: "/images/company/company-logo-100.png", alt: "Partner Company 1" },
+                    { src: "/images/company/company-logo-101.png", alt: "Partner Company 2" },
+                    { src: "/images/company/company-logo-102.png", alt: "Partner Company 3" },
+                    { src: "/images/company/company-logo-103.png", alt: "Partner Company 4" },
+                    { src: "/images/company/company-logo-104.png", alt: "Partner Company 5" },
+                    { src: "/images/company/company-logo-105.png", alt: "Partner Company 6" },
+                    { src: "/images/company/company-logo-106.png", alt: "Partner Company 7" },
+                    { src: "/images/company/company-logo-107.png", alt: "Partner Company 8" },
+                    { src: "/images/company/company-logo-108.png", alt: "Partner Company 9" },
+                    { src: "/images/company/company-logo-109.png", alt: "Partner Company 10" },
+                    { src: "/images/company/company-logo-110.png", alt: "Partner Company 11" },
+                    { src: "/images/company/company-logo-111.png", alt: "Partner Company 12" },
+                    { src: "/images/company/company-logo-112.png", alt: "Partner Company 13" },
+                    { src: "/images/company/company-logo-113.png", alt: "Partner Company 14" },
+                    { src: "/images/company/company-logo-114.png", alt: "Partner Company 15" },
+                    { src: "/images/company/company-logo-115.png", alt: "Partner Company 16" },
+                    { src: "/images/company/company-logo-116.png", alt: "Partner Company 17" },
+                    { src: "/images/company/company-logo-117.png", alt: "Partner Company 18" },
+                    { src: "/images/company/company-logo-118.png", alt: "Partner Company 19" },
+                    { src: "/images/company/company-logo-119.png", alt: "Partner Company 20" },
+                    { src: "/images/company/company-logo-120.png", alt: "Partner Company 21" },
+                    { src: "/images/company/company-logo-121.png", alt: "Partner Company 22" },
+                    { src: "/images/company/company-logo-122.png", alt: "Partner Company 23" },
+                    { src: "/images/company/company-logo-123.png", alt: "Partner Company 24" },
+                    { src: "/images/company/company-logo-124.png", alt: "Partner Company 25" },
+                    { src: "/images/company/company-logo-125.png", alt: "Partner Company 26" },
+                    { src: "/images/company/company-logo-126.png", alt: "Partner Company 27" },
+                    { src: "/images/company/company-logo-127.png", alt: "Partner Company 28" },
+                    { src: "/images/company/company-logo-128.png", alt: "Partner Company 29" },
+                    { src: "/images/company/company-logo-129.png", alt: "Partner Company 30" },
+                    { src: "/images/company/company-logo-130.png", alt: "Partner Company 31" },
+                    { src: "/images/company/company-logo-131.png", alt: "Partner Company 32" },
+                    { src: "/images/company/company-logo-132.png", alt: "Partner Company 33" },
+                    { src: "/images/company/company-logo-133.png", alt: "Partner Company 34" },
+                    { src: "/images/company/company-logo-134.png", alt: "Partner Company 35" },
+                    { src: "/images/company/company-logo-135.png", alt: "Partner Company 36" },
+                    { src: "/images/company/company-logo-136.png", alt: "Partner Company 37" },
+                    { src: "/images/company/company-logo-137.png", alt: "Partner Company 38" },
+                    { src: "/images/company/company-logo-138.png", alt: "Partner Company 39" },
+                    { src: "/images/company/company-logo-139.png", alt: "Partner Company 40" },
+                    { src: "/images/company/company-logo-140.png", alt: "Partner Company 41" },
+                  ].map((partner, index) => (
+                    <div key={`second-${index}`} className="flex items-center justify-center w-48 h-32 opacity-80 hover:opacity-100 transition-all duration-300 flex-shrink-0 group">
+                      <Image
+                        src={partner.src}
+                        alt={partner.alt}
+                        width={180}
+                        height={100}
+                        className="object-contain max-h-full max-w-full transition-all duration-300 group-hover:scale-110"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
