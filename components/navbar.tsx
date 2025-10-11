@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { Menu, ChevronDown } from "lucide-react"
 import { useState } from "react"
 
@@ -88,15 +88,21 @@ export default function Navbar() {
                   <Menu className="h-8 w-8" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#263f6b] border-[#1e3356]">
-                <div className="absolute top-4 right-4">
-                  <Button variant="ghost" size="icon" className="rounded-full text-white hover:brightness-125">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="18" y1="6" x2="6" y2="18"></line>
-                      <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                  </Button>
-                </div>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#263f6b] border-[#1e3356] [&_[data-radix-sheet-close-button]]:hidden">
+              <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+              <div className="absolute top-4 right-4 z-50">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full text-white hover:brightness-125"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </Button>
+              </div>
                 <div className="flex flex-col space-y-4 mt-8">
                   {navigation.map((item, index) =>
                     item.children ? (

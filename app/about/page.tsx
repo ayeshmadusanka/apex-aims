@@ -140,7 +140,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">The Amazing Team of Us</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">Our Amazing Team</h2>
               {/* Removed "MEET OUR TEAM" text */}
             </div>
 
@@ -186,28 +186,6 @@ export default function AboutPage() {
           </div>
 
           {/* Removed YouTube Section text */}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-red-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Transform Your Career?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who have advanced their careers through AIMS
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-              Get Started Today
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
-            >
-              Learn More
-            </Button>
-          </div>
         </div>
       </section>
     </div>

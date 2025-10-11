@@ -18,7 +18,15 @@ const FEATURES = [
   { icon: "/images/2 Icon Set/Certificates.png", title: "Certificates" },
 ]
 
-const STATISTICS = [
+type StatKey = 'lecturers' | 'courses' | 'students' | 'countries'
+
+const STATISTICS: Array<{
+  number: string
+  label: string
+  icon: React.ComponentType<any>
+  description: string
+  key: StatKey
+}> = [
   { number: "10+", label: "Expert Lecturers", icon: UserCheck, description: "Industry professionals", key: 'lecturers' },
   { number: "15+", label: "Skill Courses", icon: BookOpen, description: "Specialized programs", key: 'courses' },
   { number: "5,000+", label: "Students Enrolled", icon: GraduationCap, description: "Career transformations", key: 'students' },
@@ -102,11 +110,13 @@ export default function HomePage() {
     )
 
     const statsSection = document.getElementById('statistics-section')
-    if (statsSection) observer.observe(statsSection)
-    return () => observer.unobserve(statsSection)
+    if (statsSection) {
+      observer.observe(statsSection)
+      return () => observer.unobserve(statsSection)
+    }
   }, [hasAnimated])
 
-  const getCounterValue = (key: keyof typeof ANIMATION_TARGETS) => {
+  const getCounterValue = (key: StatKey) => {
     switch (key) {
       case 'students':
         return `${counters.students.toLocaleString()}+`
@@ -159,7 +169,7 @@ export default function HomePage() {
     </div>
   )
 
-  const StatCard = ({ stat }: { stat: typeof STATISTICS[0] }) => (
+  const StatCard = ({ stat }: { stat: typeof STATISTICS[number] }) => (
     <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transform hover:shadow-lg transition-shadow duration-300">
       <div className="p-4 sm:p-8 text-center">
         <div className="w-14 h-14 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
