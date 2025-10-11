@@ -7,23 +7,13 @@ import { Target, Users, Globe, Award } from "lucide-react"
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Background Image */}
-      <section className="relative text-white py-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/1 Web Banner/1.png"
-            alt="About AIMS - Hero Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
-        </div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6">About Us</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Apex Institute of Management Services - A premier institution dedicated to shaping the future of management
-            education
+      {/* Breadcrumb Section */}
+      <section className="relative py-20 overflow-hidden" style={{backgroundImage: 'url("/images/hero/breadcrumb.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">About Us</h1>
+          <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+            Apex Institute of Management Services - A premier institution dedicated to shaping the future of management education
           </p>
         </div>
       </section>

@@ -205,17 +205,17 @@ export default function HomePage() {
 
       {/* Statistics Section */}
       <section className="py-12 lg:py-16 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-        <div className="absolute top-20 -right-16 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 -left-16 w-56 h-56 bg-yellow-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 -right-16 w-64 h-64 bg-[#1E90FF]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 -left-16 w-56 h-56 bg-[#0056B3]/5 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-sm font-medium text-orange-600 mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-[#0056B3]/10 border border-[#0056B3]/20 rounded-full text-sm font-medium text-[#0056B3] mb-6">
               <Award className="w-4 h-4 mr-2" />
               Our Mission
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Polish Your <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">SKILLS</span>
+              Polish Your <span className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">SKILLS</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Transforming careers through excellence in management education

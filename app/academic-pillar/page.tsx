@@ -49,26 +49,15 @@ export default function AcademicPillarPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative text-white py-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/1 Web Banner/3.png"
-            alt="Academic Pillar - Hero Background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
-        </div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+      {/* Breadcrumb Section */}
+      <section className="relative py-20 overflow-hidden" style={{backgroundImage: 'url("/images/hero/breadcrumb.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             Academic Pillar
           </h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Empowering professionals through comprehensive education and
-            certification programs
+          <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+            Empowering professionals through comprehensive education and certification programs
           </p>
         </div>
       </section>

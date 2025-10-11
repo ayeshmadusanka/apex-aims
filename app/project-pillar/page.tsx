@@ -6,25 +6,15 @@ import Image from "next/image"
 export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative text-white py-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/1 Web Banner/2.png"
-            alt="Project Pillar - Hero Background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
-        </div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
+      {/* Breadcrumb Section */}
+      <section className="relative py-20 overflow-hidden" style={{backgroundImage: 'url("/images/hero/breadcrumb.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6">
             <Target className="h-10 w-10 text-blue-600" />
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6">Project Pillar</h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Project Pillar</h1>
+          <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
             Transforming organizations through strategic consulting and innovative solutions
           </p>
         </div>
