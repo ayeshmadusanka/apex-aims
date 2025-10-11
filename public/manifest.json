@@ -1,0 +1,27 @@
+{
+  "name": "AIMS - Apex Institute of Management Services | Lean Institute",
+  "short_name": "AIMS",
+  "description": "Leading Lean Institute offering specialized Lean courses and Lean manufacturing training. Apex Institute provides professional management education, Lean Six Sigma certification, and operational excellence programs.",
+  "start_url": "https://apexinstituteedu.com/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0056B3",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": ["education", "business", "training"],
+  "keywords": ["Lean Institute", "Lean courses", "Lean manufacturing", "Lean Six Sigma", "Management Education", "Professional Training"],
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
