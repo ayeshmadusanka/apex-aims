@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
-import { Menu, ChevronDown } from "lucide-react"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -12,24 +12,30 @@ const navigation = [
     name: "Our Programs",
     href: "#",
     children: [
-      { name: "Project Pillar", href: "/project-pillar" },
       { name: "Academic Pillar", href: "/academic-pillar" },
       { name: "University Pillar", href: "/university-pillar" },
+      { name: "Project Pillar", href: "/project-pillar" },
     ],
   },
   { name: "Contact", href: "/contact" },
-]
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [expanded, setExpanded] = useState(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [expanded, setExpanded] = useState(null);
 
   return (
     <nav className="bg-[#263f6b] border-b border-[#1e3356] sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20 px-4">
           <a href="/" className="flex items-center">
-            <img src="/images/aims-logo.png" alt="AIMS Logo" width={120} height={60} className="h-12 w-auto" />
+            <img
+              src="/images/aims-logo.png"
+              alt="AIMS Logo"
+              width={120}
+              height={60}
+              className="h-12 w-auto"
+            />
           </a>
 
           <div className="hidden md:flex items-center justify-center space-x-8 flex-1 px-8">
@@ -67,7 +73,11 @@ export default function Navbar() {
               asChild
               className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <a href="https://validator.apexinstituteedu.com/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://validator.apexinstituteedu.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Certificate Validation
               </a>
             </Button>
@@ -75,7 +85,11 @@ export default function Navbar() {
               asChild
               className="bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <a href="https://lms.apexinstituteedu.com/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://lms.apexinstituteedu.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 LMS
               </a>
             </Button>
@@ -84,31 +98,26 @@ export default function Navbar() {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full text-white hover:brightness-125 h-10 w-10">
-                  <Menu className="h-8 w-8" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#263f6b] border-[#1e3356] [&_[data-radix-sheet-close-button]]:hidden">
-              <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-              <div className="absolute top-4 right-4 z-50">
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full text-white hover:brightness-125"
-                  onClick={() => setIsOpen(false)}
+                  className="rounded-full text-white hover:brightness-125 h-10 w-10"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
+                  <Menu className="h-8 w-8" />
                 </Button>
-              </div>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                className="w-[300px] sm:w-[400px] bg-[#263f6b] border-[#1e3356] text-white"
+              >
                 <div className="flex flex-col space-y-4 mt-8">
                   {navigation.map((item, index) =>
                     item.children ? (
                       <div key={item.name} className="flex flex-col">
                         <button
-                          onClick={() => setExpanded(expanded === index ? null : index)}
+                          onClick={() =>
+                            setExpanded(expanded === index ? null : index)
+                          }
                           className="flex items-center justify-between text-white font-medium px-4 py-2 hover:brightness-125"
                         >
                           {item.name}
@@ -149,7 +158,11 @@ export default function Navbar() {
                     className="bg-blue-600 hover:bg-blue-500 text-white mt-4 rounded-full"
                     onClick={() => setIsOpen(false)}
                   >
-                    <a href="https://validator.apexinstituteedu.com/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://validator.apexinstituteedu.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Certificate Validation
                     </a>
                   </Button>
@@ -158,7 +171,11 @@ export default function Navbar() {
                     className="bg-red-600 hover:bg-red-500 text-white mt-4 rounded-full"
                     onClick={() => setIsOpen(false)}
                   >
-                    <a href="https://lms.apexinstituteedu.com/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://lms.apexinstituteedu.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       LMS
                     </a>
                   </Button>
@@ -169,5 +186,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

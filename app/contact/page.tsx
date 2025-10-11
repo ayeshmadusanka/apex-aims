@@ -8,7 +8,7 @@ import Image from "next/image"
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
-      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-auto md:min-h-[300px] md:h-[50vh] md:max-h-[400px] bg-black">
+      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-[150px] md:min-h-[200px] md:h-[40vh] md:max-h-[300px] bg-black">
         <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
           <div className="relative w-full h-full">
             <Image
@@ -20,11 +20,8 @@ export default function ContactPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="container mx-auto px-4 text-center">
-                <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Contact Us</h1>
-                <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
-                  Get in touch with our team to learn more about our programs and how we can help you achieve your educational goals.
-                </p>
+              <div className="container mx-auto px-4 flex items-center justify-center text-center">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white">Contact Us</h1>
               </div>
             </div>
           </div>

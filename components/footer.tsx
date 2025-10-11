@@ -79,12 +79,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Programs</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="/project-pillar" className="text-gray-300 hover:text-white transition-colors">
-                  Project Pillar
-                </a>
-              </li>
-              <li>
+               <li>
                 <a href="/academic-pillar" className="text-gray-300 hover:text-white transition-colors">
                   Academic Pillar
                 </a>
@@ -92,6 +87,11 @@ export default function Footer() {
               <li>
                 <a href="/university-pillar" className="text-gray-300 hover:text-white transition-colors">
                   University Pillar
+                </a>
+              </li>
+              <li>
+                <a href="/project-pillar" className="text-gray-300 hover:text-white transition-colors">
+                  Project Pillar
                 </a>
               </li>
             </ul>

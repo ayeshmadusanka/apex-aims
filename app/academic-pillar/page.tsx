@@ -1,68 +1,32 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { GraduationCap, BookOpen, Award, Users, Play, Building2 } from "lucide-react";
 import Image from "next/image";
 
 export default function AcademicPillarPage() {
-  const certificatePrograms = [
-    "Certificate in work study",
-    "Certificate of fundamental in work study",
-    "Certificate in merchandising",
-    "Certificate in Industrial Engineering",
-    "Advanced Certificate in quality assurance management",
-    "Certified PMTS and costing practitioner program",
-    "Advance certificate in apparel production management performance rating practices",
-    "Certificate in soft skills development",
-    "Certificate Programs",
-  ];
-
-  const diplomaPrograms = [
-    "Diploma in Manufacturing Management",
-    "Diploma in Quality Management Systems",
-    "Diploma in Operations Management",
-    "Diploma in Project Management",
-    "Diploma in Supply Chain Management",
-    "Diploma in Industrial Engineering",
-    "Diploma in Production Planning",
-    "Diploma in Business Process Improvement",
-  ];
-
-  const leanPrograms = [
-    "Lean Yellow Belt Certification",
-    "Lean Green Belt Certification",
-    "Lean Black Belt Certification",
-    "Lean Six Sigma Yellow Belt",
-    "Lean Six Sigma Green Belt",
-    "Lean Six Sigma Black Belt",
-    "Lean Manufacturing Excellence",
-    "Lean Leadership Development",
-  ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Breadcrumb Section */}
-      <section className="relative py-20 overflow-hidden" style={{backgroundImage: 'url("/images/hero/breadcrumb.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Academic Pillar
-          </h1>
-          <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
-            Empowering professionals through comprehensive education and certification programs
-          </p>
+      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-[150px] md:min-h-[200px] md:h-[40vh] md:max-h-[300px] bg-black">
+        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/hero/breadcrumb.png"
+              alt="AIMS Professional Services - Academic Pillar"
+              fill
+              className="object-cover opacity-80"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="container mx-auto px-4 flex items-center justify-center text-center">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white">Academic Pillar</h1>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Mission Statement */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -82,586 +46,150 @@ export default function AcademicPillarPage() {
         </div>
       </section>
 
-      {/* Our Programs - List Format */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
               Our Programs
             </h2>
           </div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Tabs defaultValue="certificate" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 bg-gray-100 mb-8">
+              <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full gap-4 mb-20 md:mb-16 bg-transparent">
                 <TabsTrigger
                   value="certificate"
-                  className="text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                  className="px-4 py-3 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
                 >
-                  CERTIFICATE COURSES
+                  Certificate
                 </TabsTrigger>
                 <TabsTrigger
                   value="university"
-                  className="text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                  className="px-4 py-3 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 data-[state=active]:bg-green-600 data-[state=active]:text-white"
                 >
-                  COURSES FOR UNIVERSITY STUDENTS
+                  University
                 </TabsTrigger>
                 <TabsTrigger
                   value="diploma"
-                  className="text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                  className="px-4 py-3 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 data-[state=active]:bg-red-600 data-[state=active]:text-white"
                 >
-                  DIPLOMA PROGRAMS
+                  Diploma
                 </TabsTrigger>
                 <TabsTrigger
                   value="lean"
-                  className="text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                  className="px-4 py-3 text-sm font-medium rounded-lg bg-gray-100 text-gray-700 data-[state=active]:bg-green-600 data-[state=active]:text-white"
                 >
-                  LEAN PRACTITIONER PROGRAMS
+                  Lean
                 </TabsTrigger>
               </TabsList>
 
               <TabsContent value="certificate" className="space-y-8">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {[
-                    {
-                      title: "Certificate in Work Study",
-                      description:
-                        "Comprehensive training in work measurement and method study techniques",
-                      duration: "30 days",
-                      fee: 45000,
-                      image: "/images/academic-pillar/Certificate Courses/1.png",
-                      modules: 8,
-                      level: "Beginner to Intermediate",
-                    },
-                    {
-                      title: "Certificate of Fundamental in Work Study",
-                      description:
-                        "Foundation course covering basic work study principles and applications",
-                      duration: "21 days",
-                      fee: 35000,
-                      image: "/images/academic-pillar/Certificate Courses/2.png",
-                      modules: 6,
-                      level: "Beginner",
-                    },
-                    {
-                      title: "Certificate in Merchandising",
-                      description:
-                        "Specialized training in retail merchandising and product management",
-                      duration: "25 days",
-                      fee: 40000,
-                      image: "/images/academic-pillar/Certificate Courses/3.png",
-                      modules: 7,
-                      level: "Intermediate",
-                    },
-                    {
-                      title: "Certificate in Industrial Engineering",
-                      description:
-                        "Core industrial engineering principles and optimization techniques",
-                      duration: "60 days",
-                      fee: 75000,
-                      image: "/images/academic-pillar/Certificate Courses/4.png",
-                      modules: 12,
-                      level: "Intermediate",
-                    },
-                    {
-                      title: "Advanced Certificate in Quality Assurance Management",
-                      description:
-                        "Advanced quality systems, auditing, and continuous improvement",
-                      duration: "45 days",
-                      fee: 60000,
-                      image: "/images/academic-pillar/Certificate Courses/5.png",
-                      modules: 10,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Certified PMTS and Costing Practitioner Program",
-                      description:
-                        "Predetermined motion time systems and accurate costing methods",
-                      duration: "35 days",
-                      fee: 55000,
-                      image: "/images/academic-pillar/Certificate Courses/6.png",
-                      modules: 9,
-                      level: "Intermediate",
-                    },
-                    {
-                      title: "Certificate in Soft Skills Development",
-                      description:
-                        "Essential communication, leadership, and professional skills",
-                      duration: "21 days",
-                      fee: 35000,
-                      image: "/images/academic-pillar/Certificate Courses/7.png",
-                      modules: 6,
-                      level: "All Levels",
-                    },
+                    { title: "Certificate in Work Study", image: "/images/academic-pillar/Certificate Courses/1.png", duration: "30 days", description: "Comprehensive training in work measurement and method study techniques" },
+                    { title: "Certificate of Fundamental in Work Study", image: "/images/academic-pillar/Certificate Courses/2.png", duration: "21 days", description: "Foundation course covering basic work study principles and applications" },
+                    { title: "Certificate in Merchandising", image: "/images/academic-pillar/Certificate Courses/3.png", duration: "25 days", description: "Specialized training in retail merchandising and product management" },
+                    { title: "Certificate in Industrial Engineering", image: "/images/academic-pillar/Certificate Courses/4.png", duration: "60 days", description: "Core industrial engineering principles and optimization techniques" },
+                    { title: "Advanced Certificate in Quality Assurance Management", image: "/images/academic-pillar/Certificate Courses/5.png", duration: "45 days", description: "Advanced quality systems, auditing, and continuous improvement" },
+                    { title: "Certified PMTS and Costing Practitioner Program", image: "/images/academic-pillar/Certificate Courses/6.png", duration: "35 days", description: "Predetermined motion time systems and accurate costing methods" },
+                    { title: "Certificate in Soft Skills Development", image: "/images/academic-pillar/Certificate Courses/7.png", duration: "21 days", description: "Essential communication, leadership, and professional skills" },
                   ].map((course, index) => (
-                    <Card
-                      key={index}
-                      className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
-                    >
-                      <div className="relative w-full pb-[100%] bg-gray-100">
-                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
-                        <Image
-                          src={course.image || "/placeholder.svg"}
-                          alt={course.title}
-                          fill
-                          className="object-cover"
-                        />
-                        {/* Gradient Overlay */}
+                    <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      <div className="relative aspect-[4/3] bg-gray-100">
+                        <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        {/* Title Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
-                            {course.title}
-                          </h3>
+                        <div className="absolute inset-0 flex flex-col justify-end p-4">
+                          <h3 className="text-white font-bold text-sm line-clamp-2 drop-shadow-lg">{course.title}</h3>
+                          <p className="text-white/90 text-xs mt-1 line-clamp-2">{course.description}</p>
                         </div>
-                        {/* Badges Overlay */}
-                        <div className="absolute top-4 left-4 right-4 flex justify-between">
-                          <Badge
-                            variant="outline"
-                            className="bg-blue-600 text-white border-blue-600 text-xs"
-                          >
-                            Certificate
-                          </Badge>
-                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
-                            {course.duration}
-                          </Badge>
+                        <div className="absolute top-3 right-3">
+                          <Badge className="bg-blue-600 text-white text-xs border-blue-600">{course.duration}</Badge>
                         </div>
                       </div>
-                      <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed price and buttons */}
-                      </CardContent>
                     </Card>
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="university" className="space-y-8">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    {
-                      title: "University Bridge Program",
-                      description:
-                        "Bridge program designed for university students transitioning to professional careers",
-                      duration: "45 days",
-                      image: "/images/academic-pillar/Courses for University Students/23.png",
-                      modules: 10,
-                      level: "University Level",
-                    },
-                    {
-                      title: "Professional Skills Development",
-                      description:
-                        "Essential professional skills and workplace readiness for university graduates",
-                      duration: "30 days",
-                      image: "/images/academic-pillar/Courses for University Students/24.png",
-                      modules: 8,
-                      level: "University Level",
-                    },
-                    {
-                      title: "Industry Internship Preparation",
-                      description:
-                        "Comprehensive preparation for successful industry internships and practical experience",
-                      duration: "60 days",
-                      image: "/images/academic-pillar/Courses for University Students/25.png",
-                      modules: 12,
-                      level: "University Level",
-                    },
-                    {
-                      title: "Career Foundation Program",
-                      description:
-                        "Foundation program for career planning and professional development strategies",
-                      duration: "90 days",
-                      image: "/images/academic-pillar/Courses for University Students/Academic Pillar Images.png",
-                      modules: 15,
-                      level: "University Level",
-                    },
+                    { title: "University Bridge Program", image: "/images/academic-pillar/Courses for University Students/23.png", duration: "45 days", description: "Bridge program designed for university students transitioning to professional careers" },
+                    { title: "Professional Skills Development", image: "/images/academic-pillar/Courses for University Students/24.png", duration: "30 days", description: "Essential professional skills and workplace readiness for university graduates" },
+                    { title: "Industry Internship Preparation", image: "/images/academic-pillar/Courses for University Students/25.png", duration: "60 days", description: "Comprehensive preparation for successful industry internships and practical experience" },
+                    { title: "Career Foundation Program", image: "/images/academic-pillar/Courses for University Students/Academic Pillar Images.png", duration: "90 days", description: "Foundation program for career planning and professional development strategies" },
                   ].map((course, index) => (
-                    <Card
-                      key={index}
-                      className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
-                    >
-                      <div className="relative w-full pb-[100%] bg-gray-100">
-                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
-                        <Image
-                          src={course.image || "/placeholder.svg"}
-                          alt={course.title}
-                          fill
-                          className="object-cover"
-                        />
-                        {/* Gradient Overlay */}
+                    <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      <div className="relative aspect-[4/3] bg-gray-100">
+                        <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        {/* Title Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
-                            {course.title}
-                          </h3>
+                        <div className="absolute inset-0 flex flex-col justify-end p-4">
+                          <h3 className="text-white font-bold text-sm line-clamp-2 drop-shadow-lg">{course.title}</h3>
+                          <p className="text-white/90 text-xs mt-1 line-clamp-2">{course.description}</p>
                         </div>
-                        {/* Badges Overlay */}
-                        <div className="absolute top-4 left-4 right-4 flex justify-between">
-                          <Badge
-                            variant="outline"
-                            className="bg-green-600 text-white border-green-600 text-xs"
-                          >
-                            University
-                          </Badge>
-                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
-                            {course.duration}
-                          </Badge>
+                        <div className="absolute top-3 right-3">
+                          <Badge className="bg-green-600 text-white text-xs border-green-600">{course.duration}</Badge>
                         </div>
                       </div>
-                      <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed price and buttons */}
-                      </CardContent>
                     </Card>
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="diploma" className="space-y-8">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    {
-                      title: "Diploma in Manufacturing Management",
-                      description:
-                        "Comprehensive manufacturing operations and strategic management",
-                      duration: "180 days",
-                      fee: 200000,
-                      image: "/images/academic-pillar/Diploma Courses/9.png",
-                      modules: 20,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Diploma in Quality Management Systems",
-                      description:
-                        "Advanced quality systems implementation and management",
-                      duration: "150 days",
-                      fee: 175000,
-                      image: "/images/academic-pillar/Diploma Courses/10.png",
-                      modules: 18,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Diploma in Operations Management",
-                      description:
-                        "Strategic operations planning and optimization",
-                      duration: "120 days",
-                      fee: 160000,
-                      image: "/images/academic-pillar/Diploma Courses/11.png",
-                      modules: 16,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Diploma in Project Management",
-                      description:
-                        "Professional project management with PMP preparation",
-                      duration: "120 days",
-                      fee: 180000,
-                      image: "/images/academic-pillar/Diploma Courses/12.png",
-                      modules: 16,
-                      level: "Intermediate to Advanced",
-                    },
-                    {
-                      title: "Diploma in Supply Chain Management",
-                      description:
-                        "End-to-end supply chain optimization and logistics",
-                      duration: "135 days",
-                      fee: 165000,
-                      image: "/images/academic-pillar/Diploma Courses/13.png",
-                      modules: 17,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Diploma in Industrial Engineering",
-                      description:
-                        "Advanced industrial engineering and process optimization",
-                      duration: "160 days",
-                      fee: 185000,
-                      image: "/images/academic-pillar/Diploma Courses/14.png",
-                      modules: 19,
-                      level: "Advanced",
-                    },
+                    { title: "Diploma in Manufacturing Management", image: "/images/academic-pillar/Diploma Courses/9.png", duration: "180 days", description: "Comprehensive manufacturing operations and strategic management" },
+                    { title: "Diploma in Quality Management Systems", image: "/images/academic-pillar/Diploma Courses/10.png", duration: "150 days", description: "Advanced quality systems implementation and management" },
+                    { title: "Diploma in Operations Management", image: "/images/academic-pillar/Diploma Courses/11.png", duration: "120 days", description: "Strategic operations planning and optimization" },
+                    { title: "Diploma in Project Management", image: "/images/academic-pillar/Diploma Courses/12.png", duration: "120 days", description: "Professional project management with PMP preparation" },
+                    { title: "Diploma in Supply Chain Management", image: "/images/academic-pillar/Diploma Courses/13.png", duration: "135 days", description: "End-to-end supply chain optimization and logistics" },
+                    { title: "Diploma in Industrial Engineering", image: "/images/academic-pillar/Diploma Courses/14.png", duration: "160 days", description: "Advanced industrial engineering and process optimization" },
                   ].map((course, index) => (
-                    <Card
-                      key={index}
-                      className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
-                    >
-                      <div className="relative w-full pb-[100%] bg-gray-100">
-                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
-                        <Image
-                          src={course.image || "/placeholder.svg"}
-                          alt={course.title}
-                          fill
-                          className="object-cover"
-                        />
-                        {/* Gradient Overlay */}
+                    <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      <div className="relative aspect-[4/3] bg-gray-100">
+                        <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        {/* Title Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
-                            {course.title}
-                          </h3>
+                        <div className="absolute inset-0 flex flex-col justify-end p-4">
+                          <h3 className="text-white font-bold text-sm line-clamp-2 drop-shadow-lg">{course.title}</h3>
+                          <p className="text-white/90 text-xs mt-1 line-clamp-2">{course.description}</p>
                         </div>
-                        {/* Badges Overlay */}
-                        <div className="absolute top-4 left-4 right-4 flex justify-between">
-                          <Badge
-                            variant="outline"
-                            className="bg-red-600 text-white border-red-600 text-xs"
-                          >
-                            Diploma
-                          </Badge>
-                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
-                            {course.duration}
-                          </Badge>
+                        <div className="absolute top-3 right-3">
+                          <Badge className="bg-red-600 text-white text-xs border-red-600">{course.duration}</Badge>
                         </div>
                       </div>
-                      <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed price and buttons */}
-                      </CardContent>
                     </Card>
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="lean" className="space-y-8">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    {
-                      title: "Lean Yellow Belt Certification",
-                      description:
-                        "Foundation level lean principles and basic improvement tools",
-                      duration: "14 days",
-                      fee: 35000,
-                      image: "/images/academic-pillar/Lean/16.png",
-                      modules: 5,
-                      level: "Beginner",
-                    },
-                    {
-                      title: "Lean Green Belt Certification",
-                      description:
-                        "Intermediate lean practitioner with project leadership skills",
-                      duration: "60 days",
-                      fee: 110000,
-                      image: "/images/academic-pillar/Lean/17.png",
-                      modules: 12,
-                      level: "Intermediate",
-                    },
-                    {
-                      title: "Lean Black Belt Certification",
-                      description:
-                        "Advanced lean expert with change management capabilities",
-                      duration: "90 days",
-                      fee: 150000,
-                      image: "/images/academic-pillar/Lean/18.png",
-                      modules: 18,
-                      level: "Advanced",
-                    },
-                    {
-                      title: "Lean Six Sigma Yellow Belt",
-                      description:
-                        "Combined lean and six sigma foundation certification",
-                      duration: "21 days",
-                      fee: 45000,
-                      image: "/images/academic-pillar/Lean/19.png",
-                      modules: 7,
-                      level: "Beginner",
-                    },
-                    {
-                      title: "Lean Six Sigma Green Belt",
-                      description:
-                        "Intermediate lean six sigma with statistical analysis",
-                      duration: "75 days",
-                      fee: 125000,
-                      image: "/images/academic-pillar/Lean/20.png",
-                      modules: 15,
-                      level: "Intermediate",
-                    },
-                    {
-                      title: "Lean Six Sigma Black Belt",
-                      description:
-                        "Expert level lean six sigma with advanced statistics",
-                      duration: "120 days",
-                      fee: 180000,
-                      image: "/images/academic-pillar/Lean/21.png",
-                      modules: 22,
-                      level: "Advanced",
-                    },
+                    { title: "Lean Yellow Belt Certification", image: "/images/academic-pillar/Lean/16.png", duration: "14 days", description: "Foundation level lean principles and basic improvement tools" },
+                    { title: "Lean Green Belt Certification", image: "/images/academic-pillar/Lean/17.png", duration: "60 days", description: "Intermediate lean practitioner with project leadership skills" },
+                    { title: "Lean Black Belt Certification", image: "/images/academic-pillar/Lean/18.png", duration: "90 days", description: "Advanced lean expert with change management capabilities" },
+                    { title: "Lean Six Sigma Yellow Belt", image: "/images/academic-pillar/Lean/19.png", duration: "21 days", description: "Combined lean and six sigma foundation certification" },
+                    { title: "Lean Six Sigma Green Belt", image: "/images/academic-pillar/Lean/20.png", duration: "75 days", description: "Intermediate lean six sigma with statistical analysis" },
+                    { title: "Lean Six Sigma Black Belt", image: "/images/academic-pillar/Lean/21.png", duration: "120 days", description: "Expert level lean six sigma with advanced statistics" },
                   ].map((course, index) => (
-                    <Card
-                      key={index}
-                      className="bg-white border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
-                    >
-                      <div className="relative w-full pb-[100%] bg-gray-100">
-                        {/* 1:1 Aspect Ratio (height / width = 1 / 1 = 1 = 100%) */}
-                        <Image
-                          src={course.image || "/placeholder.svg"}
-                          alt={course.title}
-                          fill
-                          className="object-cover"
-                        />
-                        {/* Gradient Overlay */}
+                    <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      <div className="relative aspect-[4/3] bg-gray-100">
+                        <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        {/* Title Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h3 className="text-white font-bold text-lg line-clamp-2 drop-shadow-lg">
-                            {course.title}
-                          </h3>
+                        <div className="absolute inset-0 flex flex-col justify-end p-4">
+                          <h3 className="text-white font-bold text-sm line-clamp-2 drop-shadow-lg">{course.title}</h3>
+                          <p className="text-white/90 text-xs mt-1 line-clamp-2">{course.description}</p>
                         </div>
-                        {/* Badges Overlay */}
-                        <div className="absolute top-4 left-4 right-4 flex justify-between">
-                          <Badge
-                            variant="outline"
-                            className="bg-green-600 text-white border-green-600 text-xs"
-                          >
-                            Lean
-                          </Badge>
-                          <Badge variant="outline" className="bg-black/50 text-white text-xs">
-                            {course.duration}
-                          </Badge>
+                        <div className="absolute top-3 right-3">
+                          <Badge className="bg-green-600 text-white text-xs border-green-600">{course.duration}</Badge>
                         </div>
                       </div>
-                      <CardContent className="flex flex-col flex-grow p-6 pt-0">
-                        {/* Removed price and buttons */}
-                      </CardContent>
                     </Card>
                   ))}
                 </div>
               </TabsContent>
             </Tabs>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Testimonials - Commented out */}
-      {/* <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-              What Our Clients Thought About Our Program
-            </h2>
-          </div>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "LEAN BLACK BELT PRACTITIONER PROGRAM",
-                  subtitle: "Boost your career with us...",
-                  phone: "0772 600 478",
-                },
-                {
-                  title: "LEAN BLACK BELT PRACTITIONER PROGRAM",
-                  subtitle: "Boost your career with us...",
-                  phone: "0772 600 478",
-                },
-                {
-                  title: "LEAN SIX SIGMA BLACK BELT PRACTITIONER PROGRAM",
-                  subtitle: "Boost your career with us...",
-                  phone: "0772 600 478",
-                },
-              ].map((testimonial, index) => (
-                <Card
-                  key={index}
-                  className="bg-white border border-gray-200 overflow-hidden shadow-sm"
-                >
-                  <div className="relative">
-                    <div className="bg-gray-100 h-48 flex items-center justify-center">
-                      <Play className="h-12 w-12 text-gray-400" />
-                    </div>
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-blue-600 text-white">PROGRAM</Badge>
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      {testimonial.title}
-                    </h3>
-                    <p className="text-gray-600 mb-2">{testimonial.subtitle}</p>
-                    <p className="text-blue-600 font-semibold">
-                      {testimonial.phone}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Contact Section - Commented out */}
-      {/* <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <div className="bg-gray-100 rounded-2xl h-64 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto">
-                      <GraduationCap className="h-8 w-8 text-white" />
-                    </div>
-                    <p className="text-gray-700">
-                      Professional Education Services
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold text-gray-900">
-                  What you are looking for is not on the list?
-                </h2>
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    Don't worry:
-                  </h3>
-                  <p className="text-gray-700">
-                    Please contact us. We will provide the best solution for
-                    you.
-                  </p>
-                </div>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg">
-                  Contact us
-                </Button>
-                <div className="flex items-center space-x-3 pt-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <Building2 className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">
-                      Trusted by 500+
-                    </p>
-                    <p className="text-gray-600">Clients</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-red-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Start Your Learning Journey Today
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who have advanced their careers
-            through our academic programs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100"
-            >
-              Enroll Now
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
-            >
-              View Programs
-            </Button>
           </div>
         </div>
       </section>

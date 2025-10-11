@@ -6,16 +6,23 @@ import Image from "next/image"
 export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative py-20 overflow-hidden" style={{backgroundImage: 'url("/images/hero/breadcrumb.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6">
-            <Target className="h-10 w-10 text-blue-600" />
+      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-[150px] md:min-h-[200px] md:h-[40vh] md:max-h-[300px] bg-black">
+        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/hero/breadcrumb.png"
+              alt="AIMS Professional Services - Project Pillar"
+              fill
+              className="object-cover opacity-80"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="container mx-auto px-4 flex items-center justify-center text-center">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white">Project Pillar</h1>
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Project Pillar</h1>
-          <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
-            Transforming organizations through strategic consulting and innovative solutions
-          </p>
         </div>
       </section>
 
