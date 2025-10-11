@@ -157,12 +157,13 @@ export default function HomePage() {
                 {" "}
                 {/* Keep order-2 on mobile for text after image, no order on large screens */}
                 <div className="space-y-4">
-                  <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">
+                  <div className="inline-flex items-center px-4 py-2 bg-[#0056B3]/10 border border-[#0056B3]/20 rounded-full text-sm font-medium text-[#0056B3]">
+                    <Award className="w-4 h-4 mr-2" />
                     About AIMS
-                  </Badge>
+                  </div>
                   <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                     Welcome to the
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-blue-600">
+                    <span className="block bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">
                       APEX Institute
                     </span>
                     of Management Services
