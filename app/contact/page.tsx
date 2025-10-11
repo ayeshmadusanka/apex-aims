@@ -12,7 +12,7 @@ export default function ContactPage() {
         <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
           <div className="relative w-full h-full">
             <Image
-              src="/images/hero/1.webp"
+              src="/images/hero/breadcrumb.png"
               alt="AIMS Professional Services - Contact Us"
               fill
               className="object-cover opacity-80"
