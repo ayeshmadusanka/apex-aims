@@ -1,10 +1,7 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { BookOpen, GraduationCap, Users, Globe, CheckCircle, Calendar, ArrowRight, ChevronLeft, ChevronRight, Eye, X, UserCheck, Award } from "lucide-react"
+import { BookOpen, GraduationCap, Users, Globe, CheckCircle, ArrowRight, Eye, X, UserCheck, Award } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
@@ -15,9 +12,16 @@ export default function HomePage() {
     { src: "/images/hero/3.webp", alt: "AIMS Professional Services - Hero 3" },
     { src: "/images/hero/4.webp", alt: "AIMS Professional Services - Hero 4" },
   ]
-  
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null)
+  const [counters, setCounters] = useState({
+    lecturers: 0,
+    courses: 0,
+    students: 0,
+    countries: 0
+  })
+  const [hasAnimated, setHasAnimated] = useState(false)
   
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
@@ -31,6 +35,63 @@ export default function HomePage() {
     const interval = setInterval(nextImage, 5000) // Auto-advance every 5 seconds
     return () => clearInterval(interval)
   }, [])
+
+  useEffect(() => {
+    const targetValues = {
+      lecturers: 10,
+      courses: 15,
+      students: 5000,
+      countries: 14
+    }
+
+    const animateCounters = () => {
+      const duration = 2000 // 2 seconds
+      const steps = 60 // smooth animation
+      const stepDuration = duration / steps
+
+      let currentStep = 0
+
+      const interval = setInterval(() => {
+        currentStep++
+        const progress = currentStep / steps
+
+        setCounters({
+          lecturers: Math.floor(targetValues.lecturers * progress),
+          courses: Math.floor(targetValues.courses * progress),
+          students: Math.floor(targetValues.students * progress),
+          countries: Math.floor(targetValues.countries * progress)
+        })
+
+        if (currentStep >= steps) {
+          clearInterval(interval)
+        }
+      }, stepDuration)
+    }
+
+    // Start animation when section is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true)
+            animateCounters()
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    const statsSection = document.getElementById('statistics-section')
+    if (statsSection) {
+      observer.observe(statsSection)
+    }
+
+    return () => {
+      if (statsSection) {
+        observer.unobserve(statsSection)
+      }
+    }
+  }, [hasAnimated])
   
   return (
     <>
@@ -197,12 +258,14 @@ export default function HomePage() {
                     students around the globe.
                   </p>
                 </div>
-                <a href="/about">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full">
-                    Learn More About Us
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
+                <div className="mt-8">
+                <a href="/about" className="group">
+                  <div className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#0056B3]/50 focus:ring-offset-2">
+                    <span className="relative z-10">Learn More About Us</span>
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
                 </a>
+              </div>
               </div>
               {/* This div contains the image */}
               <div className="relative order-1 lg:order-2 mb-8 lg:mb-0">
@@ -232,30 +295,52 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-[#0056B3]/10 border border-[#0056B3]/20 rounded-full text-sm font-medium text-[#0056B3] mb-6">
               <Award className="w-4 h-4 mr-2" />
-              Our Mission
+              Our Impact
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Polish Your <span className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">SKILLS</span>
+              Our Growing <span className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">IMPACT</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Transforming careers through excellence in management education
+              Our commitment to excellence reflected in our growing global impact
             </p>
           </div>
 
           {/* Statistics Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div id="statistics-section" className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {[
-              { number: "10+", label: "Expert Lecturers", color: "orange", icon: UserCheck, bgClass: "bg-orange-100", iconBgClass: "bg-orange-500", textClass: "text-orange-600" },
-              { number: "15+", label: "Skill Courses", color: "blue", icon: BookOpen, bgClass: "bg-blue-100", iconBgClass: "bg-blue-500", textClass: "text-blue-600" },
-              { number: "5,000+", label: "Students Enrolled", color: "purple", icon: GraduationCap, bgClass: "bg-purple-100", iconBgClass: "bg-purple-500", textClass: "text-purple-600" },
-              { number: "14+", label: "Countries", color: "green", icon: Globe, bgClass: "bg-green-100", iconBgClass: "bg-green-500", textClass: "text-green-600" },
+              { number: "10+", label: "Expert Lecturers", icon: UserCheck, description: "Industry professionals", key: 'lecturers' },
+              { number: "15+", label: "Skill Courses", icon: BookOpen, description: "Specialized programs", key: 'courses' },
+              { number: "5,000+", label: "Students Enrolled", icon: GraduationCap, description: "Career transformations", key: 'students' },
+              { number: "14+", label: "Countries", icon: Globe, description: "Global reach", key: 'countries' },
             ].map((stat, index) => (
-              <div key={index} className={`${stat.bgClass} rounded-2xl p-6 text-center group hover:shadow-lg transition-all duration-300`}>
-                <div className={`w-14 h-14 ${stat.iconBgClass} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className="h-7 w-7 text-white" />
+              <div key={index} className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transform hover:shadow-lg transition-shadow duration-300">
+                <div className="p-4 sm:p-8 text-center">
+                  {/* Background gradient decoration */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0056B3]/5 via-transparent to-[#1E90FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Icon container with enhanced styling */}
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                    <stat.icon className="h-7 w-7 text-white" />
+                  </div>
+
+                  {/* Number with enhanced styling and animation */}
+                  <div className="text-3xl font-bold bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent mb-3">
+                    {stat.key === 'students'
+                      ? `${counters.students.toLocaleString()}+`
+                      : stat.key === 'lecturers'
+                      ? `${counters.lecturers}+`
+                      : stat.key === 'courses'
+                      ? `${counters.courses}+`
+                      : `${counters.countries}+`
+                    }
+                  </div>
+
+                  {/* Main label */}
+                  <p className="text-gray-900 font-semibold text-lg mb-2">{stat.label}</p>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm">{stat.description}</p>
                 </div>
-                <div className={`text-3xl font-bold ${stat.textClass} mb-2`}>{stat.number}</div>
-                <p className="text-gray-700 font-medium">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -389,18 +474,19 @@ export default function HomePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8 order-2 lg:order-1">
                 <div className="space-y-4">
-                  <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">
+                  <div className="inline-flex items-center px-4 py-2 bg-[#0056B3]/10 border border-[#0056B3]/20 rounded-full text-sm font-medium text-[#0056B3]">
+                    <Award className="w-4 h-4 mr-2" />
                     Why Choose AIMS?
-                  </Badge>
+                  </div>
                   <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                     Benefits of Learning
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                    <span className="block bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">
                       from AIMS
                     </span>
                   </h2>
@@ -424,10 +510,14 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full">
-                  Send a Message
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <div className="mt-8">
+                <a href="/contact" className="group">
+                  <div className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#0056B3]/50 focus:ring-offset-2">
+                    <span className="relative z-10">Send a Message</span>
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                </a>
+              </div>
               </div>
 
               {/* Directly show the image without the extra card background */}
@@ -485,23 +575,21 @@ export default function HomePage() {
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
                     <div className="p-1">
                       <div
-                        className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden border border-gray-100 cursor-pointer"
+                        className="group relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transform hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                         onClick={() => setSelectedImage(client)}
                       >
-                        <div className="flex aspect-square items-center justify-center p-4">
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={client.src}
-                              alt={client.alt}
-                              fill
-                              className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
-                              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-                            />
-                            {/* Eye icon overlay */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                              <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                                <Eye className="w-6 h-6 text-[#0056B3]" />
-                              </div>
+                        <div className="relative w-full h-full aspect-square">
+                          <Image
+                            src={client.src}
+                            alt={client.alt}
+                            fill
+                            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+                          />
+                          {/* Eye icon overlay */}
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                              <Eye className="w-6 h-6 text-[#0056B3]" />
                             </div>
                           </div>
                         </div>
@@ -520,23 +608,30 @@ export default function HomePage() {
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+          <div
+            className="relative max-w-7xl max-h-[95vh] bg-black/0"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors duration-200"
+              className="absolute -top-12 right-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 text-white z-10"
             >
-              <X className="w-5 h-5 text-gray-700" />
+              <X className="w-5 h-5" />
             </button>
-            <div className="relative w-full h-full min-h-[400px]">
+
+            {/* Image only */}
+            <div className="relative w-full h-[80vh] lg:h-[90vh]">
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
                 fill
-                className="object-contain p-8"
-                sizes="(max-width: 768px) 100vw, 80vw"
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 90vw"
+                priority
               />
             </div>
           </div>
