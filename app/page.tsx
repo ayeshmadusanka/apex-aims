@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { BookOpen, GraduationCap, Users, Globe, CheckCircle, Calendar, ArrowRight, ChevronLeft, ChevronRight, Eye, X } from "lucide-react"
+import { BookOpen, GraduationCap, Users, Globe, CheckCircle, Calendar, ArrowRight, ChevronLeft, ChevronRight, Eye, X, UserCheck, Award } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
@@ -204,75 +204,70 @@ export default function HomePage() {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="space-y-4 mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                Our Mission: Polish Your
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">
-                  {" "}
-                  SKILLS
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Transforming careers through excellence in management education
-              </p>
-            </div>
+      <section className="py-12 lg:py-16 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
+        <div className="absolute top-20 -right-16 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 -left-16 w-56 h-56 bg-yellow-500/5 rounded-full blur-3xl"></div>
 
-            {/* Statistics without cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-              {" "}
-              {/* Modified grid-cols-2 for mobile */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-sm font-medium text-orange-600 mb-6">
+              <Award className="w-4 h-4 mr-2" />
+              Our Mission
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Polish Your <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">SKILLS</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Transforming careers through excellence in management education
+            </p>
+          </div>
+
+          {/* Statistics Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {[
+              { number: "10+", label: "Expert Lecturers", color: "orange", icon: UserCheck, bgClass: "bg-orange-100", iconBgClass: "bg-orange-500", textClass: "text-orange-600" },
+              { number: "15+", label: "Skill Courses", color: "blue", icon: BookOpen, bgClass: "bg-blue-100", iconBgClass: "bg-blue-500", textClass: "text-blue-600" },
+              { number: "5,000+", label: "Students Enrolled", color: "purple", icon: GraduationCap, bgClass: "bg-purple-100", iconBgClass: "bg-purple-500", textClass: "text-purple-600" },
+              { number: "14+", label: "Countries", color: "green", icon: Globe, bgClass: "bg-green-100", iconBgClass: "bg-green-500", textClass: "text-green-600" },
+            ].map((stat, index) => (
+              <div key={index} className={`${stat.bgClass} rounded-2xl p-6 text-center group hover:shadow-lg transition-all duration-300`}>
+                <div className={`w-14 h-14 ${stat.iconBgClass} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <stat.icon className="h-7 w-7 text-white" />
+                </div>
+                <div className={`text-3xl font-bold ${stat.textClass} mb-2`}>{stat.number}</div>
+                <p className="text-gray-700 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Partners */}
+          <div className="border-t border-gray-200 pt-16">
+            <p className="text-sm font-medium text-gray-500 mb-8 tracking-wider uppercase">
+              Trusted by Leading Organizations
+            </p>
+
+            {/* 8 Column Grid */}
+            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8 items-center justify-center">
               {[
-                { number: "10+", label: "Expert Lecturers", color: "orange", icon: Users },
-                { number: "15+", label: "Skill Courses", color: "blue", icon: BookOpen },
-                { number: "5,000+", label: "Students Enrolled", color: "purple", icon: GraduationCap },
-                { number: "14+", label: "Countries", color: "green", icon: Globe },
-              ].map((stat, index) => (
-                <div key={index} className="flex flex-col items-center justify-center p-4">
-                  {" "}
-                  {/* Adjusted for direct display */}
-                  <div
-                    className={`w-16 h-16 bg-${stat.color}-600 rounded-2xl flex items-center justify-center mx-auto mb-4`}
-                  >
-                    <stat.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <div className={`text-4xl font-bold text-${stat.color}-600 mb-2`}>{stat.number}</div>
-                  <p className="text-gray-600 font-medium">{stat.label}</p>
+                { src: "/images/4 Company Logos/1 AIMS WEB Site Logos.png", alt: "Partner Company 1" },
+                { src: "/images/4 Company Logos/AIMS WEB Site Logos (1).png", alt: "Partner Company 2" },
+                { src: "/images/4 Company Logos/AIMS WEB Site Logos (10).png", alt: "Partner Company 3" },
+                { src: "/images/4 Company Logos/AIMS WEB Site Logos (5).png", alt: "Partner Company 4" },
+                { src: "/images/4 Company Logos/AIMS WEB Site Logos (9).png", alt: "Partner Company 5" },
+                { src: "/images/4 Company Logos/2 AIMS WEB Site Logos (11).png", alt: "Partner Company 6" },
+                { src: "/images/4 Company Logos/3 AIMS WEB Site Logos (37).png", alt: "Partner Company 7" },
+                { src: "/images/4 Company Logos/4 Jo Lanka Logo.png", alt: "Jo Lanka" },
+              ].map((partner, index) => (
+                <div key={index} className="flex items-center justify-center w-36 h-24 opacity-70 hover:opacity-100 transition-opacity duration-300 group">
+                  <Image
+                    src={partner.src}
+                    alt={partner.alt}
+                    width={120}
+                    height={60}
+                    className="object-contain max-h-full max-w-full filter grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
+                  />
                 </div>
               ))}
-            </div>
-
-            {/* Partners */}
-            <div className="border-t border-gray-200 pt-16">
-              <p className="text-sm font-medium text-gray-500 mb-8 tracking-wider uppercase">
-                Trusted by Leading Organizations
-              </p>
-
-              {/* 8 Column Grid */}
-              <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8 items-center justify-center">
-                {[
-                  { src: "/images/4 Company Logos/1 AIMS WEB Site Logos.png", alt: "Partner Company 1" },
-                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (1).png", alt: "Partner Company 2" },
-                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (10).png", alt: "Partner Company 3" },
-                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (5).png", alt: "Partner Company 4" },
-                  { src: "/images/4 Company Logos/AIMS WEB Site Logos (9).png", alt: "Partner Company 5" },
-                  { src: "/images/4 Company Logos/2 AIMS WEB Site Logos (11).png", alt: "Partner Company 6" },
-                  { src: "/images/4 Company Logos/3 AIMS WEB Site Logos (37).png", alt: "Partner Company 7" },
-                  { src: "/images/4 Company Logos/4 Jo Lanka Logo.png", alt: "Jo Lanka" },
-                ].map((partner, index) => (
-                  <div key={index} className="flex items-center justify-center w-36 h-24 opacity-70 hover:opacity-100 transition-opacity duration-300 group">
-                    <Image
-                      src={partner.src}
-                      alt={partner.alt}
-                      width={120}
-                      height={60}
-                      className="object-contain max-h-full max-w-full filter grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
