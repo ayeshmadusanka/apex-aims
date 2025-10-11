@@ -6,7 +6,6 @@ import Image from "next/image"
 export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Breadcrumb Section */}
       <section className="relative py-20 overflow-hidden" style={{backgroundImage: 'url("/images/hero/breadcrumb.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -20,7 +19,6 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      {/* Company Description */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -36,7 +34,6 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      {/* Our Solutions */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -147,7 +144,6 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      {/* Our Major Assistance */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -155,7 +151,6 @@ export default function ProjectPillarPage() {
           </div>
 
           <div className="max-w-6xl mx-auto space-y-12">
-            {/* Hirdaramani */}
             <Card className="bg-white border border-gray-200 shadow-sm">
               <CardHeader>
                 <div className="flex items-center space-x-4">
@@ -186,7 +181,6 @@ export default function ProjectPillarPage() {
               </CardContent>
             </Card>
 
-            {/* Tucking Trading Company */}
             <Card className="bg-white border border-gray-200 shadow-sm">
               <CardHeader>
                 <div className="flex items-center space-x-4">
@@ -219,7 +213,6 @@ export default function ProjectPillarPage() {
               </CardContent>
             </Card>
 
-            {/* Ru Salu */}
             <Card className="bg-white border border-gray-200 shadow-sm">
               <CardHeader>
                 <div className="flex items-center space-x-4">
@@ -255,48 +248,6 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      {/* AIMS Gallery - Commented out (placeholder images not available) */}
-      {/* <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">AIMS Gallery</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="bg-white border border-gray-200 overflow-hidden shadow-sm">
-              <div className="relative h-64 bg-gray-100">
-                <Image
-                  src="/placeholder.svg?height=256&width=400"
-                  alt="Black Belt Field Visit"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Black Belt Field Visit</h3>
-                <p className="text-gray-600">Practical field experience and hands-on learning sessions</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border border-gray-200 overflow-hidden shadow-sm">
-              <div className="relative h-64 bg-gray-100">
-                <Image
-                  src="/placeholder.svg?height=256&width=400"
-                  alt="Omegaline Outbound Training Program"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Omegaline Outbound Training Program</h3>
-                <p className="text-gray-600">Team building and leadership development activities</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Our Assistance in Leading Companies */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -337,53 +288,6 @@ export default function ProjectPillarPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section - Commented out */}
-      {/* <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center space-y-8">
-              <h2 className="text-3xl font-bold text-gray-900">What you are looking for is not on the list?</h2>
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900">Don't worry:</h3>
-                <p className="text-gray-700">Please contact us. We will provide the best solution for you.</p>
-              </div>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg">Contact us</Button>
-              <div className="flex items-center justify-center space-x-3 pt-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <Building2 className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Trusted by 500+</p>
-                  <p className="text-gray-600">Clients</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-red-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Partner with AIMS to unlock your organization's full potential through strategic consulting
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-              Start Your Project
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
-            >
-              Learn More
-            </Button>
           </div>
         </div>
       </section>

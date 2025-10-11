@@ -3,20 +3,31 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, MessageCircle, Building2, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react"
+import Image from "next/image"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-[#0056B3] to-[#E41E26] text-white py-24" style={{backgroundImage: 'url("/images/banner_image.webp")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0056B3]/90 to-[#E41E26]/90"></div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-8">
-            Contact <span className="bg-gradient-to-r from-[#0056B3] to-[#E41E26] bg-clip-text text-transparent">Us</span>
-          </h1>
-          <p className="text-xl lg:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed">
-            Get in touch with our team to learn more about our programs and how we can help you achieve your educational goals.
-          </p>
+      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-auto md:min-h-[300px] md:h-[50vh] md:max-h-[400px] bg-black">
+        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/hero/1.webp"
+              alt="AIMS Professional Services - Contact Us"
+              fill
+              className="object-cover opacity-80"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="container mx-auto px-4 text-center">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Contact Us</h1>
+                <p className="text-lg lg:text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+                  Get in touch with our team to learn more about our programs and how we can help you achieve your educational goals.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
