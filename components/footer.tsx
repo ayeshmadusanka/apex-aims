@@ -1,21 +1,19 @@
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Clock } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo and Description */}
           <div className="space-y-4">
             <Image
               src="/images/aims-logo.png"
               alt="AIMS Logo"
               width={150}
               height={75}
-              className="h-16 w-auto bg-white p-2 rounded"
+              className="h-16 w-auto"
             />
             <p className="text-gray-300">
               Apex Institute of Management Services - Empowering future leaders through excellence in management
@@ -26,7 +24,7 @@ export default function Footer() {
                 <Facebook className="h-5 w-5" />
               </Button>
               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600">
-                <Twitter className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" />
               </Button>
               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600">
                 <Linkedin className="h-5 w-5" />
@@ -34,59 +32,74 @@ export default function Footer() {
               <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-red-600">
                 <Instagram className="h-5 w-5" />
               </Button>
+              <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white hover:bg-red-600">
+                <Youtube className="h-5 w-5" />
+              </Button>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/" className="text-gray-300 hover:text-white transition-colors">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="text-gray-300 hover:text-white transition-colors">
                   About Us
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/certificate-validation" className="text-gray-300 hover:text-white transition-colors">
-                  Certificate Validation
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/contact" className="text-gray-300 hover:text-white transition-colors">
                   Contact
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Admissions
-                </Link>
+                <a
+                  href="https://validator.apexinstituteedu.com/"
+                  className="text-gray-300 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Certificate Validation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://lms.apexinstituteedu.com/"
+                  className="text-gray-300 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LMS
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Pillars */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Pillars</h3>
+            <h3 className="text-lg font-semibold mb-4">Our Programs</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/project-pillar" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/project-pillar" className="text-gray-300 hover:text-white transition-colors">
                   Project Pillar
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/academic-pillar" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/academic-pillar" className="text-gray-300 hover:text-white transition-colors">
                   Academic Pillar
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/university-pillar" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/university-pillar" className="text-gray-300 hover:text-white transition-colors">
                   University Pillar
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
@@ -95,7 +108,7 @@ export default function Footer() {
                 <span className="text-gray-300">
                   No 546/4, Galle Road<br />
                   Colombo 03<br />
-                  Colombo, Sri Lanka
+                  Sri Lanka
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -104,22 +117,19 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-red-500" />
-                <span className="text-gray-300">hello@apexinstituteedu.com</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Clock className="h-5 w-5 text-green-500 mt-1" />
-                <span className="text-gray-300 text-sm">
-                  Mon-Fri: 9:00 AM - 6:00 PM<br />
-                  Saturday: 9:00 AM - 2:00 PM<br />
-                  Sunday: Closed
-                </span>
+                <a
+                  href="mailto:info@apexinstituteedu.com"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  info@apexinstituteedu.com
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-300">© 2024 AIMS - Apex Institute of Management Services. All rights reserved.</p>
+          <p className="text-gray-300">© {new Date().getFullYear()} AIMS - Apex Institute of Management Services. All rights reserved.</p>
         </div>
       </div>
     </footer>

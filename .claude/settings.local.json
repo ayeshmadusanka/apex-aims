@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/xampp/htdocs/levan/public_html/components/contact/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

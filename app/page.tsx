@@ -4,19 +4,20 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { BookOpen, GraduationCap, Users, Globe, CheckCircle, Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { BookOpen, GraduationCap, Users, Globe, CheckCircle, Calendar, ArrowRight, ChevronLeft, ChevronRight, Eye, X } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
 export default function HomePage() {
   const heroImages = [
-    { src: "/images/1 Web Banner/1.png", alt: "AIMS Professional Services - Banner 1" },
-    { src: "/images/1 Web Banner/2.png", alt: "AIMS Professional Services - Banner 2" },
-    { src: "/images/1 Web Banner/3.png", alt: "AIMS Professional Services - Banner 3" },
-    { src: "/images/1 Web Banner/4.png", alt: "AIMS Professional Services - Banner 4" },
+    { src: "/images/hero/1.webp", alt: "AIMS Professional Services - Hero 1" },
+    { src: "/images/hero/2.webp", alt: "AIMS Professional Services - Hero 2" },
+    { src: "/images/hero/3.webp", alt: "AIMS Professional Services - Hero 3" },
+    { src: "/images/hero/4.webp", alt: "AIMS Professional Services - Hero 4" },
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [selectedImage, setSelectedImage] = useState(null)
   
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
@@ -53,90 +54,40 @@ export default function HomePage() {
       `}</style>
       <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden mt-0">
-        {/* Aspect Ratio Container (15:8) */}
-        <div className="relative w-full" style={{ paddingTop: "53.33%" /* 8 / 15 * 100 */ }}>
-          {/* Hero Image Slider */}
-          <div className="absolute inset-0">
-            <div className="relative w-full h-full">
-              <Image
-                src={heroImages[currentImageIndex].src}
-                alt={heroImages[currentImageIndex].alt}
-                fill
-                className="object-cover transition-opacity duration-1000"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
-
-              {/* Hero Content */}
-              <div className="absolute inset-0 flex items-center">
-                <div className="container mx-auto px-4">
-                  <div className="max-w-4xl">
-                    <div className="space-y-6">
-                      <Badge variant="outline" className="border-white/30 text-white bg-white/10 backdrop-blur-sm">
-                        Excellence in Management Education
-                      </Badge>
-                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                        Transform Your
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">
-                          Career Today
-                        </span>
-                      </h1>
-                      <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
-                        Join AIMS and unlock your potential with world-class professional education and training programs designed for success.
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg">
-                          Explore Programs
-                          <ArrowRight className="ml-2 h-5 w-5" />
-                        </Button>
-                        <Button
-                          size="lg"
-                          variant="outline"
-                          className="border-white text-white hover:bg-white hover:text-black bg-transparent backdrop-blur-sm px-8 py-4 rounded-full text-lg"
-                        >
-                          Learn More
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <section id="hero" className="relative w-full flex flex-col items-center justify-center overflow-hidden h-auto md:min-h-[500px] md:h-[75vh] md:max-h-[600px] bg-black">
+        {/* Image Container */}
+        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+          <div className="relative w-full h-full">
+            {/* Background Images */}
+            {heroImages.map((image, index) => (
+              <div key={index} className="absolute inset-0 w-full h-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className={`object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                  priority={index === 0}
+                />
               </div>
+            ))}
 
-              {/* Navigation Buttons */}
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-200"
-                aria-label="Previous image"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-200"
-                aria-label="Next image"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
-
-              {/* Image Indicators */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-3">
-                {heroImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
-                    }`}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
-                ))}
-              </div>
+            {/* Enhanced Slide Indicators */}
+            <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-1 md:space-x-2 z-30">
+              {heroImages.map((_, index) => (
+                <button
+                  key={index}
+                  aria-label={`Slide ${index + 1}`}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`group flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300`}
+                >
+                  <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-white transition-all duration-300 ${index === currentImageIndex ? 'opacity-100' : 'opacity-30'}`}></span>
+                </button>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+
+        </section>
 
       {/* Features Section */}
       <section className="py-12 bg-white">
@@ -384,15 +335,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Client Testimonials */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Our Valued Clients</h2>
-              <p className="text-xl text-gray-600">Trusted by leading organizations worldwide</p>
-            </div>
+        {/* Our Success Stories */}
+      <section className="py-8 lg:py-12 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
+        <div className="absolute top-40 -right-20 w-80 h-80 bg-[#1E90FF]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 -left-20 w-72 h-72 bg-[#0056B3]/5 rounded-full blur-3xl"></div>
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-[#0056B3]/10 border border-[#0056B3]/20 rounded-full text-sm font-medium text-[#0056B3] mb-6">
+              <Users className="w-4 h-4 mr-2" />
+              Success Stories
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Our Success <span className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">Stories</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Trusted by leading organizations worldwide, showcasing our commitment to excellence and transformative impact.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
             <Carousel
               opts={{
                 align: "start",
@@ -402,29 +364,38 @@ export default function HomePage() {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {[
-                  { src: "/images/clinet-1.png", alt: "Client 1" },
-                  { src: "/images/clinet-2.png", alt: "Client 2" },
-                  { src: "/images/clinet-3.png", alt: "Client 3" },
-                  { src: "/images/clinet-4.png", alt: "Client 4" },
-                  { src: "/images/clinet-5.png", alt: "Client 5" },
-                  { src: "/images/clinet-6.png", alt: "Client 6" },
-                  { src: "/images/clinet-7.png", alt: "Client 7" },
+                  { src: "/images/clinet-1.png", alt: "Success Story 1" },
+                  { src: "/images/clinet-2.png", alt: "Success Story 2" },
+                  { src: "/images/clinet-3.png", alt: "Success Story 3" },
+                  { src: "/images/clinet-4.png", alt: "Success Story 4" },
+                  { src: "/images/clinet-5.png", alt: "Success Story 5" },
+                  { src: "/images/clinet-6.png", alt: "Success Story 6" },
+                  { src: "/images/clinet-7.png", alt: "Success Story 7" },
                 ].map((client, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
                     <div className="p-1">
-                      <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <div
+                        className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden border border-gray-100 cursor-pointer"
+                        onClick={() => setSelectedImage(client)}
+                      >
+                        <div className="flex aspect-square items-center justify-center p-4">
                           <div className="relative w-full h-full">
                             <Image
                               src={client.src}
                               alt={client.alt}
                               fill
-                              className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                              className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
                               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
                             />
+                            {/* Eye icon overlay */}
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                              <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                                <Eye className="w-6 h-6 text-[#0056B3]" />
+                              </div>
+                            </div>
                           </div>
-                        </CardContent>
-                      </Card>
+                        </div>
+                      </div>
                     </div>
                   </CarouselItem>
                 ))}
@@ -436,65 +407,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Latest Articles */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Latest Articles</h2>
-              <p className="text-xl text-gray-600">Stay updated with our latest insights and news</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  date: "March 23, 2022",
-                  title: "Process Excellence and Fundamentals of Industrial Engineering Program",
-                  excerpt:
-                    "Normal performance which was accepted, and sufficient yesterday is no longer valid and qualifies even",
-                },
-                {
-                  date: "December 21, 2021",
-                  title: "Black Belt – Banking & Finance",
-                  excerpt: "Do you want to be a super performer in banking & finance? Normal performance",
-                },
-                {
-                  date: "March 23, 2022",
-                  title: "Process Excellence and Fundamentals of Industrial Engineering Program",
-                  excerpt:
-                    "Normal performance which was accepted, and sufficient yesterday is no longer valid and qualifies even",
-                },
-              ].map((article, index) => (
-                <Card
-                  key={index}
-                  className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center text-sm text-blue-600 mb-4 font-medium">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      {article.date}
-                    </div>
-                    <CardTitle className="text-xl text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                      {article.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-gray-600 mb-6 leading-relaxed">{article.excerpt}</CardDescription>
-                    <Button
-                      variant="ghost"
-                      className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 p-0 h-auto font-medium"
-                    >
-                      Read More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors duration-200"
+            >
+              <X className="w-5 h-5 text-gray-700" />
+            </button>
+            <div className="relative w-full h-full min-h-[400px]">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain p-8"
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      )}
+
+        </div>
     </>
   )
 }
