@@ -360,7 +360,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
             <Card>
               <CardContent className="p-6">
                 <div className="space-y-4">
-                  {course.requirements.academic && (
+                  {course.requirements?.academic && (
                     <div className="flex items-start gap-3">
                       <GraduationCap className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
@@ -369,7 +369,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                       </div>
                     </div>
                   )}
-                  {course.requirements.professional && (
+                  {course.requirements?.professional && (
                     <div className="flex items-start gap-3">
                       <Award className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
@@ -378,7 +378,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                       </div>
                     </div>
                   )}
-                  {course.requirements.qualification && (
+                  {course.requirements?.qualification && (
                     <div className="flex items-start gap-3">
                       <GraduationCap className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
@@ -387,7 +387,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
                       </div>
                     </div>
                   )}
-                  {course.requirements.targetGroup && (
+                  {course.requirements?.targetGroup && (
                     <div className="flex items-start gap-3">
                       <Users className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
