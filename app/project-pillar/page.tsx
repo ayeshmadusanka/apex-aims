@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Target, Lightbulb, TrendingUp, Users, Building2 } from "lucide-react"
 import Image from "next/image"
 
 export default function ProjectPillarPage() {
@@ -51,82 +49,82 @@ export default function ProjectPillarPage() {
             {[
               {
                 image: "/images/project-pillar/Our Solutions/1.png",
-                title: "Process Excellence",
-                description: "Streamline operations with advanced process optimization methodologies"
+                title: "Supervisor's Training & Development",
+                description: "Develop leadership skills for supervisors, line leaders, and team members"
               },
               {
                 image: "/images/project-pillar/Our Solutions/2.png",
-                title: "Quality Management",
-                description: "Implement robust quality systems for consistent excellence"
+                title: "Basic Training for Fundamental in Work Study",
+                description: "Comprehensive work study fundamentals for TL/GL, supervisors, and work study officers"
               },
               {
                 image: "/images/project-pillar/Our Solutions/3.png",
-                title: "Lean Transformation",
-                description: "Eliminate waste and maximize value through lean principles"
+                title: "Practical Approach of Work Study",
+                description: "Hands-on work study methodologies for supervisors and work study officers"
               },
               {
                 image: "/images/project-pillar/Our Solutions/4.png",
-                title: "Performance Management",
-                description: "Drive productivity with strategic performance optimization"
-              },
-              {
-                image: "/images/project-pillar/Our Solutions/5.png",
-                title: "Business Analysis",
-                description: "Data-driven insights for informed decision making"
+                title: "Oraganizational Planning & Controlling",
+                description: "Essential merchandising skills for trainee and junior merchandisers"
               },
               {
                 image: "/images/project-pillar/Our Solutions/6.png",
-                title: "Supply Chain Optimization",
-                description: "Enhance efficiency across your entire supply chain"
+                title: "What is Industrial Engineering & Its Approaches",
+                description: "Understanding IE concepts and approaches for work study officers and executives"
+              },
+              {
+                image: "/images/project-pillar/Our Solutions/5.png",
+                title: "How to Perform in Merchandising",
+                description: "Essential merchandising skills for trainee and junior merchandisers"
               },
               {
                 image: "/images/project-pillar/Our Solutions/7.png",
-                title: "Strategic Planning",
-                description: "Develop comprehensive strategies for sustainable growth"
+                title: "Quality Management",
+                description: "Quality management systems for in-line QC, supervisors, and quality assistants"
               },
               {
                 image: "/images/project-pillar/Our Solutions/8.png",
-                title: "Operational Excellence",
-                description: "Achieve peak performance through operational improvements"
+                title: "Garment Training Costing Practical Program",
+                description: "Practical garment costing training program for all industrial engineers"
               },
               {
                 image: "/images/project-pillar/Our Solutions/9.png",
-                title: "Change Management",
-                description: "Successfully navigate organizational transformations"
+                title: "Apparel Production Management",
+                description: "Production management skills for supervisors, line leaders, and team members"
               },
               {
                 image: "/images/project-pillar/Our Solutions/10.png",
-                title: "Business Process Reengineering",
-                description: "Redesign processes for maximum efficiency and effectiveness"
+                title: "Ergonomics & Work Design",
+                description: "Ergonomic principles and work design for leaders and team members"
               },
               {
                 image: "/images/project-pillar/Our Solutions/11.png",
-                title: "Continuous Improvement",
-                description: "Foster a culture of ongoing enhancement and innovation"
+                title: "Quality Controlling System",
+                description: "Quality control systems for in-line QC, supervisors, and quality assistants"
               },
               {
                 image: "/images/project-pillar/Our Solutions/12.png",
-                title: "Project Management",
-                description: "Execute projects with precision and proven methodologies"
+                title: "5S Implementation",
+                description: "Implement 5S methodology across all staff for workplace organization"
               },
               {
                 image: "/images/project-pillar/Our Solutions/13.png",
-                title: "Leadership Development",
-                description: "Build strong leaders to drive organizational success"
+                title: "Process Mapping & Value Stream Mapping",
+                description: "Process and value stream mapping for management and executive staff"
               },
               {
                 image: "/images/project-pillar/Our Solutions/14.png",
-                title: "Digital Transformation",
-                description: "Leverage technology for competitive advantage"
+                title: "STW, SOP & Process Analyzing",
+                description: "Standardized work, SOP development and process analysis techniques"
               },
               {
                 image: "/images/project-pillar/Our Solutions/15.png",
-                title: "Risk Management",
-                description: "Identify and mitigate risks for business resilience"
+                title: "Management Skills for Managing Both Work Life & Personal Life",
+                description: "Balance work and personal life through effective management skills for all staff"
               }
             ].map((solution, index) => (
               <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
-                <div className="relative h-48 bg-gray-100 overflow-hidden">
+                <div className="relative aspect-[20/13] bg-gray-100 overflow-hidden">
                   <Image
                     src={solution.image}
                     alt={solution.title}
@@ -285,8 +283,7 @@ export default function ProjectPillarPage() {
                 { name: "Company 117", logo: "/images/company/company-logo-117.png" },
                 { name: "Company 118", logo: "/images/company/company-logo-118.png" },
                 { name: "Company 119", logo: "/images/company/company-logo-119.png" },
-                { name: "Company 120", logo: "/images/company/company-logo-120.png" },
-                { name: "Company 121", logo: "/images/company/company-logo-121.png" },
+                { name: "Company 120", logo: "/images/company/company-logo-120.png" },                
                 { name: "Company 122", logo: "/images/company/company-logo-122.png" },
                 { name: "Company 123", logo: "/images/company/company-logo-123.png" },
                 { name: "Company 124", logo: "/images/company/company-logo-124.png" },

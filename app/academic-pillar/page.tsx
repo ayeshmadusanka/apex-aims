@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AcademicPillarPage() {
 
@@ -86,38 +87,29 @@ export default function AcademicPillarPage() {
               <TabsContent value="certificate" className="space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {[
-                    { title: "Certificate in Work Study", image: "/images/academic-pillar/Certificate Courses/certificate in work study.png", duration: "12 weeks", description: "Comprehensive training in work measurement and method study techniques" },
-                    { title: "Certificate in Merchandising", image: "/images/academic-pillar/Certificate Courses/certificate in merchendising.png", duration: "10 weeks", description: "Specialized training in retail merchandising and product management" },
-                    { title: "Certificate in Industrial Engineering", image: "/images/academic-pillar/Certificate Courses/certificate in industrial engineering.png", duration: "6 months", description: "Core industrial engineering principles and optimization techniques" },
-                    { title: "Advanced Certificate in Apparel Production Management", image: "/images/academic-pillar/Certificate Courses/advanced certificate in apparel production management.png", duration: "3 months", description: "Advanced apparel production and operational management" },
-                    { title: "Advanced Certificate in Organization Planning and Controlling", image: "/images/academic-pillar/Certificate Courses/advanced certificate in organization planning and controlling.png", duration: "18 weeks", description: "Strategic planning and organizational control systems" },
-                    { title: "Certified PMTS & Costing Practitioner", image: "/images/academic-pillar/Certificate Courses/certified PMTS & Costing Practitioner.png", duration: "50 hours", description: "Predetermined motion time systems and accurate costing methods" },
-                    { title: "Quality Assurance Management", image: "/images/academic-pillar/Certificate Courses/quality assurance management.png", duration: "3 months", description: "Quality systems, auditing, and continuous improvement" },
-                    { title: "Certified Lean White Belt", image: "/images/academic-pillar/Certificate Courses/certified lean white belt.png", duration: "4 weeks", description: "Foundation level lean principles and basic improvement tools" },
-                    { title: "Certified Lean Yellow Belt Practitioner", image: "/images/academic-pillar/Certificate Courses/certified lean yellow belt practitioner.png", duration: "8 weeks", description: "Foundation lean certification with practical application" },
-                    { title: "Certified Lean Green Belt", image: "/images/academic-pillar/Certificate Courses/certified lean green belt.png", duration: "12 weeks", description: "Intermediate lean practitioner with project leadership skills" },
-                    { title: "Certified Lean Black Belt Practitioner", image: "/images/academic-pillar/Certificate Courses/certified Lean Black belt practitioner.png", duration: "16 weeks", description: "Advanced lean expert with change management capabilities" },
-                    { title: "Diploma in Industrial Engineering", image: "/images/academic-pillar/Certificate Courses/diploma in industrial engineering.png", duration: "56 weeks", description: "Advanced industrial engineering and process optimization" },
-                    { title: "Diploma in Production Management", image: "/images/academic-pillar/Certificate Courses/diploma in production management.png", duration: "56 weeks", description: "Production planning, control and operational excellence" },
-                    { title: "Diploma in Quality Management", image: "/images/academic-pillar/Certificate Courses/diploma in quality management.png", duration: "56 weeks", description: "Advanced quality systems implementation and management" },
-                    { title: "Diploma in Fashion Design", image: "/images/academic-pillar/Certificate Courses/diploma in fashion design.png", duration: "56 weeks", description: "Fashion design principles and garment technology" },
-                    { title: "Pattern Making & Grading", image: "/images/academic-pillar/Certificate Courses/pattern making & grading.png", duration: "4 months", description: "Technical pattern making and size grading techniques" },
-                    { title: "Diploma in Human Resource Management", image: "/images/academic-pillar/Certificate Courses/diploma in human resource management.png", duration: "56 weeks", description: "Strategic HR management and organizational development" },
-                    { title: "Diploma in Industrial Management", image: "/images/academic-pillar/Certificate Courses/Diploma in Industrial management.png", duration: "180 days", description: "Comprehensive industrial operations and strategic management" },
+                    { title: "Certificate in Work Study", slug: "certificate-in-work-study", image: "/images/academic-pillar/Certificate Courses/1.png", duration: "TVEC Approved", description: "Comprehensive training in work measurement and method study techniques" },
+                    { title: "Workstudy NVQ Level 4", slug: "workstudy-nvq-level-4", image: "/images/academic-pillar/Certificate Courses/2.png", duration: "TVEC Approved", description: "NVQ Level 4 qualification in work study methodologies" },
+                    { title: "Certificate in Merchandising", slug: "certificate-in-merchandising", image: "/images/academic-pillar/Certificate Courses/3.png", duration: "TVEC Approved", description: "Specialized training in retail merchandising and product management" },
+                    { title: "Quality Assurance Management", slug: "quality-assurance-management", image: "/images/academic-pillar/Certificate Courses/4.png", duration: "TVEC Approved", description: "Quality systems, auditing, and continuous improvement" },
+                    { title: "Advanced Certificate in Apparel Production Management", slug: "advanced-certificate-apparel-production-management", image: "/images/academic-pillar/Certificate Courses/5.png", duration: "TVEC Approved", description: "Advanced apparel production and operational management" },
+                    { title: "Pattern Making & Grading", slug: "pattern-making-grading", image: "/images/academic-pillar/Certificate Courses/6.png", duration: "TVEC Approved", description: "Technical pattern making and size grading techniques" },
+                    { title: "Organization Planning & Controlling", slug: "organization-planning-controlling", image: "/images/academic-pillar/Certificate Courses/7.png", duration: "TVEC Approved", description: "Strategic planning and organizational control systems" },
                   ].map((course, index) => (
-                    <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      <div className="relative aspect-[1/1.41] bg-gray-100">
-                        <Image src={course.image} alt={course.title} fill className="object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <div className="absolute inset-0 flex flex-col justify-end p-4">
-                          <h3 className="text-white font-bold text-sm line-clamp-2 drop-shadow-lg">{course.title}</h3>
-                          <p className="text-white/90 text-xs mt-1 line-clamp-2">{course.description}</p>
+                    <Link key={index} href={`/academic-pillar/certificate/${course.slug}`}>
+                      <Card className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer h-full">
+                        <div className="relative aspect-square bg-gray-100">
+                          <Image src={course.image} alt={course.title} fill className="object-cover" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                          <div className="absolute inset-0 flex flex-col justify-end p-4">
+                            <h3 className="text-white font-bold text-sm line-clamp-2 drop-shadow-lg">{course.title}</h3>
+                            <p className="text-white/90 text-xs mt-1 line-clamp-2">{course.description}</p>
+                          </div>
+                          <div className="absolute top-3 right-3">
+                            <Badge className="bg-blue-600 text-white text-xs border-blue-600">{course.duration}</Badge>
+                          </div>
                         </div>
-                        <div className="absolute top-3 right-3">
-                          <Badge className="bg-blue-600 text-white text-xs border-blue-600">{course.duration}</Badge>
-                        </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    </Link>
                   ))}
                 </div>
               </TabsContent>
@@ -125,13 +117,13 @@ export default function AcademicPillarPage() {
               <TabsContent value="university" className="space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { title: "University Bridge Program", image: "/images/academic-pillar/Courses for University Students/23.png", duration: "45 days", description: "Bridge program designed for university students transitioning to professional careers" },
-                    { title: "Professional Skills Development", image: "/images/academic-pillar/Courses for University Students/24.png", duration: "30 days", description: "Essential professional skills and workplace readiness for university graduates" },
-                    { title: "Industry Internship Preparation", image: "/images/academic-pillar/Courses for University Students/25.png", duration: "60 days", description: "Comprehensive preparation for successful industry internships and practical experience" },
-                    { title: "Career Foundation Program", image: "/images/academic-pillar/Courses for University Students/Academic Pillar Images.png", duration: "90 days", description: "Foundation program for career planning and professional development strategies" },
+                    { title: "Industrial Engineering and Process Excellence", image: "/images/academic-pillar/Courses for University Students/23.png", duration: "45 days", description: "Industrial engineering principles and process optimization techniques" },
+                    { title: "Certified PMTS & Costing Practitioner Program", image: "/images/academic-pillar/Courses for University Students/24.png", duration: "30 days", description: "Predetermined motion time systems and accurate costing methods" },
+                    { title: "Certificate in Merchandising", image: "/images/academic-pillar/Courses for University Students/25.png", duration: "60 days", description: "Specialized training in retail merchandising and product management" },
+                    { title: "Certified Lean White Belt Practitioner Program", image: "/images/academic-pillar/Courses for University Students/Academic Pillar Images.png", duration: "90 days", description: "Foundation level lean principles and basic improvement tools" },
                   ].map((course, index) => (
                     <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      <div className="relative aspect-[4/3] bg-gray-100">
+                      <div className="relative aspect-square bg-gray-100">
                         <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -150,15 +142,15 @@ export default function AcademicPillarPage() {
               <TabsContent value="diploma" className="space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { title: "Diploma in Manufacturing Management", image: "/images/academic-pillar/Diploma Courses/9.png", duration: "180 days", description: "Comprehensive manufacturing operations and strategic management" },
-                    { title: "Diploma in Quality Management Systems", image: "/images/academic-pillar/Diploma Courses/10.png", duration: "150 days", description: "Advanced quality systems implementation and management" },
-                    { title: "Diploma in Operations Management", image: "/images/academic-pillar/Diploma Courses/11.png", duration: "120 days", description: "Strategic operations planning and optimization" },
-                    { title: "Diploma in Project Management", image: "/images/academic-pillar/Diploma Courses/12.png", duration: "120 days", description: "Professional project management with PMP preparation" },
-                    { title: "Diploma in Supply Chain Management", image: "/images/academic-pillar/Diploma Courses/13.png", duration: "135 days", description: "End-to-end supply chain optimization and logistics" },
-                    { title: "Diploma in Industrial Engineering", image: "/images/academic-pillar/Diploma Courses/14.png", duration: "160 days", description: "Advanced industrial engineering and process optimization" },
+                    { title: "Diploma in Industrial Engineering", image: "/images/academic-pillar/Diploma Courses/9.png", duration: "180 days", description: "Advanced industrial engineering and process optimization" },
+                    { title: "Diploma in Industrial Management", image: "/images/academic-pillar/Diploma Courses/10.png", duration: "150 days", description: "Comprehensive industrial operations and strategic management" },
+                    { title: "Diploma in Apparel Production Management", image: "/images/academic-pillar/Diploma Courses/11.png", duration: "120 days", description: "Advanced apparel production and operational management" },
+                    { title: "Diploma in Quality Management", image: "/images/academic-pillar/Diploma Courses/12.png", duration: "120 days", description: "Advanced quality systems implementation and management" },
+                    { title: "Diploma in Human Resource Management", image: "/images/academic-pillar/Diploma Courses/13.png", duration: "135 days", description: "Strategic HR management and organizational development" },
+                    { title: "Diploma in Fashion Design", image: "/images/academic-pillar/Diploma Courses/14.png", duration: "160 days", description: "Fashion design principles and garment technology" },
                   ].map((course, index) => (
                     <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      <div className="relative aspect-[4/3] bg-gray-100">
+                      <div className="relative aspect-square bg-gray-100">
                         <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -177,15 +169,15 @@ export default function AcademicPillarPage() {
               <TabsContent value="lean" className="space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { title: "Lean Yellow Belt Certification", image: "/images/academic-pillar/Lean/16.png", duration: "14 days", description: "Foundation level lean principles and basic improvement tools" },
-                    { title: "Lean Green Belt Certification", image: "/images/academic-pillar/Lean/17.png", duration: "60 days", description: "Intermediate lean practitioner with project leadership skills" },
-                    { title: "Lean Black Belt Certification", image: "/images/academic-pillar/Lean/18.png", duration: "90 days", description: "Advanced lean expert with change management capabilities" },
-                    { title: "Lean Six Sigma Yellow Belt", image: "/images/academic-pillar/Lean/19.png", duration: "21 days", description: "Combined lean and six sigma foundation certification" },
-                    { title: "Lean Six Sigma Green Belt", image: "/images/academic-pillar/Lean/20.png", duration: "75 days", description: "Intermediate lean six sigma with statistical analysis" },
-                    { title: "Lean Six Sigma Black Belt", image: "/images/academic-pillar/Lean/21.png", duration: "120 days", description: "Expert level lean six sigma with advanced statistics" },
+                    { title: "Lean Certified White Belt Practitioner", image: "/images/academic-pillar/Lean/16.png", duration: "14 days", description: "Foundation level lean principles and basic improvement tools" },
+                    { title: "Lean Certified Yellow Belt Practitioner", image: "/images/academic-pillar/Lean/17.png", duration: "60 days", description: "Foundation lean certification with practical application" },
+                    { title: "Lean Certified Green Belt Practitioner", image: "/images/academic-pillar/Lean/18.png", duration: "90 days", description: "Intermediate lean practitioner with project leadership skills" },
+                    { title: "Lean Certified Black Belt Practitioner", image: "/images/academic-pillar/Lean/19.png", duration: "21 days", description: "Advanced lean expert with change management capabilities" },
+                    { title: "Lean Six Sigma Green Belt Practitioner Program for Finance", image: "/images/academic-pillar/Lean/20.png", duration: "75 days", description: "Lean Six Sigma Green Belt specialized for finance professionals" },
+                    { title: "Lean Six Sigma Black Belt Practitioner Program for Finance", image: "/images/academic-pillar/Lean/21.png", duration: "120 days", description: "Lean Six Sigma Black Belt specialized for finance professionals" },
                   ].map((course, index) => (
                     <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      <div className="relative aspect-[4/3] bg-gray-100">
+                      <div className="relative aspect-square bg-gray-100">
                         <Image src={course.image} alt={course.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div className="absolute inset-0 flex flex-col justify-end p-4">
