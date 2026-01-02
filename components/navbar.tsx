@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -23,6 +23,19 @@ const navigation = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [expanded, setExpanded] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="bg-[#263f6b] border-b border-[#1e3356] sticky top-0 z-50">
@@ -41,22 +54,28 @@ export default function Navbar() {
           <div className="hidden md:flex items-center justify-center space-x-8 flex-1 px-8">
             {navigation.map((item) =>
               item.children ? (
-                <div key={item.name} className="relative group">
-                  <button className="flex items-center text-white hover:text-white font-medium transition-all duration-200 focus:outline-none hover:brightness-125">
+                <div key={item.name} className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="flex items-center text-white hover:text-white font-medium transition-all duration-200 focus:outline-none hover:brightness-125"
+                  >
                     {item.name}
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
-                  <div className="absolute hidden group-hover:block bg-[#324e84] mt-2 rounded-lg shadow-lg backdrop-blur-sm">
-                    {item.children.map((child) => (
-                      <a
-                        key={child.name}
-                        href={child.href}
-                        className="block text-white px-4 py-2 hover:bg-white hover:text-[#263f6b] rounded-lg transition-all duration-200"
-                      >
-                        {child.name}
-                      </a>
-                    ))}
-                  </div>
+                  {dropdownOpen && (
+                    <div className="absolute bg-[#324e84] mt-2 rounded-lg shadow-lg backdrop-blur-sm">
+                      {item.children.map((child) => (
+                        <a
+                          key={child.name}
+                          href={child.href}
+                          className="block text-white px-4 py-2 hover:bg-white hover:text-[#263f6b] rounded-lg transition-all duration-200"
+                          onClick={() => setDropdownOpen(false)}
+                        >
+                          {child.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <a

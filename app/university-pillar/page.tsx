@@ -9,10 +9,10 @@ export default function UniversityPillarPage() {
         <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
           <div className="relative w-full h-full">
             <Image
-              src="/images/hero/breadcrumb.png"
+              src="/images/university-pillar/UNI Logos/Header.png"
               alt="AIMS Professional Services - University Pillar"
               fill
-              className="object-cover opacity-80"
+              className="object-cover"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
