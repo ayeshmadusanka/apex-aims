@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, MessageCircle, Building2, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react"
+import { MapPin, Phone, Mail, MessageCircle, Building2, Facebook, Linkedin, Youtube } from "lucide-react"
 import Image from "next/image"
 
 export default function ContactPage() {
@@ -158,7 +158,7 @@ export default function ContactPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
                   <p className="text-sm text-gray-600 mb-4">Stay updated with our latest programs and news</p>
                   <div className="grid grid-cols-2 gap-3">
-                    <a href="#" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
                        className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
                       <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                         <Facebook className="w-4 h-4 text-white" />
@@ -166,15 +166,17 @@ export default function ContactPage() {
                       <span className="text-sm font-medium text-gray-700">Facebook</span>
                     </a>
 
-                    <a href="#" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.tiktok.com/@apex_institute_" target="_blank" rel="noopener noreferrer"
                        className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
                       <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                        <Instagram className="w-4 h-4 text-white" />
+                        <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
                       </div>
-                      <span className="text-sm font-medium text-gray-700">Instagram</span>
+                      <span className="text-sm font-medium text-gray-700">TikTok</span>
                     </a>
 
-                    <a href="#" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer"
                        className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
                       <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                         <Linkedin className="w-4 h-4 text-white" />
@@ -182,7 +184,7 @@ export default function ContactPage() {
                       <span className="text-sm font-medium text-gray-700">LinkedIn</span>
                     </a>
 
-                    <a href="#" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.youtube.com/@aimslk" target="_blank" rel="noopener noreferrer"
                        className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
                       <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                         <Youtube className="w-4 h-4 text-white" />

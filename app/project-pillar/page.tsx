@@ -4,8 +4,8 @@ import Image from "next/image"
 export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-[150px] md:min-h-[200px] md:h-[40vh] md:max-h-[300px] bg-black">
-        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden">
+        <div className="relative w-full aspect-[18/5] overflow-hidden">
           <div className="relative w-full h-full">
             <Image
               src="/images/project-pillar/Header.png"

@@ -1,15 +1,32 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function AcademicPillarPage() {
+  const [activeTab, setActiveTab] = useState("certificate");
+
+  useEffect(() => {
+    // Restore the saved tab from localStorage on mount
+    const savedTab = localStorage.getItem("academicPillarTab");
+    if (savedTab) {
+      setActiveTab(savedTab);
+    }
+  }, []);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    localStorage.setItem("academicPillarTab", value);
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-[150px] md:min-h-[200px] md:h-[40vh] md:max-h-[300px] bg-black">
-        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden">
+        <div className="relative w-full aspect-[18/5] overflow-hidden">
           <div className="relative w-full h-full">
             <Image
               src="/images/academic-pillar/Header.png"
@@ -56,7 +73,7 @@ export default function AcademicPillarPage() {
           </div>
 
           <div className="max-w-7xl mx-auto">
-            <Tabs defaultValue="certificate" className="w-full">
+            <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
               <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full gap-4 mb-20 md:mb-16 bg-transparent">
                 <TabsTrigger
                   value="certificate"

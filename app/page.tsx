@@ -33,10 +33,10 @@ const STATISTICS: Array<{
   { number: "14+", label: "Countries", icon: Globe, description: "Global reach", key: 'countries' },
 ]
 
-const PARTNER_LOGOS = Array.from({ length: 41 }, (_, i) => ({
-  src: `/images/company/company-logo-${100 + i}.png`,
-  alt: `Partner Company ${i + 1}`
-}))
+const PARTNER_LOGOS = [
+  ...Array.from({ length: 21 }, (_, i) => ({ src: `/images/company/company-logo-${100 + i}.png`, alt: `Partner Company ${i + 1}` })),
+  ...Array.from({ length: 19 }, (_, i) => ({ src: `/images/company/company-logo-${122 + i}.png`, alt: `Partner Company ${22 + i}` }))
+]
 
 const SUCCESS_STORIES = Array.from({ length: 7 }, (_, i) => ({
   src: `/images/clinet-${i + 1}.png`,
@@ -185,21 +185,7 @@ export default function HomePage() {
   )
 
   return (
-    <>
-      <style jsx>{`
-        @keyframes scroll-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-scroll-left {
-          animation: scroll-left 30s linear infinite;
-        }
-        .animate-scroll-left:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         <section id="hero" className="relative w-full flex flex-col items-center justify-center overflow-hidden h-auto md:min-h-[500px] md:h-[75vh] md:max-h-[600px] bg-black">
           <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
             <div className="relative w-full h-full">
@@ -456,6 +442,5 @@ export default function HomePage() {
           </div>
         )}
       </div>
-    </>
   )
 }
