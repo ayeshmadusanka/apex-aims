@@ -8,6 +8,7 @@ import Script from "next/script"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
+  metadataBase: new URL("https://apexinstituteedu.com"),
   title: "AIMS - Apex Institute of Management Services",
   description: "Premier management institute offering professional courses, Lean Six Sigma certification, and operational excellence programs. Transform your career with industry-leading training.",
   keywords: "Management Institute, Professional Education, Leadership Training, Apex Institute, AIMS, Management Courses, Business Education, Professional Development, Corporate Training, Skills Development, Management Certification, Lean courses, Lean manufacturing, Process Improvement, Quality Management",

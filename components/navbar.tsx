@@ -90,6 +90,18 @@ export default function Navbar() {
             )}
             <Button
               asChild
+              className="bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <a
+                href="https://payment.apexinstituteedu.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Online Payment
+              </a>
+            </Button>
+            <Button
+              asChild
               className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <a
@@ -172,6 +184,19 @@ export default function Navbar() {
                       </a>
                     )
                   )}
+                  <Button
+                    asChild
+                    className="bg-green-600 hover:bg-green-500 text-white mt-4 rounded-full"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <a
+                      href="https://payment.apexinstituteedu.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Online Payment
+                    </a>
+                  </Button>
                   <Button
                     asChild
                     className="bg-blue-600 hover:bg-blue-500 text-white mt-4 rounded-full"
