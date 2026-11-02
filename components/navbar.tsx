@@ -51,7 +51,7 @@ export default function Navbar() {
             />
           </a>
 
-          <div className="hidden md:flex items-center justify-center space-x-8 flex-1 px-8">
+          <div className="hidden xl:flex items-center justify-center space-x-8 flex-1 px-8">
             {navigation.map((item) =>
               item.children ? (
                 <div key={item.name} className="relative" ref={dropdownRef}>
@@ -126,7 +126,7 @@ export default function Navbar() {
             </Button>
           </div>
 
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
