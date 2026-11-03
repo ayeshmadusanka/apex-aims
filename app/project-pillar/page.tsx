@@ -1,33 +1,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
+import { PillarHero } from "@/components/pillar-hero";
 
 export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden">
-        <div className="relative w-full aspect-[18/5] overflow-hidden">
-          <div className="relative w-full h-full">
-            <Image
-              src="/images/project-pillar/Header.png"
-              alt="AIMS Professional Services - Project Pillar"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="container mx-auto px-4 flex items-center justify-center text-center">
-                <h1 className="text-4xl lg:text-5xl font-bold text-white">Project Pillar</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PillarHero
+        image="/images/project-pillar/Header.webp"
+        alt="AIMS Professional Services - Project Pillar"
+        title="Project Pillar"
+      />
 
-      <section className="py-20 bg-gray-50">
+      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg leading-relaxed text-gray-700">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-base leading-8 text-gray-700 sm:text-lg">
               AIMS is a premier management consulting firm that endeavors to augment the efficiency, effectiveness, and
               profitability of organizations. We facilitate the implementation of cutting-edge business operation
               strategies. These interventions are implemented by our team of highly qualified and experienced pool of
@@ -39,107 +26,107 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="bg-white py-14 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Solutions</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                image: "/images/project-pillar/Our Solutions/1.png",
+                image: "/images/project-pillar/Our Solutions/1.webp",
                 title: "Supervisor's Training & Development",
                 description: "Develop leadership skills for supervisors, line leaders, and team members"
               },
               {
-                image: "/images/project-pillar/Our Solutions/2.png",
+                image: "/images/project-pillar/Our Solutions/2.webp",
                 title: "Basic Training for Fundamental in Work Study",
                 description: "Comprehensive work study fundamentals for TL/GL, supervisors, and work study officers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/3.png",
+                image: "/images/project-pillar/Our Solutions/3.webp",
                 title: "Practical Approach of Work Study",
                 description: "Hands-on work study methodologies for supervisors and work study officers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/4.png",
+                image: "/images/project-pillar/Our Solutions/4.webp",
                 title: "Oraganizational Planning & Controlling",
                 description: "Essential merchandising skills for trainee and junior merchandisers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/6.png",
+                image: "/images/project-pillar/Our Solutions/6.webp",
                 title: "What is Industrial Engineering & Its Approaches",
                 description: "Understanding IE concepts and approaches for work study officers and executives"
               },
               {
-                image: "/images/project-pillar/Our Solutions/5.png",
+                image: "/images/project-pillar/Our Solutions/5.webp",
                 title: "How to Perform in Merchandising",
                 description: "Essential merchandising skills for trainee and junior merchandisers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/7.png",
+                image: "/images/project-pillar/Our Solutions/7.webp",
                 title: "Quality Management",
                 description: "Quality management systems for in-line QC, supervisors, and quality assistants"
               },
               {
-                image: "/images/project-pillar/Our Solutions/8.png",
+                image: "/images/project-pillar/Our Solutions/8.webp",
                 title: "Garment Training Costing Practical Program",
                 description: "Practical garment costing training program for all industrial engineers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/9.png",
+                image: "/images/project-pillar/Our Solutions/9.webp",
                 title: "Apparel Production Management",
                 description: "Production management skills for supervisors, line leaders, and team members"
               },
               {
-                image: "/images/project-pillar/Our Solutions/10.png",
+                image: "/images/project-pillar/Our Solutions/10.webp",
                 title: "Ergonomics & Work Design",
                 description: "Ergonomic principles and work design for leaders and team members"
               },
               {
-                image: "/images/project-pillar/Our Solutions/11.png",
+                image: "/images/project-pillar/Our Solutions/11.webp",
                 title: "Quality Controlling System",
                 description: "Quality control systems for in-line QC, supervisors, and quality assistants"
               },
               {
-                image: "/images/project-pillar/Our Solutions/12.png",
+                image: "/images/project-pillar/Our Solutions/12.webp",
                 title: "5S Implementation",
                 description: "Implement 5S methodology across all staff for workplace organization"
               },
               {
-                image: "/images/project-pillar/Our Solutions/13.png",
+                image: "/images/project-pillar/Our Solutions/13.webp",
                 title: "Process Mapping & Value Stream Mapping",
                 description: "Process and value stream mapping for management and executive staff"
               },
               {
-                image: "/images/project-pillar/Our Solutions/14.png",
+                image: "/images/project-pillar/Our Solutions/14.webp",
                 title: "STW, SOP & Process Analyzing",
                 description: "Standardized work, SOP development and process analysis techniques"
               },
               {
-                image: "/images/project-pillar/Our Solutions/15.png",
+                image: "/images/project-pillar/Our Solutions/15.webp",
                 title: "Management Skills for Managing Both Work Life & Personal Life",
                 description: "Balance work and personal life through effective management skills for all staff"
               }
-            ].map((solution, index) => (
-              <Card key={index} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
-                <div className="relative aspect-[20/13] bg-gray-100 overflow-hidden">
+            ].map((solution) => (
+              <Card key={solution.image} className="group overflow-hidden border border-gray-200 bg-white transition-shadow duration-200 hover:shadow-lg">
+                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
                   <Image
                     src={solution.image}
                     alt={solution.title}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-gray-900 text-center font-semibold group-hover:text-blue-600 transition-colors duration-300">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-left text-lg font-semibold leading-snug text-gray-900 transition-colors duration-200 group-hover:text-blue-700">
                     {solution.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <CardDescription className="text-gray-600 text-center text-sm leading-relaxed">
+                  <CardDescription className="text-left text-sm leading-relaxed text-gray-600">
                     {solution.description}
                   </CardDescription>
                 </CardContent>
@@ -149,19 +136,19 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Major Assistance</h2>
           </div>
 
-          <div className="max-w-6xl mx-auto space-y-12">
+          <div className="mx-auto max-w-6xl space-y-8">
             <Card className="bg-white border border-gray-200 shadow-sm">
               <CardHeader>
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="/images/project-pillar/Our Major Assistance/Hidramani Logo.png"
+                      src="/images/project-pillar/Our Major Assistance/Hidramani Logo.webp"
                       alt="Hirdaramani Logo"
                       width={64}
                       height={64}
@@ -175,7 +162,7 @@ export default function ProjectPillarPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="max-w-4xl text-base leading-7 text-gray-700">
                   Hirdaramani (Pvt) Ltd is one of the major company in the apparel field. This was a project on
                   Organizational Transformation. Therefore, we organized some programs to Transfer Lean knowledge &
                   Skills to leadership team. It included training the leadership team, application of lean through
@@ -191,7 +178,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="/images/project-pillar/Our Major Assistance/TTCL .png"
+                      src="/images/project-pillar/Our Major Assistance/TTCL .webp"
                       alt="Tucking Trading Company Logo"
                       width={64}
                       height={64}
@@ -207,7 +194,7 @@ export default function ProjectPillarPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="max-w-4xl text-base leading-7 text-gray-700">
                   In trading industry, Tucking Trading Company Limited (TTCL) Pvt Ltd is one of the leading in the
                   field. The project of TTCL was Reengineering the sales process to create a standardized sales process.
                   With the scope of establishing a standardized sales process, data collection and creating a
@@ -223,7 +210,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="/images/project-pillar/Our Major Assistance/Rusalu Logo.png"
+                      src="/images/project-pillar/Our Major Assistance/Rusalu Logo.webp"
                       alt="Ru Salu Clothing Logo"
                       width={64}
                       height={64}
@@ -237,7 +224,7 @@ export default function ProjectPillarPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="max-w-4xl text-base leading-7 text-gray-700">
                   These days we are having an ongoing project with Ru Salu (Pvt) Ltd. This is also a company in apparel
                   clothing. The project we are conducting is the quality control system and also the delivery system by
                   strengthening quality gates. As the scope, we recognized re-engineering the quality control system,
@@ -253,15 +240,15 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="mb-10 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Assistance in Leading Companies</h2>
             <p className="text-xl text-gray-600">Trusted by industry leaders across various sectors</p>
           </div>
 
         <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
               {[
                 { name: "Company 100", logo: "/images/company/company-logo-100.png" },
                 { name: "Company 101", logo: "/images/company/company-logo-101.png" },
@@ -303,17 +290,18 @@ export default function ProjectPillarPage() {
                 { name: "Company 138", logo: "/images/company/company-logo-138.png" },
                 { name: "Company 139", logo: "/images/company/company-logo-139.png" },
                 { name: "Company 140", logo: "/images/company/company-logo-140.png" },
-              ].map((company, index) => (
+              ].map((company) => (
                 <div
-                  key={index}
-                  className="flex items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-300"
+                  key={company.logo}
+                  className="flex h-24 items-center justify-center rounded-xl border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md"
                 >
                   <Image
                     src={company.logo}
                     alt={company.name}
                     width={120}
                     height={80}
-                    className="object-contain max-w-full max-h-full opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    sizes="120px"
+                    className="max-h-full max-w-full object-contain opacity-75 transition-opacity duration-200 hover:opacity-100"
                   />
                 </div>
               ))}

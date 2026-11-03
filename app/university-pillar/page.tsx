@@ -1,34 +1,31 @@
-import { Button } from "@/components/ui/button"
-import { GraduationCap } from "lucide-react"
-import Image from "next/image"
+import Image from "next/image";
+import { PillarHero } from "@/components/pillar-hero";
+
+const universities = [
+  { name: "Rajarata University of Sri Lanka", subtitle: "2021 Online & 2022 Physical Webinar", logo: "/images/university-pillar/UNI Logos/rajarata.webp" },
+  { name: "University of Moratuwa", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Moratu.webp" },
+  { name: "University of Sri Jayewardenepura", subtitle: "2020-2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/Japura.webp" },
+  { name: "University of Peradeniya", subtitle: "2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/Pera.webp" },
+  { name: "University of Vavuniya", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Vavuniya.webp" },
+  { name: "SLTC Research University", subtitle: "2021-2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/SLTC logo.webp" },
+  { name: "University of Sabaragamuwa", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Sabaragamuwa.webp" },
+  { name: "University of Wayamba", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Wayamaba.webp" },
+  { name: "Professional Development Programs", subtitle: "Industry-University Collaboration", logo: "/images/university-pillar/UNI Logos/Japura.webp" },
+];
 
 export default function UniversityPillarPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden">
-        <div className="relative w-full aspect-[18/5] overflow-hidden">
-          <div className="relative w-full h-full">
-            <Image
-              src="/images/university-pillar/UNI Logos/Header.png"
-              alt="AIMS Professional Services - University Pillar"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="container mx-auto px-4 flex items-center justify-center text-center">
-                <h1 className="text-4xl lg:text-5xl font-bold text-white">University Pillar</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PillarHero
+        image="/images/university-pillar/UNI Logos/Header.webp"
+        alt="AIMS Professional Services - University Pillar"
+        title="University Pillar"
+      />
 
-      <section className="py-20 bg-gray-50">
+      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <p className="text-lg leading-relaxed text-gray-700">
+          <div className="mx-auto max-w-3xl space-y-5 text-base leading-8 text-gray-700 sm:text-lg">
+            <p>
               At University Pillar, we take great pride in our successful track record of helping Manufacturing
               Companies achieve maximum production efficiency with the valuable contributions of our skilled Graduates.
               Our program has effectively eliminated the reluctance of Companies to hire University Graduates who may
@@ -36,12 +33,12 @@ export default function UniversityPillarPage() {
               and Private University Graduates to meet the requirements of the Manufacturing sector, working in close
               collaboration with their respective universities.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p>
               Our programs at AIMS are valued by seasoned university lecturers and industry veterans with over 10 years
               of work experience in their respective fields, ensuring the highest quality of professional education for
               our students.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p>
               At our organization, we're committed to helping individuals and organizations maximize their productivity
               and effectiveness. As part of this mission, we've conducted numerous webinar series at various
               universities, aimed at expanding knowledge and promoting awareness about the importance of productivity in
@@ -54,69 +51,36 @@ export default function UniversityPillarPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-14 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Universities we have partnered</h2>
+          <div className="mx-auto mb-8 max-w-6xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-blue-700">Our collaborations</p>
+            <h2 className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">Universities we have partnered</h2>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-12 mb-12">
-              {[
-                { name: "Rajarata University of Sri Lanka", subtitle: "2021 Online & 2022 Physical Webinar", logo: "/images/university-pillar/UNI Logos/rajarata.png" },
-                { name: "University of Moratuwa", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Moratu.png" },
-                { name: "University of Sri Jayewardenepura", subtitle: "2020-2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/Japura.png" },
-              ].map((university, index) => (
-                <div key={index} className="flex flex-col items-center justify-end p-4 bg-white h-64">
-                  <div className="flex-grow flex items-center justify-center">
-                    <Image src={university.logo} alt={`${university.name} logo`} width={120} height={80} objectFit="contain" />
-                  </div>
-                  <div className="text-center mt-auto">
-                    <h3 className="text-lg font-semibold text-gray-900">{university.name}</h3>
-                    <p className="text-gray-600 text-sm">{university.subtitle}</p>
-                  </div>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {universities.map((university) => (
+              <article
+                key={university.name}
+                className="flex min-h-64 flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="mb-5 flex h-28 items-center justify-center rounded-xl bg-gray-50 p-4">
+                  <Image
+                    src={university.logo}
+                    alt={`${university.name} logo`}
+                    width={220}
+                    height={120}
+                    sizes="220px"
+                    className="max-h-full w-auto object-contain"
+                  />
                 </div>
-              ))}
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-12 mb-12">
-              {[
-                { name: "University of Peradeniya", subtitle: "2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/Pera.png" },
-                { name: "University of Vavuniya", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Vavuniya.png" },
-                { name: "SLTC Research University", subtitle: "2021-2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/SLTC logo.png" },
-              ].map((university, index) => (
-                <div key={index} className="flex flex-col items-center justify-end p-4 bg-white h-64">
-                  <div className="flex-grow flex items-center justify-center">
-                    <Image src={university.logo} alt={`${university.name} logo`} width={120} height={80} objectFit="contain" />
-                  </div>
-                  <div className="text-center mt-auto">
-                    <h3 className="text-lg font-semibold text-gray-900">{university.name}</h3>
-                    <p className="text-gray-600 text-sm">{university.subtitle}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-12">
-              {[
-                { name: "University of Sabaragamuwa", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Sabaragamuwa.png" },
-                { name: "University of Wayamba", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Wayamaba.png" },
-                { name: "Professional Development Programs", subtitle: "Industry-University Collaboration", logo: "/images/university-pillar/UNI Logos/Japura.png" },
-              ].map((university, index) => (
-                <div key={index} className="flex flex-col items-center justify-end p-4 bg-white h-64">
-                  <div className="flex-grow flex items-center justify-center">
-                    <Image src={university.logo} alt={`${university.name} logo`} width={120} height={80} objectFit="contain" />
-                  </div>
-                  <div className="text-center mt-auto">
-                    <h3 className="text-lg font-semibold text-gray-900">{university.name}</h3>
-                    <p className="text-gray-600 text-sm">{university.subtitle}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                <h3 className="text-lg font-semibold leading-snug text-gray-900">{university.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{university.subtitle}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }

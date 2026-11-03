@@ -1,4 +1,6 @@
-const sections = [
+import PolicyLayout, { type PolicySection } from "@/components/policy-layout"
+
+const sections: PolicySection[] = [
   {
     title: "1. Introduction",
     content: <>
@@ -201,7 +203,7 @@ const sections = [
     title: "18. Contact Information",
     content: <>
       <p>For questions or clarification regarding these Terms and Conditions, please contact:</p>
-      <address className="not-italic">
+      <address>
         <p>Apex Institute of Management Services (AIMS)</p>
         <p>Address:</p>
         <p>No. 546/4, Galle Road,</p>
@@ -220,23 +222,10 @@ const sections = [
 
 export default function TermsAndConditionsPage() {
   return (
-    <div className="bg-gray-50 py-12 sm:py-16">
-      <article className="mx-auto max-w-4xl rounded-lg bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-12">
-        <header className="mb-10 border-b border-gray-200 pb-6">
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">TERMS AND CONDITIONS</h1>
-          <p className="mt-3 text-lg font-medium text-gray-700">Apex Institute of Management Services (AIMS)</p>
-          <p className="mt-2 text-gray-600">Effective Date: 03 November 2026</p>
-        </header>
-        <div className="space-y-8 text-gray-700 [&_li]:ml-6 [&_li]:list-disc [&_p+p]:mt-3 [&_ul]:mt-2 [&_ul]:space-y-1">
-          {sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="mb-3 text-xl font-semibold text-gray-900">{section.title}</h2>
-              {section.content}
-            </section>
-          ))}
-          <p className="border-t border-gray-200 pt-6 font-medium text-gray-900">Apex Institute of Management Services<br />All Rights Reserved.</p>
-        </div>
-      </article>
-    </div>
+    <PolicyLayout
+      title="TERMS AND CONDITIONS"
+      closingName="Apex Institute of Management Services"
+      sections={sections}
+    />
   )
 }

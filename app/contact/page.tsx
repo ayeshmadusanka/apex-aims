@@ -1,281 +1,145 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, MessageCircle, Building2, Facebook, Linkedin, Youtube } from "lucide-react"
-import Image from "next/image"
+import {
+  Building2,
+  Facebook,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Youtube,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import ContactForm from "@/components/contact-form"
+import PageHero from "@/components/page-hero"
+import SectionLabel from "@/components/section-label"
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_HREF,
+  INSTITUTE_ADDRESS,
+  MAP_URL,
+} from "@/lib/site-contact"
+
+const CONTACT_DETAILS: { label: string; value: string; href: string; icon: LucideIcon; external?: boolean }[] = [
+  {
+    label: "Visit us",
+    value: INSTITUTE_ADDRESS,
+    href: MAP_URL,
+    icon: MapPin,
+    external: true,
+  },
+  { label: "Call us", value: CONTACT_PHONE, href: CONTACT_PHONE_HREF, icon: Phone },
+  { label: "Email us", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, icon: Mail },
+]
+
+const SOCIAL_LINKS: { name: string; href: string; icon: LucideIcon | "tiktok" }[] = [
+  { name: "Facebook", href: "https://www.facebook.com/apexins.edu", icon: Facebook },
+  { name: "TikTok", href: "https://www.tiktok.com/@apex_institute_", icon: "tiktok" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/apexsrilanka/", icon: Linkedin },
+  { name: "YouTube", href: "https://www.youtube.com/@aimslk", icon: Youtube },
+]
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen">
-      <section className="relative w-full flex flex-col items-center justify-center overflow-hidden h-[150px] md:min-h-[200px] md:h-[40vh] md:max-h-[300px] bg-black">
-        <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
-          <div className="relative w-full h-full">
-            <Image
-              src="/images/hero/breadcrumb.png"
-              alt="AIMS Professional Services - Contact Us"
-              fill
-              className="object-cover opacity-80"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-[#0056B3]/50 to-black/50"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="container mx-auto px-4 flex items-center justify-center text-center">
-                <h1 className="text-4xl lg:text-5xl font-bold text-white">Contact Us</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="bg-white text-slate-900">
+      <PageHero title="Contact AIMS" />
 
-      <section className="py-12 lg:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
-        <div className="absolute top-20 -right-20 w-72 h-72 bg-[#0056B3]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 -left-20 w-96 h-96 bg-[#E41E26]/5 rounded-full blur-3xl"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 max-w-7xl mx-auto">
-            <div>
-              <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform hover:shadow-3xl transition-shadow duration-500">
-                <div className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] px-8 py-8">
-                  <h2 className="text-2xl font-bold text-white flex items-center">
-                    <MessageCircle className="w-6 h-6 mr-3 text-white" />
-                    Send Message
-                  </h2>
-                  <p className="text-white/90 mt-2">Fill out the form below to get in touch</p>
-                </div>
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8">
+          <ContactForm />
 
-                <div className="p-4 sm:p-8">
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName" className="text-sm font-semibold text-gray-800">First Name *</Label>
-                        <Input
-                          id="firstName"
-                          placeholder="Enter your first name"
-                          className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0056B3] focus:border-[#0056B3] transition-all duration-300"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName" className="text-sm font-semibold text-gray-800">Last Name *</Label>
-                        <Input
-                          id="lastName"
-                          placeholder="Enter your last name"
-                          className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0056B3] focus:border-[#0056B3] transition-all duration-300"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-semibold text-gray-800">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0056B3] focus:border-[#0056B3] transition-all duration-300"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-sm font-semibold text-gray-800">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="Enter your phone number"
-                        className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0056B3] focus:border-[#0056B3] transition-all duration-300"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message" className="text-sm font-semibold text-gray-800">Message *</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us about your requirements or questions..."
-                        rows={6}
-                        className="border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0056B3] focus:border-[#0056B3] transition-all duration-300 resize-none"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="group relative w-full py-4 px-6 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] hover:from-[#0056B3] hover:to-[#0056B3] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                      <MessageCircle className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                      <span className="relative">Send Message</span>
-                    </Button>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <h2 className="text-lg sm:text-xl font-bold text-white mb-2 flex items-center">
-                  <Building2 className="w-6 h-6 mr-3" />
+          <aside className="space-y-8">
+            <section aria-labelledby="contact-information-heading">
+              <div className="mb-5">
+                <SectionLabel icon={Building2}>Get in touch</SectionLabel>
+                <h2 id="contact-information-heading" className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
                   Contact Information
                 </h2>
-                <p className="text-white/90">Get in touch with our team</p>
+                <p className="mt-2 text-base leading-7 text-slate-600">Get in touch with our team.</p>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform hover:shadow-3xl transition-shadow duration-500">
-                <div className="p-4 sm:p-8">
-                  <div className="space-y-3">
-                    <a href="https://www.google.com/maps?q=No+546%2F4,+Galle+Road,+Colombo+03,+Sri+Lanka" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300">
-                      <div className="w-10 h-10 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center">
-                        <MapPin className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">Visit Us</p>
-                        <p className="text-xs text-gray-600">No 546/4, Galle Road, Colombo 03</p>
-                      </div>
-                    </a>
-                  <div className="space-y-3 mt-4">
-                    <a href="tel:+94777245172" className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300">
-                      <div className="w-10 h-10 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center">
-                        <Phone className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">Call Us</p>
-                        <p className="text-xs text-gray-600">077 724 5172</p>
-                      </div>
-                    </a>
-
-                    <a href="mailto:info@apexinstituteedu.com" className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300">
-                      <div className="w-10 h-10 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">Email Us</p>
-                        <p className="text-xs text-gray-600">info@apexinstituteedu.com</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
+              <div className="space-y-3">
+                {CONTACT_DETAILS.map(({ label, value, href, icon: Icon, external }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="group flex min-h-20 items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#263f6b]/40 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b] focus-visible:ring-offset-2"
+                  >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#263f6b] text-white">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-slate-900">{label}</span>
+                      <span className="block break-words text-sm leading-6 text-slate-600">{value}</span>
+                    </span>
+                  </a>
+                ))}
               </div>
-            </div>
+            </section>
 
-              <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform hover:shadow-3xl transition-shadow duration-500">
-                <div className="p-4 sm:p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
-                  <p className="text-sm text-gray-600 mb-4">Stay updated with our latest programs and news</p>
-                  <div className="grid grid-cols-2 gap-3">
-                    <a href="https://www.facebook.com/apexins.edu" target="_blank" rel="noopener noreferrer"
-                       className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
-                      <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                        <Facebook className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-sm font-medium text-gray-700">Facebook</span>
-                    </a>
-
-                    <a href="https://www.tiktok.com/@apex_institute_" target="_blank" rel="noopener noreferrer"
-                       className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
-                      <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                        <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            <section aria-labelledby="social-links-heading" className="border-t border-slate-200 pt-7">
+              <h2 id="social-links-heading" className="text-lg font-semibold text-slate-900">Follow Us</h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Stay updated with our latest programs and news.</p>
+              <ul className="mt-4 grid grid-cols-2 gap-3">
+                {SOCIAL_LINKS.map(({ name, href, icon: Icon }) => (
+                  <li key={name}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`AIMS on ${name} (opens in a new tab)`}
+                      className="flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#263f6b]/40 hover:bg-slate-50 hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b] focus-visible:ring-offset-2"
+                    >
+                      {Icon === "tiktok" ? (
+                        <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                         </svg>
-                      </div>
-                      <span className="text-sm font-medium text-gray-700">TikTok</span>
+                      ) : (
+                        <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      )}
+                      {name}
                     </a>
-
-                    <a href="https://www.linkedin.com/in/apexsrilanka/" target="_blank" rel="noopener noreferrer"
-                       className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
-                      <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                        <Linkedin className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-sm font-medium text-gray-700">LinkedIn</span>
-                    </a>
-
-                    <a href="https://www.youtube.com/@aimslk" target="_blank" rel="noopener noreferrer"
-                       className="flex items-center space-x-3 p-3 bg-gradient-to-r from-[#0056B3]/5 to-[#1E90FF]/5 rounded-lg hover:from-[#0056B3]/10 hover:to-[#1E90FF]/10 transition-all duration-300 group/btn">
-                      <div className="w-8 h-8 bg-gradient-to-r from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center group-hover/btn:scale-110 transition-transform">
-                        <Youtube className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-sm font-medium text-gray-700">YouTube</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </aside>
         </div>
       </section>
 
-    <section className="py-8 lg:py-12 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-        <div className="absolute top-40 -right-20 w-80 h-80 bg-[#1E90FF]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 -left-20 w-72 h-72 bg-[#0056B3]/5 rounded-full blur-3xl"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-[#0056B3]/10 border border-[#0056B3]/20 rounded-full text-sm font-medium text-[#0056B3] mb-6">
-              <MapPin className="w-4 h-4 mr-2" />
-              Our Location
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Visit Our <span className="bg-gradient-to-r from-[#0056B3] to-[#1E90FF] bg-clip-text text-transparent">Institute</span>
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-10 max-w-3xl text-center">
+            <SectionLabel icon={MapPin}>Our Location</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Visit Our <span className="text-[#263f6b]">Institute</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
               Located in the heart of Colombo, our institute is equipped with modern facilities to serve your educational needs.
             </p>
-          </div>
+          </header>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden transform hover:shadow-3xl transition-shadow duration-500">
-              <div className="relative">
-                <iframe
-                  src="https://www.google.com/maps?q=No+546%2F4,+Galle+Road,+Colombo+03,+Sri+Lanka&output=embed"
-                  width="100%"
-                  height="500"
-                  style={{ border: '0' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg px-4 py-3 border border-gray-100">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#0056B3] to-[#1E90FF] rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Main Branch</p>
-                      <p className="text-sm font-bold text-gray-900">Colombo, Sri Lanka</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-gray-50 to-white p-8 border-t border-gray-100">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#0056B3] to-[#1E90FF] rounded-xl flex items-center justify-center shadow-lg">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-500">Address</p>
-                      <p className="text-sm font-bold text-gray-900">No 546/4 Galle Road, Colombo 03</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#0056B3] to-[#1E90FF] rounded-xl flex items-center justify-center shadow-lg">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-500">Contact</p>
-                      <a href="tel:+94777245172" className="text-sm font-bold text-gray-900 hover:text-[#E41E26] transition-colors duration-200">077 724 5172</a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#0056B3] to-[#1E90FF] rounded-xl flex items-center justify-center shadow-lg">
-                      <Mail className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-500">Email</p>
-                      <a href="mailto:info@apexinstituteedu.com" className="text-sm font-bold text-gray-900 hover:text-[#E41E26] transition-colors duration-200">info@apexinstituteedu.com</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <iframe
+              src={`${MAP_URL}&output=embed`}
+              title="Map showing AIMS at No. 546/4, Galle Road, Colombo 03"
+              width="100%"
+              height="480"
+              className="block h-[320px] w-full sm:h-[400px] lg:h-[480px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="flex flex-col gap-3 border-t border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+              <p className="text-sm text-slate-600">{INSTITUTE_ADDRESS}</p>
+              <a
+                href={MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-[#263f6b] underline underline-offset-4 hover:text-[#1e3356] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b]"
+              >
+                Open directions
+              </a>
             </div>
           </div>
         </div>

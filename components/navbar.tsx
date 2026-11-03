@@ -1,9 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ChevronDown } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { ChevronDown, Menu } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -20,110 +25,126 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
+const externalLinks = [
+  {
+    name: "Online Payment",
+    href: "https://payment.apexinstituteedu.com",
+    style: "payment",
+  },
+  {
+    name: "Certificate Validation",
+    href: "https://validator.apexinstituteedu.com/",
+    style: "validation",
+  },
+  {
+    name: "LMS",
+    href: "https://lms.apexinstituteedu.com/",
+    style: "lms",
+  },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState<number | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     }
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const logo = (size: "mobile" | "desktop") => (
+    <img
+      src="/images/aims-logo.png"
+      alt="Apex Institute of Management Services"
+      width={270}
+      height={97}
+      className={size === "desktop" ? "block h-14 w-auto" : "block h-10 w-auto"}
+    />
+  );
+
   return (
-    <nav className="bg-[#263f6b] border-b border-[#1e3356] sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20 px-4">
-          <a href="/" className="flex items-center">
-            <img
-              src="/images/aims-logo.png"
-              alt="AIMS Logo"
-              width={120}
-              height={60}
-              className="h-12 w-auto"
-            />
+    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#263f6b] shadow-md shadow-slate-950/10">
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-[4.5rem] items-center justify-between gap-4 xl:h-20">
+          <a href="/" className="shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b]">
+            <span className="xl:hidden">{logo("mobile")}</span>
+            <span className="hidden xl:inline-flex">{logo("desktop")}</span>
           </a>
 
-          <div className="hidden xl:flex items-center justify-center space-x-8 flex-1 px-8">
-            {navigation.map((item) =>
-              item.children ? (
-                <div key={item.name} className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="flex items-center text-white hover:text-white font-medium transition-all duration-200 focus:outline-none hover:brightness-125"
+          <div className="hidden flex-1 items-center justify-end gap-7 xl:flex">
+            <div className="flex items-center gap-6">
+              {navigation.map((item) =>
+                item.children ? (
+                  <div key={item.name} className="relative" ref={dropdownRef}>
+                    <button
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded={dropdownOpen}
+                      onClick={() => setDropdownOpen((open) => !open)}
+                      className="inline-flex items-center gap-1 py-2 text-sm font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    >
+                      {item.name}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {dropdownOpen && (
+                      <div className="absolute left-0 top-full mt-2 min-w-52 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl shadow-slate-950/15">
+                        {item.children.map((child) => (
+                          <a
+                            key={child.name}
+                            href={child.href}
+                            className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b]"
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            {child.name}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="py-2 text-sm font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                   >
                     {item.name}
-                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {dropdownOpen && (
-                    <div className="absolute bg-[#324e84] mt-2 rounded-lg shadow-lg backdrop-blur-sm">
-                      {item.children.map((child) => (
-                        <a
-                          key={child.name}
-                          href={child.href}
-                          className="block text-white px-4 py-2 hover:bg-white hover:text-[#263f6b] rounded-lg transition-all duration-200"
-                          onClick={() => setDropdownOpen(false)}
-                        >
-                          {child.name}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
+                  </a>
+                ),
+              )}
+            </div>
+
+            <div className="flex items-center gap-2 border-l border-white/20 pl-6">
+              {externalLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-white hover:text-white font-medium transition-all duration-200 relative group hover:brightness-125"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex h-9 items-center rounded-md px-3 text-xs font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                    item.style === "payment"
+                      ? "bg-emerald-600 hover:bg-emerald-500"
+                      : item.style === "validation"
+                        ? "bg-blue-600 hover:bg-blue-500"
+                        : "bg-rose-700 hover:bg-rose-600"
+                  }`}
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
-              )
-            )}
-            <Button
-              asChild
-              className="bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <a
-                href="https://payment.apexinstituteedu.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Online Payment
-              </a>
-            </Button>
-            <Button
-              asChild
-              className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <a
-                href="https://validator.apexinstituteedu.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Certificate Validation
-              </a>
-            </Button>
-            <Button
-              asChild
-              className="bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <a
-                href="https://lms.apexinstituteedu.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LMS
-              </a>
-            </Button>
+              ))}
+            </div>
           </div>
 
           <div className="xl:hidden">
@@ -132,39 +153,49 @@ export default function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full text-white hover:brightness-125 h-10 w-10"
+                  aria-label="Open navigation menu"
+                  className="h-11 w-11 rounded-xl text-white hover:bg-white/10 hover:text-white"
                 >
-                  <Menu className="h-8 w-8" />
+                  <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[300px] sm:w-[400px] bg-[#263f6b] border-[#1e3356] text-white"
+                className="w-[min(88vw,400px)] border-[#1e3356] bg-[#263f6b] p-6 text-white"
               >
-                <div className="flex flex-col space-y-4 mt-8">
+                <div className="mb-8 border-b border-white/15 pb-6">
+                  <SheetTitle className="mb-4 text-left text-white">Explore AIMS</SheetTitle>
+                  <a href="/" onClick={() => setIsOpen(false)}>
+                    {logo("mobile")}
+                  </a>
+                </div>
+
+                <div className="flex flex-col gap-1">
                   {navigation.map((item, index) =>
                     item.children ? (
-                      <div key={item.name} className="flex flex-col">
+                      <div key={item.name}>
                         <button
+                          type="button"
+                          aria-expanded={expanded === index}
                           onClick={() =>
                             setExpanded(expanded === index ? null : index)
                           }
-                          className="flex items-center justify-between text-white font-medium px-4 py-2 hover:brightness-125"
+                          className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
                         >
                           {item.name}
                           <ChevronDown
-                            className={`h-4 w-4 transition-transform duration-200 ${
+                            className={`h-4 w-4 transition-transform ${
                               expanded === index ? "rotate-180" : ""
                             }`}
                           />
                         </button>
                         {expanded === index && (
-                          <div className="pl-6">
+                          <div className="mb-2 ml-3 border-l border-white/20 pl-3">
                             {item.children.map((child) => (
                               <a
                                 key={child.name}
                                 href={child.href}
-                                className="block text-white hover:text-[#263f6b] hover:bg-white font-medium py-2 px-2 rounded-lg transition-all duration-200"
+                                className="block rounded-lg px-3 py-2.5 text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-white"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {child.name}
@@ -177,52 +208,39 @@ export default function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="text-white hover:text-[#263f6b] hover:bg-white font-medium py-3 px-4 rounded-lg transition-all duration-200"
+                        className="rounded-lg px-3 py-3 font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
                       </a>
-                    )
+                    ),
                   )}
-                  <Button
-                    asChild
-                    className="bg-green-600 hover:bg-green-500 text-white mt-4 rounded-full"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <a
-                      href="https://payment.apexinstituteedu.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Online Payment
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
-                    className="bg-blue-600 hover:bg-blue-500 text-white mt-4 rounded-full"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <a
-                      href="https://validator.apexinstituteedu.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Certificate Validation
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
-                    className="bg-red-600 hover:bg-red-500 text-white mt-4 rounded-full"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <a
-                      href="https://lms.apexinstituteedu.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      LMS
-                    </a>
-                  </Button>
+                </div>
+
+                <div className="mt-6 border-t border-white/15 pt-6">
+                  <p className="mb-3 px-1 text-xs font-semibold uppercase tracking-wider text-white/55">
+                    Student Services
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {externalLinks.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex h-11 items-center justify-center rounded-md px-4 text-sm font-semibold text-white transition-colors ${
+                          item.style === "payment"
+                            ? "bg-emerald-600 hover:bg-emerald-500"
+                            : item.style === "validation"
+                              ? "bg-blue-600 hover:bg-blue-500"
+                              : "bg-rose-700 hover:bg-rose-600"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

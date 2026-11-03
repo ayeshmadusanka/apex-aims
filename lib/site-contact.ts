@@ -1,0 +1,5 @@
+export const CONTACT_EMAIL = "info@apexinstituteedu.com"
+export const CONTACT_PHONE = "077 724 5172"
+export const CONTACT_PHONE_HREF = "tel:+94777245172"
+export const INSTITUTE_ADDRESS = "No. 546/4, Galle Road, Colombo 03, Sri Lanka"
+export const MAP_URL = "https://www.google.com/maps?q=No+546%2F4,+Galle+Road,+Colombo+03,+Sri+Lanka"
