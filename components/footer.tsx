@@ -64,6 +64,21 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms-and-conditions" className="text-gray-300 hover:text-white transition-colors">
+                  Terms and Conditions
+                </a>
+              </li>
+              <li>
+                <a href="/refund-policy" className="text-gray-300 hover:text-white transition-colors">
+                  Refund Policy
+                </a>
+              </li>
+              <li>
                 <a
                   href="https://validator.apexinstituteedu.com/"
                   className="text-gray-300 hover:text-white transition-colors"
