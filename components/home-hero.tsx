@@ -2,7 +2,6 @@
 
 import { Pause, Play } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 import { useEffect, useState } from "react"
 
 const slides = [
@@ -53,22 +52,10 @@ export default function HomeHero() {
         />
         <div
           role="group"
-          aria-label="Hero actions and slide controls"
+          aria-label="Hero slide controls"
           className="absolute inset-x-0 bottom-1.5 z-10 flex justify-center px-2 sm:bottom-3"
         >
           <div className="flex items-center gap-1 rounded-full border border-white/45 bg-[#263f6b]/90 p-1 shadow-md backdrop-blur-xl sm:gap-1.5 sm:p-1.5">
-            <Link
-              href="/academic-pillar"
-              className="min-h-9 rounded-full bg-white px-3 py-2 text-[11px] font-semibold text-[#263f6b] transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] sm:text-xs"
-            >
-              Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="min-h-9 rounded-full px-3 py-2 text-[11px] font-semibold text-white transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] sm:text-xs"
-            >
-              Contact
-            </Link>
             <button
               type="button"
               onClick={() => setIsPaused((paused) => !paused)}

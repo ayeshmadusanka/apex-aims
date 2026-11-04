@@ -51,11 +51,6 @@ export const metadata = {
     creator: '@apex_institute',
     site: '@apex_institute',
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
   alternates: {
     canonical: 'https://apexinstituteedu.com/',
   },
@@ -63,7 +58,6 @@ export const metadata = {
     'apple-mobile-web-app-title': 'AIMS',
     'application-name': 'AIMS',
     'msapplication-TileColor': '#0056B3',
-    'msapplication-config': '/browserconfig.xml',
   },
 }
 
