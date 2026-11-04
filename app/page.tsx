@@ -64,7 +64,7 @@ export default function HomePage() {
           <div className="order-1 lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
               <Image
-                src="/images/about/aims-team.png"
+                src="/images/about/aims-team.webp"
                 alt="The AIMS professional team"
                 width={500}
                 height={300}
@@ -133,7 +133,7 @@ export default function HomePage() {
           <div className="order-1 lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
               <Image
-                src="/images/about/benefits-of-learning.png"
+                src="/images/about/benefits-of-learning.webp"
                 alt="Benefits of learning with AIMS"
                 width={600}
                 height={400}

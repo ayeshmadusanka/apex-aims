@@ -8,7 +8,7 @@ export default function PageHero({ title }: PageHeroProps) {
   return (
     <header className="relative flex min-h-40 items-center justify-center overflow-hidden bg-[#263f6b] px-4 py-8 sm:min-h-48">
       <Image
-        src="/images/hero/breadcrumb.png"
+        src="/images/hero/breadcrumb.webp"
         alt=""
         fill
         sizes="100vw"

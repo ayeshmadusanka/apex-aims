@@ -65,7 +65,7 @@ export default function Navbar() {
 
   const logo = (size: "mobile" | "desktop") => (
     <img
-      src="/images/about/aims-logo.png"
+      src="/images/about/aims-logo.webp"
       alt="Apex Institute of Management Services"
       width={270}
       height={97}

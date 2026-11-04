@@ -6,13 +6,13 @@ import SectionLabel from "@/components/section-label"
 const PRINCIPLES = [
   {
     title: "Our Vision",
-    image: "/images/about/vision.png",
+    image: "/images/about/vision.webp",
     description:
       "Our vision is to become the number one in empowering our students by providing the right guidance globally. Our vision is not about the quantity, but the quality as clearly manifested by our adherence to best standards and being up-to-date in our resources. We strive to be the leader in providing professional training and education in the manufacturing sector in the world.",
   },
   {
     title: "Our Mission",
-    image: "/images/about/mission.png",
+    image: "/images/about/mission.webp",
     description:
       "Grooming resourceful professionals while inculcating the spirit of scientific thinking in them to avail themselves to survive and excel in the manufacturing and service sectors is our mission. Our end product: dynamic individuals will be versatile additions to their organizations in both local and international corporate ambiance. Our well-experienced team is ready to facilitate our students' pursuit of excellence in accordance with their aptitude and aspirations.",
   },
@@ -57,7 +57,7 @@ export default function AboutPage() {
           <div className="order-1 lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
               <Image
-                src="/images/about/aims-team.png"
+                src="/images/about/aims-team.webp"
                 alt="AIMS global team and professional network"
                 width={600}
                 height={400}
@@ -110,7 +110,7 @@ export default function AboutPage() {
 
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
             <Image
-              src="/images/about/aims-team.png"
+              src="/images/about/aims-team.webp"
               alt="AIMS team"
               width={800}
               height={500}
@@ -136,7 +136,7 @@ export default function AboutPage() {
 
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
             <Image
-              src="/images/about/branches-and-international-platform.png"
+              src="/images/about/branches-and-international-platform.webp"
               alt="AIMS global branches and international online platform"
               width={1200}
               height={500}

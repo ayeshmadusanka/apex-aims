@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const partnerLogos = Array.from({ length: 41 }, (_, index) => ({
-  src: `/images/company/company-logo-${100 + index}.png`,
+  src: `/images/company/company-logo-${100 + index}.webp`,
   alt: `Partner organization ${index + 1}`,
   scale: index === 21 ? "scale-[3.5]" : "",
 }))
