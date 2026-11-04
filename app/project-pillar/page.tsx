@@ -6,7 +6,7 @@ export default function ProjectPillarPage() {
   return (
     <div className="min-h-screen bg-white">
       <PillarHero
-        image="/images/project-pillar/Header.webp"
+        image="/images/project-pillar/header.webp"
         alt="AIMS Professional Services - Project Pillar"
         title="Project Pillar"
       />
@@ -35,77 +35,77 @@ export default function ProjectPillarPage() {
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                image: "/images/project-pillar/Our Solutions/1.webp",
+                image: "/images/project-pillar/solutions/supervisors-training-development.webp",
                 title: "Supervisor's Training & Development",
                 description: "Develop leadership skills for supervisors, line leaders, and team members"
               },
               {
-                image: "/images/project-pillar/Our Solutions/2.webp",
+                image: "/images/project-pillar/solutions/work-study-fundamentals.webp",
                 title: "Basic Training for Fundamental in Work Study",
                 description: "Comprehensive work study fundamentals for TL/GL, supervisors, and work study officers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/3.webp",
+                image: "/images/project-pillar/solutions/practical-work-study.webp",
                 title: "Practical Approach of Work Study",
                 description: "Hands-on work study methodologies for supervisors and work study officers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/4.webp",
+                image: "/images/project-pillar/solutions/organizational-planning-controlling.webp",
                 title: "Oraganizational Planning & Controlling",
                 description: "Essential merchandising skills for trainee and junior merchandisers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/6.webp",
+                image: "/images/project-pillar/solutions/industrial-engineering-approaches.webp",
                 title: "What is Industrial Engineering & Its Approaches",
                 description: "Understanding IE concepts and approaches for work study officers and executives"
               },
               {
-                image: "/images/project-pillar/Our Solutions/5.webp",
+                image: "/images/project-pillar/solutions/merchandising-practice.webp",
                 title: "How to Perform in Merchandising",
                 description: "Essential merchandising skills for trainee and junior merchandisers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/7.webp",
+                image: "/images/project-pillar/solutions/quality-management.webp",
                 title: "Quality Management",
                 description: "Quality management systems for in-line QC, supervisors, and quality assistants"
               },
               {
-                image: "/images/project-pillar/Our Solutions/8.webp",
+                image: "/images/project-pillar/solutions/garment-training-costing.webp",
                 title: "Garment Training Costing Practical Program",
                 description: "Practical garment costing training program for all industrial engineers"
               },
               {
-                image: "/images/project-pillar/Our Solutions/9.webp",
+                image: "/images/project-pillar/solutions/apparel-production-management.webp",
                 title: "Apparel Production Management",
                 description: "Production management skills for supervisors, line leaders, and team members"
               },
               {
-                image: "/images/project-pillar/Our Solutions/10.webp",
+                image: "/images/project-pillar/solutions/ergonomics-work-design.webp",
                 title: "Ergonomics & Work Design",
                 description: "Ergonomic principles and work design for leaders and team members"
               },
               {
-                image: "/images/project-pillar/Our Solutions/11.webp",
+                image: "/images/project-pillar/solutions/quality-control-system.webp",
                 title: "Quality Controlling System",
                 description: "Quality control systems for in-line QC, supervisors, and quality assistants"
               },
               {
-                image: "/images/project-pillar/Our Solutions/12.webp",
+                image: "/images/project-pillar/solutions/5s-implementation.webp",
                 title: "5S Implementation",
                 description: "Implement 5S methodology across all staff for workplace organization"
               },
               {
-                image: "/images/project-pillar/Our Solutions/13.webp",
+                image: "/images/project-pillar/solutions/process-mapping-value-stream-mapping.webp",
                 title: "Process Mapping & Value Stream Mapping",
                 description: "Process and value stream mapping for management and executive staff"
               },
               {
-                image: "/images/project-pillar/Our Solutions/14.webp",
+                image: "/images/project-pillar/solutions/standardized-work-sop-process-analysis.webp",
                 title: "STW, SOP & Process Analyzing",
                 description: "Standardized work, SOP development and process analysis techniques"
               },
               {
-                image: "/images/project-pillar/Our Solutions/15.webp",
+                image: "/images/project-pillar/solutions/work-life-personal-life-management.webp",
                 title: "Management Skills for Managing Both Work Life & Personal Life",
                 description: "Balance work and personal life through effective management skills for all staff"
               }
@@ -148,7 +148,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="/images/project-pillar/Our Major Assistance/Hidramani Logo.webp"
+                      src="/images/project-pillar/major-assistance/hirdaramani-logo.webp"
                       alt="Hirdaramani Logo"
                       width={64}
                       height={64}
@@ -178,7 +178,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="/images/project-pillar/Our Major Assistance/TTCL .webp"
+                      src="/images/project-pillar/major-assistance/ttcl-logo.webp"
                       alt="Tucking Trading Company Logo"
                       width={64}
                       height={64}
@@ -210,7 +210,7 @@ export default function ProjectPillarPage() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
-                      src="/images/project-pillar/Our Major Assistance/Rusalu Logo.webp"
+                      src="/images/project-pillar/major-assistance/ru-salu-logo.webp"
                       alt="Ru Salu Clothing Logo"
                       width={64}
                       height={64}

@@ -2,22 +2,22 @@ import Image from "next/image";
 import { PillarHero } from "@/components/pillar-hero";
 
 const universities = [
-  { name: "Rajarata University of Sri Lanka", subtitle: "2021 Online & 2022 Physical Webinar", logo: "/images/university-pillar/UNI Logos/rajarata.webp" },
-  { name: "University of Moratuwa", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Moratu.webp" },
-  { name: "University of Sri Jayewardenepura", subtitle: "2020-2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/Japura.webp" },
-  { name: "University of Peradeniya", subtitle: "2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/Pera.webp" },
-  { name: "University of Vavuniya", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Vavuniya.webp" },
-  { name: "SLTC Research University", subtitle: "2021-2022 Online Webinar", logo: "/images/university-pillar/UNI Logos/SLTC logo.webp" },
-  { name: "University of Sabaragamuwa", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Sabaragamuwa.webp" },
-  { name: "University of Wayamba", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/UNI Logos/Wayamaba.webp" },
-  { name: "Professional Development Programs", subtitle: "Industry-University Collaboration", logo: "/images/university-pillar/UNI Logos/Japura.webp" },
+  { name: "Rajarata University of Sri Lanka", subtitle: "2021 Online & 2022 Physical Webinar", logo: "/images/university-pillar/logos/rajarata.webp" },
+  { name: "University of Moratuwa", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/logos/moratuwa.webp" },
+  { name: "University of Sri Jayewardenepura", subtitle: "2020-2022 Online Webinar", logo: "/images/university-pillar/logos/sri-jayewardenepura.webp" },
+  { name: "University of Peradeniya", subtitle: "2022 Online Webinar", logo: "/images/university-pillar/logos/peradeniya.webp" },
+  { name: "University of Vavuniya", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/logos/vavuniya.webp" },
+  { name: "SLTC Research University", subtitle: "2021-2022 Online Webinar", logo: "/images/university-pillar/logos/sltc-research-university.webp" },
+  { name: "University of Sabaragamuwa", subtitle: "2021 Online Webinar", logo: "/images/university-pillar/logos/sabaragamuwa.webp" },
+  { name: "University of Wayamba", subtitle: "2016-2021 Online Webinar", logo: "/images/university-pillar/logos/wayamba.webp" },
+  { name: "Professional Development Programs", subtitle: "Industry-University Collaboration", logo: "/images/university-pillar/logos/sri-jayewardenepura.webp" },
 ];
 
 export default function UniversityPillarPage() {
   return (
     <div className="min-h-screen bg-white">
       <PillarHero
-        image="/images/university-pillar/UNI Logos/Header.webp"
+        image="/images/university-pillar/logos/header.webp"
         alt="AIMS Professional Services - University Pillar"
         title="University Pillar"
       />

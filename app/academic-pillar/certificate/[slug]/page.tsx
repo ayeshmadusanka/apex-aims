@@ -4,7 +4,7 @@ const courses = {
   "certificate-in-work-study": {
     title: "Certificate in Work Study",
     subtitle: "Join with Industry Professionals to Boost Your Career",
-    image: "/images/academic-pillar/Certificate Courses/1.png",
+    image: "/images/academic-pillar/certificate-courses/certificate-in-work-study.webp",
     description: "Take the next step in your professional journey with our comprehensive Certificate in Work Study. Designed for those seeking to optimize industrial efficiency, this course bridges the gap between theoretical knowledge and practical industry application.",
     courseContent: [
       "Work-study Fundamentals: Understanding the core principles of productivity",
@@ -32,7 +32,7 @@ const courses = {
   "workstudy-nvq-level-4": {
     title: "Certificate in Industrial Engineering (Work Study)",
     subtitle: "Obtain a Locally and Internationally Recognized Qualification",
-    image: "/images/academic-pillar/Certificate Courses/2.png",
+    image: "/images/academic-pillar/certificate-courses/workstudy-nvq-level-4.webp",
     description: "Obtain a locally and internationally recognized NVQ Level 4 certificate. This program is TVEC approved and designed to equip you with essential skills in industrial engineering and work study.",
     courseContent: [
       "NVQ Level 4 Qualification Framework",
@@ -65,7 +65,7 @@ const courses = {
   "certificate-in-merchandising": {
     title: "Certificate in Merchandising",
     subtitle: "Keep Pursuing Your Passion",
-    image: "/images/academic-pillar/Certificate Courses/3.png",
+    image: "/images/academic-pillar/certificate-courses/certificate-in-merchandising.webp",
     description: "Develop your expertise in the apparel industry with our specialized Certificate in Merchandising. This program is designed for school leavers and industry staff who want to master the commercial and technical aspects of garment production and supply chain management.",
     courseContent: [
       "Fundamentals: Introduction to Merchandising and Garment Costing",
@@ -95,7 +95,7 @@ const courses = {
   "quality-assurance-management": {
     title: "Certificate in Quality Assurance Management",
     subtitle: "Master Quality Control and Assurance",
-    image: "/images/academic-pillar/Certificate Courses/4.png",
+    image: "/images/academic-pillar/certificate-courses/quality-assurance-management.webp",
     description: "Master the principles of quality control and assurance with a program tailored for professionals in the manufacturing sector. This course focuses on ensuring product excellence through systematic process management.",
     courseContent: [
       "Fundamentals: Introduction to Quality and the History of Quality",
@@ -122,7 +122,7 @@ const courses = {
   "advanced-certificate-apparel-production-management": {
     title: "Advanced Certificate in Apparel Production Management",
     subtitle: "Empower Your Career in the Apparel Industry",
-    image: "/images/academic-pillar/Certificate Courses/5.png",
+    image: "/images/academic-pillar/certificate-courses/advanced-certificate-apparel-production-management.webp",
     description: "Empower your career in the apparel industry with a comprehensive understanding of production lifecycles. This advanced program is designed for current production staff and emerging leaders who want to master efficiency and supervisory management.",
     courseContent: [
       "Production Management: Core principles of garment production management",
@@ -147,7 +147,7 @@ const courses = {
   "pattern-making-grading": {
     title: "Certificate in Pattern Making & Grading",
     subtitle: "Master Precision Garment Construction",
-    image: "/images/academic-pillar/Certificate Courses/6.png",
+    image: "/images/academic-pillar/certificate-courses/pattern-making-and-grading.webp",
     description: "Master the technical art of precision garment construction through our specialized program in pattern production and grading. This course is designed to provide both theoretical understanding and practical expertise in creating manufacturing-ready patterns.",
     courseContent: [
       "Introduction to Pattern Production: Fundamental concepts of the craft",
@@ -176,7 +176,7 @@ const courses = {
   "organization-planning-controlling": {
     title: "Advanced Certificate in Organization Planning & Controlling",
     subtitle: "Enhance Your Strategic and Operational Capabilities",
-    image: "/images/academic-pillar/Certificate Courses/7.png",
+    image: "/images/academic-pillar/certificate-courses/organization-planning-and-controlling.webp",
     description: "Enhance your strategic and operational capabilities with our Advanced Certificate in Organization Planning & Controlling. This program focuses on optimizing manufacturing workflows, resource allocation, and performance monitoring to ensure organizational efficiency.",
     courseContent: [
       "Strategic Planning: Setting organizational objectives and defining long-term roadmaps",

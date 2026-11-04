@@ -1,9 +1,19 @@
-import { Award, CalendarDays, CheckCircle2, Clock3, DollarSign, GraduationCap, Users } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Award,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+  DollarSign,
+  GraduationCap,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type CourseLogistics = {
   duration?: string;
@@ -28,10 +38,10 @@ type CourseRequirements = {
 
 export type AcademicCourse = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   image: string;
   description: string;
-  courseContent: string[];
+  courseContent?: string[];
   duration: string;
   badge: string;
   logistics?: CourseLogistics;
@@ -44,8 +54,17 @@ export type AcademicCourse = {
 type DetailItem = {
   label: string;
   value: string;
-  icon: typeof Clock3;
+  icon: LucideIcon;
 };
+
+function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return (
+    <header className="mb-7">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#263f6b]">{eyebrow}</p>
+      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">{title}</h2>
+    </header>
+  );
+}
 
 function asList(value: string | string[] | undefined) {
   if (!value) return [];
@@ -93,98 +112,97 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="relative isolate flex min-h-[290px] items-center justify-center overflow-hidden bg-[#15233a] px-4 py-14 sm:min-h-[360px] md:min-h-[420px]">
+    <main className="min-h-screen bg-white text-slate-900">
+      <section className="relative isolate flex min-h-[320px] w-full items-center justify-center overflow-hidden bg-[#15233a] px-5 py-14 sm:aspect-[18/5] sm:min-h-[300px] sm:px-8 md:min-h-[360px]">
         <Image src={course.image} alt="" fill priority sizes="100vw" className="object-cover" />
-        <div aria-hidden="true" className="absolute inset-0 bg-[#15233a]/70" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#15233a]/90 via-[#15233a]/65 to-[#15233a]/40" />
         <div className="relative mx-auto w-full max-w-5xl text-center">
-          <Badge className="mb-5 border border-white/30 bg-white/15 px-4 py-1.5 text-sm text-white backdrop-blur-sm">
+          <Badge className="mb-5 border border-white/35 bg-white/15 px-4 py-1.5 text-sm text-white backdrop-blur-sm">
             {course.badge}
           </Badge>
-          <h1 className="text-balance text-3xl font-semibold tracking-tight text-white drop-shadow sm:text-4xl md:text-5xl">
+          <h1 className="mx-auto max-w-4xl text-balance text-3xl font-semibold tracking-tight text-white drop-shadow sm:text-4xl md:text-5xl">
             {course.title}
           </h1>
-          <p className="mx-auto mt-4 max-w-3xl text-pretty text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
-            {course.subtitle}
-          </p>
+          {course.subtitle && (
+            <p className="mx-auto mt-4 max-w-3xl text-pretty text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
+              {course.subtitle}
+            </p>
+          )}
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-white px-4 py-12 sm:py-16">
+      <section className="border-b border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Course Overview</h2>
-          <p className="mt-5 text-base leading-8 text-slate-700 sm:text-lg">{course.description}</p>
+          <SectionHeading eyebrow="Programme overview" title="Practical learning for your next step" />
+          <p className="text-base leading-8 text-slate-600 sm:text-lg">{course.description}</p>
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-slate-50/60 px-4 py-12 sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Course Content</h2>
-          <Card className="mt-7 border-slate-200 shadow-sm">
-            <CardContent className="p-5 sm:p-7">
-              <ul className="space-y-4">
-                {course.courseContent.map((item, index) => (
-                  <li key={`${index}-${item}`} className="flex items-start gap-3 text-slate-700">
-                    <CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#263f6b]" />
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      {course.courseContent && course.courseContent.length > 0 && (
+        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16">
+          <div className="mx-auto max-w-5xl">
+            <SectionHeading eyebrow="What you will learn" title="Course content" />
+            <ol className="divide-y divide-slate-200 border-y border-slate-200">
+              {course.courseContent.map((item, index) => (
+                <li key={`${index}-${item}`} className="flex items-start gap-4 py-5 sm:gap-6">
+                  <span className="mt-0.5 min-w-8 font-mono text-sm font-semibold tabular-nums text-[#263f6b]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 text-base leading-7 text-slate-700">{item}</span>
+                  <CheckCircle2 aria-hidden="true" className="mt-1 size-5 shrink-0 text-[#263f6b]" />
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
 
       {logistics.length > 0 && (
-        <section className="border-t border-slate-200 bg-white px-4 py-12 sm:py-16">
+        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
           <div className="mx-auto max-w-5xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Course Logistics</h2>
-            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <SectionHeading eyebrow="Plan your study" title="Course details" />
+            <dl className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
               {logistics.map(({ label, value, icon: Icon }) => (
-                <Card key={label} className="border-slate-200 shadow-sm">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="flex items-center gap-2 text-base font-semibold text-slate-900">
-                      <Icon aria-hidden="true" className="size-5 text-[#263f6b]" />
-                      {label}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm leading-relaxed text-slate-700">{value}</CardContent>
-                </Card>
+                <div key={label} className="border-t border-slate-200 py-5">
+                  <dt className="flex items-center gap-2 text-sm font-medium text-slate-500">
+                    <Icon aria-hidden="true" className="size-4 text-[#263f6b]" />
+                    {label}
+                  </dt>
+                  <dd className="mt-2 text-base font-medium leading-relaxed text-slate-900">{value}</dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
       )}
 
       {requirements.length > 0 && (
-        <section className="border-t border-slate-200 bg-slate-50/60 px-4 py-12 sm:py-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Entry Requirements</h2>
-            <Card className="mt-7 border-slate-200 shadow-sm">
-              <CardContent className="grid gap-5 p-5 sm:grid-cols-2 sm:p-7">
-                {requirements.map(({ label, value, icon: Icon }) => (
-                  <div key={label} className="flex items-start gap-3">
-                    <Icon aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#263f6b]" />
-                    <div>
-                      <p className="font-semibold text-slate-900">{label}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-700">{value}</p>
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
+        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
+          <div className="mx-auto max-w-5xl">
+            <SectionHeading eyebrow="Before you apply" title="Entry requirements" />
+            <dl className="grid gap-x-10 sm:grid-cols-2">
+              {requirements.map(({ label, value, icon: Icon }) => (
+                <div key={label} className="border-t border-slate-200 py-5">
+                  <dt className="flex items-center gap-2 text-sm font-medium text-slate-500">
+                    <Icon aria-hidden="true" className="size-4 text-[#263f6b]" />
+                    {label}
+                  </dt>
+                  <dd className="mt-2 text-base leading-relaxed text-slate-700">{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
       )}
 
       {course.whyAims && course.whyAims.length > 0 && (
-        <section className="border-t border-slate-200 bg-white px-4 py-12 sm:py-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Why AIMS?</h2>
-            <ul className="mt-7 grid gap-4 sm:grid-cols-2">
+        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
+          <div className="mx-auto max-w-5xl">
+            <SectionHeading eyebrow="Learn with AIMS" title="Why AIMS?" />
+            <ul className="grid gap-x-10 sm:grid-cols-2">
               {course.whyAims.map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-xl border border-slate-200 p-5 text-slate-700">
-                  <CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#263f6b]" />
+                <li key={item} className="flex items-start gap-3 border-t border-slate-200 py-5 text-slate-700">
+                  <CheckCircle2 aria-hidden="true" className="mt-1 size-5 shrink-0 text-[#263f6b]" />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
@@ -194,14 +212,17 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
       )}
 
       {recognitions.length > 0 && (
-        <section className="border-t border-slate-200 bg-slate-50/60 px-4 py-12 sm:py-16">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Recognition and Accreditation</h2>
-            <ul className="mt-7 grid gap-4 sm:grid-cols-2">
+        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
+          <div className="mx-auto max-w-5xl">
+            <SectionHeading eyebrow="Quality and recognition" title="Accreditation and certification" />
+            <ul className="grid gap-x-10 sm:grid-cols-2">
               {recognitions.map(({ label, value }, index) => (
-                <li key={`${label}-${index}`} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5 text-slate-700">
-                  <Award aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#263f6b]" />
-                  <span className="leading-relaxed">{value}</span>
+                <li key={`${label}-${index}`} className="flex items-start gap-3 border-t border-slate-200 py-5">
+                  <Award aria-hidden="true" className="mt-1 size-5 shrink-0 text-[#263f6b]" />
+                  <div>
+                    <p className="text-sm font-medium text-slate-500">{label}</p>
+                    <p className="mt-1 leading-relaxed text-slate-700">{value}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -209,18 +230,23 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
         </section>
       )}
 
-      <section className="bg-[#263f6b] px-4 py-12 sm:py-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">Ready to Start Your Journey?</h2>
-          <p className="mt-3 text-base leading-relaxed text-white/85 sm:text-lg">
+      <section className="border-t border-white/15 bg-[#263f6b] px-5 py-12 text-white sm:px-8 sm:py-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">Take your next step</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">Ready to start your journey?</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
             Enroll now and take the first step towards advancing your career
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" className="bg-white text-[#263f6b] hover:bg-slate-100">
-              <Link href="/contact">Enroll Now</Link>
+              <Link href="/contact">
+                Enroll Now <ArrowRight aria-hidden="true" />
+              </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white bg-transparent text-white hover:bg-white/10">
-              <Link href="/academic-pillar">Back to Courses</Link>
+            <Button asChild size="lg" variant="outline" className="border-white/70 bg-transparent text-white hover:bg-white/10">
+              <Link href="/academic-pillar">
+                <ArrowLeft aria-hidden="true" /> Back to Courses
+              </Link>
             </Button>
           </div>
         </div>

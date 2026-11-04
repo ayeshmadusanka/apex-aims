@@ -65,7 +65,7 @@ export default function Navbar() {
 
   const logo = (size: "mobile" | "desktop") => (
     <img
-      src="/images/aims-logo.png"
+      src="/images/about/aims-logo.png"
       alt="Apex Institute of Management Services"
       width={270}
       height={97}
@@ -74,10 +74,10 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#263f6b] shadow-md shadow-slate-950/10">
+    <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-sm shadow-slate-900/5 backdrop-blur-xl">
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-[4.5rem] items-center justify-between gap-4 xl:h-20">
-          <a href="/" className="shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b]">
+          <a href="/" className="shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b] focus-visible:ring-offset-2 focus-visible:ring-offset-white">
             <span className="xl:hidden">{logo("mobile")}</span>
             <span className="hidden xl:inline-flex">{logo("desktop")}</span>
           </a>
@@ -92,7 +92,7 @@ export default function Navbar() {
                       aria-haspopup="menu"
                       aria-expanded={dropdownOpen}
                       onClick={() => setDropdownOpen((open) => !open)}
-                      className="inline-flex items-center gap-1 py-2 text-sm font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      className="inline-flex items-center gap-1 py-2 text-sm font-medium text-slate-700 transition-colors hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b]"
                     >
                       {item.name}
                       <ChevronDown
@@ -118,7 +118,7 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="py-2 text-sm font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    className="py-2 text-sm font-medium text-slate-700 transition-colors hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b]"
                   >
                     {item.name}
                   </a>
@@ -126,14 +126,14 @@ export default function Navbar() {
               )}
             </div>
 
-            <div className="flex items-center gap-2 border-l border-white/20 pl-6">
+            <div className="flex items-center gap-2 border-l border-slate-200 pl-6">
               {externalLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex h-9 items-center rounded-md px-3 text-xs font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                  className={`inline-flex h-9 items-center rounded-lg px-3 text-xs font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                     item.style === "payment"
                       ? "bg-emerald-600 hover:bg-emerald-500"
                       : item.style === "validation"
@@ -154,17 +154,17 @@ export default function Navbar() {
                   variant="ghost"
                   size="icon"
                   aria-label="Open navigation menu"
-                  className="h-11 w-11 rounded-xl text-white hover:bg-white/10 hover:text-white"
+                  className="h-11 w-11 rounded-xl text-slate-700 hover:bg-slate-100 hover:text-[#263f6b]"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[min(88vw,400px)] border-[#1e3356] bg-[#263f6b] p-6 text-white"
+                className="w-[min(88vw,400px)] border-slate-200 bg-white p-6 text-slate-900"
               >
-                <div className="mb-8 border-b border-white/15 pb-6">
-                  <SheetTitle className="mb-4 text-left text-white">Explore AIMS</SheetTitle>
+                <div className="mb-8 border-b border-slate-200 pb-6">
+                  <SheetTitle className="mb-4 text-left text-slate-900">Explore AIMS</SheetTitle>
                   <a href="/" onClick={() => setIsOpen(false)}>
                     {logo("mobile")}
                   </a>
@@ -180,7 +180,7 @@ export default function Navbar() {
                           onClick={() =>
                             setExpanded(expanded === index ? null : index)
                           }
-                          className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+                          className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-[#263f6b]"
                         >
                           {item.name}
                           <ChevronDown
@@ -190,12 +190,12 @@ export default function Navbar() {
                           />
                         </button>
                         {expanded === index && (
-                          <div className="mb-2 ml-3 border-l border-white/20 pl-3">
+                          <div className="mb-2 ml-3 border-l border-slate-200 pl-3">
                             {item.children.map((child) => (
                               <a
                                 key={child.name}
                                 href={child.href}
-                                className="block rounded-lg px-3 py-2.5 text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+                                className="block rounded-lg px-3 py-2.5 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#263f6b]"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {child.name}
@@ -208,7 +208,7 @@ export default function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="rounded-lg px-3 py-3 font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+                        className="rounded-lg px-3 py-3 font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-[#263f6b]"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
@@ -217,8 +217,8 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <div className="mt-6 border-t border-white/15 pt-6">
-                  <p className="mb-3 px-1 text-xs font-semibold uppercase tracking-wider text-white/55">
+                <div className="mt-6 border-t border-slate-200 pt-6">
+                  <p className="mb-3 px-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Student Services
                   </p>
                   <div className="flex flex-col gap-2">
@@ -228,7 +228,7 @@ export default function Navbar() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex h-11 items-center justify-center rounded-md px-4 text-sm font-semibold text-white transition-colors ${
+                        className={`flex h-11 items-center justify-center rounded-lg px-4 text-sm font-semibold text-white transition-colors ${
                           item.style === "payment"
                             ? "bg-emerald-600 hover:bg-emerald-500"
                             : item.style === "validation"

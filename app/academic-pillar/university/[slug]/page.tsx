@@ -4,7 +4,7 @@ const courses = {
   "industrial-engineering-process-excellence": {
     title: "Industrial Engineering and Process Excellence",
     subtitle: "Master Industrial Engineering Principles",
-    image: "/images/academic-pillar/Courses for University Students/23.png",
+    image: "/images/academic-pillar/university-courses/industrial-engineering-process-excellence.webp",
     description: "Gain comprehensive knowledge in industrial engineering principles and process optimization techniques designed for university students.",
     courseContent: [
       "Industrial Engineering Fundamentals: Core concepts and methodologies",
@@ -26,7 +26,7 @@ const courses = {
   "certified-pmts-costing-practitioner": {
     title: "Certified PMTS & Costing Practitioner Program",
     subtitle: "Enhance your technical expertise in predetermined motion time systems and financial garment analysis.",
-    image: "/images/academic-pillar/Courses for University Students/24.png",
+    image: "/images/academic-pillar/university-courses/certified-pmts-costing-practitioner.webp",
     description: "This practitioner course is designed to bridge the gap between technical operations and executive-level cost management within the apparel industry.",
     courseContent: [
       "MTM1: Comprehensive study of Methods-Time Measurement level 1",
@@ -54,7 +54,7 @@ const courses = {
   "certificate-in-merchandising-university": {
     title: "Certificate in Merchandising",
     subtitle: "Specialized Merchandising Training",
-    image: "/images/academic-pillar/Courses for University Students/25.png",
+    image: "/images/academic-pillar/university-courses/certificate-in-merchandising.webp",
     description: "Develop specialized skills in retail merchandising and product management tailored for university students.",
     courseContent: [
       "Introduction to Merchandising: Fundamentals of the field",
@@ -76,7 +76,7 @@ const courses = {
   "certified-lean-white-belt-university": {
     title: "Certified Lean White Belt Practitioner Program",
     subtitle: "Foundation Level Lean Principles",
-    image: "/images/academic-pillar/Courses for University Students/Academic Pillar Images.png",
+    image: "/images/academic-pillar/university-courses/lean-white-belt.webp",
     description: "Gain foundational knowledge in lean principles and basic improvement tools designed for university students.",
     courseContent: [
       "Lean Fundamentals: Introduction to Lean principles",

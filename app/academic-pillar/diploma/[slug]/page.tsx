@@ -4,7 +4,7 @@ const courses = {
   "diploma-in-industrial-engineering": {
     title: "Diploma in Industrial Engineering",
     subtitle: "Get Your Dream Job With Better Reputation",
-    image: "/images/academic-pillar/Diploma Courses/9.png",
+    image: "/images/academic-pillar/diploma-courses/industrial-engineering.webp",
     description: "Elevate your professional standing with our comprehensive Diploma in Industrial Engineering. This program is designed to provide high-level expertise in operational efficiency and workplace engineering, positioning you for top-tier roles in the industry.",
     courseContent: [
       "Engineering Fundamentals: Introduction to Industrial Engineering",
@@ -32,7 +32,7 @@ const courses = {
   "diploma-in-industrial-management": {
     title: "Diploma in Industrial Management",
     subtitle: "Enhance Your Knowledge & Upgrade Career Life With Your Passion",
-    image: "/images/academic-pillar/Diploma Courses/10.png",
+    image: "/images/academic-pillar/diploma-courses/industrial-management.webp",
     description: "Accelerate your leadership potential with our comprehensive Diploma in Industrial Management. This program is designed for manufacturing staff who aspire to transition into senior management roles by mastering the multidisciplinary facets of modern industrial operations.",
     courseContent: [
       "Operations & Projects: Operations Management and Project Management",
@@ -60,7 +60,7 @@ const courses = {
   "diploma-in-apparel-production-management": {
     title: "Diploma in Apparel Production Management",
     subtitle: "Build Up Your Professional Qualifications for the Apparel Industry",
-    image: "/images/academic-pillar/Diploma Courses/11.png",
+    image: "/images/academic-pillar/diploma-courses/apparel-production-management.webp",
     description: "Master the complexities of large-scale garment manufacturing with our comprehensive Diploma in Apparel Production Management. This program is designed to transform manufacturing assistants and executives into highly skilled production leaders.",
     courseContent: [
       "Leadership & Management: Introduction to Management, Leadership skills, and People Management",
@@ -88,7 +88,7 @@ const courses = {
   "diploma-in-quality-management": {
     title: "Diploma in Quality Management",
     subtitle: "Master the strategic and technical requirements of modern quality assurance with our professional Diploma in Quality Management. This program is designed for quality staff and professionals looking to implement global standards within a manufacturing environment.",
-    image: "/images/academic-pillar/Diploma Courses/12.png",
+    image: "/images/academic-pillar/diploma-courses/quality-management.webp",
     description: "Master the strategic and technical requirements of modern quality assurance with our professional Diploma in Quality Management. This program is designed for quality staff and professionals looking to implement global standards within a manufacturing environment.",
     courseContent: [
       "Quality Foundations: Introduction to Quality Management and Basic Application of Quality",
@@ -117,7 +117,7 @@ const courses = {
   "diploma-in-human-resource-management": {
     title: "Diploma in Human Resource Management",
     subtitle: "Accelerate Your HR Career",
-    image: "/images/academic-pillar/Diploma Courses/13.png",
+    image: "/images/academic-pillar/diploma-courses/human-resource-management.webp",
     description: "Join us to obtain a practical exposure to Human Resource Management through our comprehensive Diploma program. This course is designed to equip you with the strategic and operational skills needed to excel as an HR professional in modern organizations.",
     courseContent: [
       "Foundations: Theories of Management & Introduction to Organizations",
@@ -147,7 +147,7 @@ const courses = {
   "diploma-in-fashion-design": {
     title: "Diploma in Fashion Design",
     subtitle: "Unlock Your Creative Potential in the Fashion World",
-    image: "/images/academic-pillar/Diploma Courses/14.png",
+    image: "/images/academic-pillar/diploma-courses/fashion-design.webp",
     description: "Step into the vibrant world of fashion with our comprehensive Diploma in Fashion Design. This program is specifically curated to meet the needs of budding designers, offering a perfect blend of artistic exploration and technical proficiency to help you launch a successful career or your own fashion label.",
     courseContent: [
       "Design Foundations: Introduction to fashion design, color theory, design principles, and history of fashion",

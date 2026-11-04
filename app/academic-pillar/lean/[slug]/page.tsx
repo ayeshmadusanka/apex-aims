@@ -4,7 +4,7 @@ const courses = {
   "lean-certified-white-belt-practitioner": {
     title: "Certified Lean White Belt Practitioner",
     subtitle: "Start Your Journey to Continuous Improvement",
-    image: "/images/academic-pillar/Lean/16.png",
+    image: "/images/academic-pillar/lean/white-belt.webp",
     description: "Gain a foundational understanding of Lean Six Sigma and the essential tools used to enhance efficiency and eliminate waste. This entry-level practitioner program is designed to create a culture of excellence and prepare you for active participation in process improvement initiatives.",
     courseContent: [
       "Lean & Six Sigma Fundamentals: Understanding the history, principles, and synergy between Lean and Six Sigma",
@@ -33,7 +33,7 @@ const courses = {
   "lean-certified-yellow-belt-practitioner": {
     title: "Certified Lean Yellow Belt Practitioner",
     subtitle: "Enhance Your Knowledge & Upgrade Your Career With Passion",
-    image: "/images/academic-pillar/Lean/17.png",
+    image: "/images/academic-pillar/lean/yellow-belt.webp",
     description: "Advance your expertise in operational excellence with the Certified Lean Yellow Belt Practitioner program. This course is highly beneficial for graduates and undergraduates with industrial experience who want to gain in-depth knowledge in lean manufacturing.",
     courseContent: [
       "Lean Fundamentals: Overview of Lean Manufacturing and Lean Leadership",
@@ -60,7 +60,7 @@ const courses = {
   "lean-certified-green-belt-practitioner": {
     title: "Certified Lean Green Belt Practitioner",
     subtitle: "Master the advanced tools of operational excellence and lead significant process improvement projects within your organization.",
-    image: "/images/academic-pillar/Lean/18.png",
+    image: "/images/academic-pillar/lean/green-belt.webp",
     description: "This practitioner-level course is highly beneficial for graduates and professionals with industrial experience who want to gain in-depth, actionable knowledge in lean manufacturing.",
     courseContent: [
       "Foundations: Detailed study of the LEAN Belt System and an Introduction of Lean Manufacturing",
@@ -88,7 +88,7 @@ const courses = {
   "lean-certified-black-belt-practitioner": {
     title: "Certified Lean Black Belt Practitioner",
     subtitle: "Master Advanced Leadership & Strategy",
-    image: "/images/academic-pillar/Lean/19.png",
+    image: "/images/academic-pillar/lean/black-belt.webp",
     description: "AIMS is a leading training partner dedicated to helping organizations transform into efficient, effective, and financially profitable entities. Developed to bridge the gap between operational and managerial theoretical knowledge, this program focuses on the practical application of advanced theories at a global scale.",
     courseContent: [
       "16 Technical Modules: In-depth exploration of advanced lean engineering and process optimization tools",
@@ -109,6 +109,20 @@ const courses = {
     ],
     duration: "Advanced",
     badge: "14 Days (84 Hrs)"
+  },
+  "lean-six-sigma-green-belt-finance": {
+    title: "Lean Six Sigma Green Belt Practitioner Program for Finance",
+    image: "/images/academic-pillar/lean/six-sigma-green-belt-finance.webp",
+    description: "Lean Six Sigma Green Belt specialized for finance professionals",
+    duration: "75 days",
+    badge: "75 days"
+  },
+  "lean-six-sigma-black-belt-finance": {
+    title: "Lean Six Sigma Black Belt Practitioner Program for Finance",
+    image: "/images/academic-pillar/lean/six-sigma-black-belt-finance.webp",
+    description: "Lean Six Sigma Black Belt specialized for finance professionals",
+    duration: "120 days",
+    badge: "120 days"
   }
 } satisfies Record<string, AcademicCourse>
 export async function generateStaticParams() {

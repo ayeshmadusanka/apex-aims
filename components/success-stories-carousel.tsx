@@ -11,13 +11,13 @@ import {
 } from "@/components/ui/dialog"
 
 const stories = [
-  { src: "/images/clinet-1.png", alt: "AIMS success story featuring Nadeesha Samanmalee" },
-  { src: "/images/clinet-2.png", alt: "AIMS success story featuring J. Savin Niranjana De Silva" },
-  { src: "/images/clinet-3.png", alt: "AIMS success story featuring Mihiri Ranasinghe" },
-  { src: "/images/clinet-4.png", alt: "AIMS success story featuring Samantha Gamage" },
-  { src: "/images/clinet-5.png", alt: "AIMS success story featuring S. P. J. Ranganath" },
-  { src: "/images/clinet-6.png", alt: "AIMS success story featuring Nuwan Thilakshitha" },
-  { src: "/images/clinet-7.png", alt: "AIMS success story featuring Eraj Aponso" },
+  { src: "/images/success-stories/client-1.png", alt: "AIMS success story featuring Nadeesha Samanmalee" },
+  { src: "/images/success-stories/client-2.png", alt: "AIMS success story featuring J. Savin Niranjana De Silva" },
+  { src: "/images/success-stories/client-3.png", alt: "AIMS success story featuring Mihiri Ranasinghe" },
+  { src: "/images/success-stories/client-4.png", alt: "AIMS success story featuring Samantha Gamage" },
+  { src: "/images/success-stories/client-5.png", alt: "AIMS success story featuring S. P. J. Ranganath" },
+  { src: "/images/success-stories/client-6.png", alt: "AIMS success story featuring Nuwan Thilakshitha" },
+  { src: "/images/success-stories/client-7.png", alt: "AIMS success story featuring Eraj Aponso" },
 ]
 
 export default function SuccessStoriesCarousel() {
