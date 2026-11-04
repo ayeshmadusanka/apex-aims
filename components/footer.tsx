@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="space-y-5 sm:col-span-2 xl:col-span-1">
             <a href="/" aria-label="AIMS home" className="inline-flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               <Image
-                src="/images/about/aims-logo.webp"
+                src="/images/about/aims-logo-footer.webp"
                 alt="Apex Institute of Management Services"
                 width={270}
                 height={97}

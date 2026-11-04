@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type FormEvent } from "react"
+import { useRef, useState, type FormEvent } from "react"
 import { ArrowRight, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,11 +10,20 @@ import { CONTACT_EMAIL } from "@/lib/site-contact"
 
 export default function ContactForm() {
   const [emailLink, setEmailLink] = useState("")
+  const [submitNotice, setSubmitNotice] = useState("")
+  const formOpenedAt = useRef(Date.now())
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
+    if (String(formData.get("website") ?? "").trim()) return
+
+    if (Date.now() - formOpenedAt.current < 1200) {
+      setSubmitNotice("Please take a moment to review your message before continuing.")
+      return
+    }
+
     const firstName = String(formData.get("firstName") ?? "").trim()
     const lastName = String(formData.get("lastName") ?? "").trim()
     const fullName = [firstName, lastName].filter(Boolean).join(" ")
@@ -25,6 +34,7 @@ export default function ContactForm() {
     const body = [`Name: ${fullName}`, `Email: ${email}`, `Phone: ${phone || "Not provided"}`, "", message].join("\n")
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
+    setSubmitNotice("")
     setEmailLink(mailto)
     window.location.href = mailto
   }
@@ -42,6 +52,11 @@ export default function ContactForm() {
       </div>
 
       <form className="space-y-5 p-5 sm:p-8" onSubmit={handleSubmit}>
+        <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+          <Label htmlFor="website">Leave this field empty</Label>
+          <Input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="firstName">First name <span aria-hidden="true">*</span></Label>
@@ -74,6 +89,10 @@ export default function ContactForm() {
         >
           Send message <ArrowRight aria-hidden="true" />
         </Button>
+
+        {submitNotice && (
+          <p aria-live="polite" className="text-sm leading-6 text-slate-600">{submitNotice}</p>
+        )}
 
         {emailLink && (
           <p aria-live="polite" className="text-sm leading-6 text-slate-600">

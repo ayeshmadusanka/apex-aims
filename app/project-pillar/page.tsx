@@ -1,6 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { BriefcaseBusiness, Building2, Handshake } from "lucide-react"
 import Image from "next/image"
 import { PillarHero } from "@/components/pillar-hero";
+import SectionLabel from "@/components/section-label"
 
 export default function ProjectPillarPage() {
   return (
@@ -11,10 +13,16 @@ export default function ProjectPillarPage() {
         title="Project Pillar"
       />
 
-      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
-        <div className="container mx-auto px-4">
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-8 max-w-3xl text-center">
+            <SectionLabel icon={BriefcaseBusiness}>Organization support</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Practical support for <span className="text-[#263f6b]">better operations</span>
+            </h2>
+          </header>
           <div className="mx-auto max-w-3xl">
-            <p className="text-base leading-8 text-gray-700 sm:text-lg">
+            <p className="text-base leading-8 text-slate-600 sm:text-lg">
               AIMS is a premier management consulting firm that endeavors to augment the efficiency, effectiveness, and
               profitability of organizations. We facilitate the implementation of cutting-edge business operation
               strategies. These interventions are implemented by our team of highly qualified and experienced pool of
@@ -26,11 +34,14 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Solutions</h2>
-          </div>
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+            <SectionLabel icon={Building2}>Training & consulting</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Our <span className="text-[#263f6b]">Solutions</span>
+            </h2>
+          </header>
 
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -110,23 +121,24 @@ export default function ProjectPillarPage() {
                 description: "Balance work and personal life through effective management skills for all staff"
               }
             ].map((solution) => (
-              <Card key={solution.image} className="group overflow-hidden border border-gray-200 bg-white transition-shadow duration-200 hover:shadow-lg">
-                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+              <Card key={solution.image} className="group overflow-hidden border-slate-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                <div className="overflow-hidden bg-white">
                   <Image
                     src={solution.image}
                     alt={solution.title}
-                    fill
-                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    width={800}
+                    height={520}
+                    sizes="(min-width: 1280px) 368px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+                    className="h-auto w-full object-contain"
                   />
                 </div>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-left text-lg font-semibold leading-snug text-gray-900 transition-colors duration-200 group-hover:text-blue-700">
+                  <CardTitle className="text-left text-lg font-semibold leading-snug text-slate-900">
                     {solution.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <CardDescription className="text-left text-sm leading-relaxed text-gray-600">
+                  <CardDescription className="text-left text-sm leading-relaxed text-slate-600">
                     {solution.description}
                   </CardDescription>
                 </CardContent>
@@ -136,17 +148,20 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Major Assistance</h2>
-          </div>
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+            <SectionLabel icon={Handshake}>Selected Projects</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Our Major <span className="text-[#263f6b]">Assistance</span>
+            </h2>
+          </header>
 
           <div className="mx-auto max-w-6xl space-y-8">
-            <Card className="bg-white border border-gray-200 shadow-sm">
+            <Card className="border-slate-200 bg-white shadow-sm">
               <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white">
                     <Image
                       src="/images/project-pillar/major-assistance/hirdaramani-logo.webp"
                       alt="Hirdaramani Logo"
@@ -155,14 +170,14 @@ export default function ProjectPillarPage() {
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <CardTitle className="text-xl text-gray-900">Hirdaramani (Pvt) Ltd</CardTitle>
-                    <p className="text-blue-600">Organizational Transformation Project</p>
+                  <div className="min-w-0">
+                    <CardTitle className="text-xl text-slate-900">Hirdaramani (Pvt) Ltd</CardTitle>
+                    <p className="text-sm font-medium text-[#263f6b]">Organizational Transformation Project</p>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="max-w-4xl text-base leading-7 text-gray-700">
+                <p className="w-full text-pretty text-base leading-7 text-slate-600">
                   Hirdaramani (Pvt) Ltd is one of the major company in the apparel field. This was a project on
                   Organizational Transformation. Therefore, we organized some programs to Transfer Lean knowledge &
                   Skills to leadership team. It included training the leadership team, application of lean through
@@ -173,10 +188,10 @@ export default function ProjectPillarPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border border-gray-200 shadow-sm">
+            <Card className="border-slate-200 bg-white shadow-sm">
               <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white">
                     <Image
                       src="/images/project-pillar/major-assistance/ttcl-logo.webp"
                       alt="Tucking Trading Company Logo"
@@ -185,16 +200,16 @@ export default function ProjectPillarPage() {
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <CardTitle className="text-xl text-gray-900">
+                  <div className="min-w-0">
+                    <CardTitle className="text-xl text-slate-900">
                       Tucking Trading Company Limited (TTCL) Pvt Ltd
                     </CardTitle>
-                    <p className="text-red-600">Sales Process Standardization</p>
+                    <p className="text-sm font-medium text-[#263f6b]">Sales Process Standardization</p>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="max-w-4xl text-base leading-7 text-gray-700">
+                <p className="w-full text-pretty text-base leading-7 text-slate-600">
                   In trading industry, Tucking Trading Company Limited (TTCL) Pvt Ltd is one of the leading in the
                   field. The project of TTCL was Reengineering the sales process to create a standardized sales process.
                   With the scope of establishing a standardized sales process, data collection and creating a
@@ -205,10 +220,10 @@ export default function ProjectPillarPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border border-gray-200 shadow-sm">
+            <Card className="border-slate-200 bg-white shadow-sm">
               <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white">
                     <Image
                       src="/images/project-pillar/major-assistance/ru-salu-logo.webp"
                       alt="Ru Salu Clothing Logo"
@@ -217,14 +232,14 @@ export default function ProjectPillarPage() {
                       className="object-contain"
                     />
                   </div>
-                  <div>
-                    <CardTitle className="text-xl text-gray-900">Ru Salu (Pvt) Ltd</CardTitle>
-                    <p className="text-green-600">Quality Control System Implementation</p>
+                  <div className="min-w-0">
+                    <CardTitle className="text-xl text-slate-900">Ru Salu (Pvt) Ltd</CardTitle>
+                    <p className="text-sm font-medium text-[#263f6b]">Quality Control System Implementation</p>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="max-w-4xl text-base leading-7 text-gray-700">
+                <p className="w-full text-pretty text-base leading-7 text-slate-600">
                   These days we are having an ongoing project with Ru Salu (Pvt) Ltd. This is also a company in apparel
                   clothing. The project we are conducting is the quality control system and also the delivery system by
                   strengthening quality gates. As the scope, we recognized re-engineering the quality control system,
@@ -240,15 +255,20 @@ export default function ProjectPillarPage() {
         </div>
       </section>
 
-      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">Our Assistance in Leading Companies</h2>
-            <p className="text-xl text-gray-600">Trusted by industry leaders across various sectors</p>
-          </div>
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+            <SectionLabel icon={Building2}>Our Partners</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Our Assistance in <span className="text-[#263f6b]">Leading Companies</span>
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+              Trusted by industry leaders across various sectors
+            </p>
+          </header>
 
-        <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
               {[
                 { name: "Company 100", logo: "/images/company/company-logo-100.webp" },
                 { name: "Company 101", logo: "/images/company/company-logo-101.webp" },
@@ -293,15 +313,15 @@ export default function ProjectPillarPage() {
               ].map((company) => (
                 <div
                   key={company.logo}
-                  className="flex h-24 items-center justify-center rounded-xl border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md"
+                  className="group flex h-28 items-center justify-center rounded-xl border border-slate-200 bg-white p-3 transition-shadow duration-200 hover:shadow-sm"
                 >
                   <Image
                     src={company.logo}
                     alt={company.name}
-                    width={120}
-                    height={80}
-                    sizes="120px"
-                    className="max-h-full max-w-full object-contain opacity-75 transition-opacity duration-200 hover:opacity-100"
+                    width={180}
+                    height={120}
+                    sizes="(min-width: 1280px) 180px, (min-width: 768px) 18vw, 40vw"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
               ))}

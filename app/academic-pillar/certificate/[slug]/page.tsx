@@ -1,6 +1,6 @@
 import AcademicCourseDetail, { type AcademicCourse } from "@/components/academic-course-detail";
 
-const courses = {
+const courses: Record<string, AcademicCourse> = {
   "certificate-in-work-study": {
     title: "Certificate in Work Study",
     subtitle: "Join with Industry Professionals to Boost Your Career",
@@ -201,7 +201,8 @@ const courses = {
     duration: "45 Days",
     badge: "TVEC Approved"
   }
-} satisfies Record<string, AcademicCourse>
+};
+
 export async function generateStaticParams() {
   return Object.keys(courses).map((slug) => ({ slug }));
 }
@@ -212,5 +213,6 @@ export default async function CourseDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <AcademicCourseDetail course={courses[slug]} />;
+  const course = Object.prototype.hasOwnProperty.call(courses, slug) ? courses[slug] : undefined;
+  return <AcademicCourseDetail course={course} />;
 }

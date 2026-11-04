@@ -1,6 +1,6 @@
 import AcademicCourseDetail, { type AcademicCourse } from "@/components/academic-course-detail";
 
-const courses = {
+const courses: Record<string, AcademicCourse> = {
   "industrial-engineering-process-excellence": {
     title: "Industrial Engineering and Process Excellence",
     subtitle: "Master Industrial Engineering Principles",
@@ -95,7 +95,8 @@ const courses = {
     duration: "90 days",
     badge: "90 days"
   }
-} satisfies Record<string, AcademicCourse>
+};
+
 export async function generateStaticParams() {
   return Object.keys(courses).map((slug) => ({ slug }));
 }
@@ -106,5 +107,6 @@ export default async function CourseDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <AcademicCourseDetail course={courses[slug]} />;
+  const course = Object.prototype.hasOwnProperty.call(courses, slug) ? courses[slug] : undefined;
+  return <AcademicCourseDetail course={course} />;
 }

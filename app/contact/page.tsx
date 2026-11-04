@@ -1,4 +1,5 @@
 import {
+  ArrowUpRight,
   Building2,
   Facebook,
   Linkedin,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import ContactForm from "@/components/contact-form"
+import { Button } from "@/components/ui/button"
 import PageHero from "@/components/page-hero"
 import SectionLabel from "@/components/section-label"
 import {
@@ -89,15 +91,17 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`AIMS on ${name} (opens in a new tab)`}
-                      className="flex min-h-12 items-center gap-3 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#263f6b]/40 hover:bg-slate-50 hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b] focus-visible:ring-offset-2"
+                      className="group flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#263f6b]/40 hover:bg-slate-50 hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b] focus-visible:ring-offset-2"
                     >
-                      {Icon === "tiktok" ? (
-                        <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                        </svg>
-                      ) : (
-                        <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                      )}
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#263f6b] text-white transition-colors group-hover:bg-[#1e3356]">
+                        {Icon === "tiktok" ? (
+                          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                          </svg>
+                        ) : (
+                          <Icon className="h-4 w-4" aria-hidden="true" />
+                        )}
+                      </span>
                       {name}
                     </a>
                   </li>
@@ -132,14 +136,18 @@ export default function ContactPage() {
             />
             <div className="flex flex-col gap-3 border-t border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
               <p className="text-sm text-slate-600">{INSTITUTE_ADDRESS}</p>
-              <a
-                href={MAP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold text-[#263f6b] underline underline-offset-4 hover:text-[#1e3356] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b]"
+              <Button
+                asChild
+                className="min-h-12 rounded-lg bg-[#263f6b] px-5 font-semibold text-white hover:bg-[#1e3356]"
               >
-                Open directions
-              </a>
+                <a
+                  href={MAP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open directions <ArrowUpRight aria-hidden="true" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>

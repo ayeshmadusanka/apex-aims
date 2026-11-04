@@ -1,5 +1,6 @@
-import { Award, Globe, Target, Users } from "lucide-react"
+import { Award, BadgeCheck, CalendarDays, Globe, Target, Users } from "lucide-react"
 import Image from "next/image"
+import FactCard from "@/components/fact-card"
 import PageHero from "@/components/page-hero"
 import SectionLabel from "@/components/section-label"
 
@@ -16,6 +17,13 @@ const PRINCIPLES = [
     description:
       "Grooming resourceful professionals while inculcating the spirit of scientific thinking in them to avail themselves to survive and excel in the manufacturing and service sectors is our mission. Our end product: dynamic individuals will be versatile additions to their organizations in both local and international corporate ambiance. Our well-experienced team is ready to facilitate our students' pursuit of excellence in accordance with their aptitude and aspirations.",
   },
+]
+
+const STORY_MILESTONES = [
+  { value: "2007", label: "Established", icon: CalendarDays },
+  { value: "Since 2010", label: "NAITA registered", icon: BadgeCheck },
+  { value: "ISO 9001:2015", label: "Professional education certification", icon: Award },
+  { value: "Around 2,000+", label: "Professionals guided", icon: Users },
 ]
 
 export default function AboutPage() {
@@ -54,7 +62,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2">
+          <div className="order-1 space-y-6 lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
               <Image
                 src="/images/about/aims-team.webp"
@@ -66,6 +74,12 @@ export default function AboutPage() {
                 priority
               />
             </div>
+
+            <dl className="grid grid-cols-2 gap-3 sm:gap-4">
+              {STORY_MILESTONES.map(({ value, label, icon: Icon }) => (
+                <FactCard key={label} icon={Icon} label={label} value={value} />
+              ))}
+            </dl>
           </div>
         </div>
       </section>

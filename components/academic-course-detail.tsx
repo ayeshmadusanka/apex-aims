@@ -5,6 +5,7 @@ import {
   CalendarDays,
   CheckCircle2,
   Clock3,
+  CreditCard,
   DollarSign,
   GraduationCap,
   Users,
@@ -14,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import FactCard from "@/components/fact-card";
 
 type CourseLogistics = {
   duration?: string;
@@ -85,13 +87,13 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
     );
   }
 
-  const logistics: DetailItem[] = [
+  const overviewDetails: DetailItem[] = [
     { label: "Duration", value: course.logistics?.duration ?? course.duration, icon: Clock3 },
     { label: "Schedule", value: course.logistics?.schedule ?? "", icon: CalendarDays },
     { label: "Learning Mode", value: course.logistics?.mode ?? "", icon: Users },
     { label: "Facilitation", value: course.logistics?.facilitation ?? "", icon: GraduationCap },
     { label: "Investment", value: course.logistics?.investment ?? "", icon: DollarSign },
-    { label: "Payment", value: course.logistics?.payment ?? "", icon: DollarSign },
+    { label: "Payment", value: course.logistics?.payment ?? "", icon: CreditCard },
     { label: "Contact", value: course.logistics?.contact ?? "", icon: CalendarDays },
   ].filter((item) => item.value.trim().length > 0);
 
@@ -114,7 +116,7 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <section className="relative isolate flex min-h-[320px] w-full items-center justify-center overflow-hidden bg-[#15233a] px-5 py-14 sm:aspect-[18/5] sm:min-h-[300px] sm:px-8 md:min-h-[360px]">
-        <Image src={course.image} alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/images/academic-pillar/header.webp" alt="" fill priority sizes="100vw" className="object-cover" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#15233a]/90 via-[#15233a]/65 to-[#15233a]/40" />
         <div className="relative mx-auto w-full max-w-5xl text-center">
           <Badge className="mb-5 border border-white/35 bg-white/15 px-4 py-1.5 text-sm text-white backdrop-blur-sm">
@@ -132,9 +134,30 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
       </section>
 
       <section className="border-b border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-4xl">
-          <SectionHeading eyebrow="Programme overview" title="Practical learning for your next step" />
-          <p className="text-base leading-8 text-slate-600 sm:text-lg">{course.description}</p>
+        <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <SectionHeading eyebrow="Programme overview" title="Practical learning for your next step" />
+            <p className="text-base leading-8 text-slate-600 sm:text-lg">{course.description}</p>
+            {overviewDetails.length > 0 && (
+              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
+                {overviewDetails.map(({ label, value, icon: Icon }) => (
+                  <FactCard key={label} icon={Icon} label={label} value={value} />
+                ))}
+              </dl>
+            )}
+          </div>
+          <div className="mx-auto w-full max-w-xl lg:max-w-none">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
+              <Image
+                src={course.image}
+                alt={`${course.title} course image`}
+                width={1000}
+                height={1000}
+                sizes="(max-width: 1023px) 100vw, 50vw"
+                className="aspect-square h-auto w-full rounded-xl object-contain"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -153,25 +176,6 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
-      )}
-
-      {logistics.length > 0 && (
-        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
-          <div className="mx-auto max-w-5xl">
-            <SectionHeading eyebrow="Plan your study" title="Course details" />
-            <dl className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
-              {logistics.map(({ label, value, icon: Icon }) => (
-                <div key={label} className="border-t border-slate-200 py-5">
-                  <dt className="flex items-center gap-2 text-sm font-medium text-slate-500">
-                    <Icon aria-hidden="true" className="size-4 text-[#263f6b]" />
-                    {label}
-                  </dt>
-                  <dd className="mt-2 text-base font-medium leading-relaxed text-slate-900">{value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </section>
       )}
@@ -230,20 +234,20 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
         </section>
       )}
 
-      <section className="border-t border-white/15 bg-[#263f6b] px-5 py-12 text-white sm:px-8 sm:py-16">
+      <section className="border-t border-slate-200 bg-white px-5 py-12 text-slate-900 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">Take your next step</p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">Ready to start your journey?</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#263f6b]">Take your next step</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">Ready to start your journey?</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
             Enroll now and take the first step towards advancing your career
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="bg-white text-[#263f6b] hover:bg-slate-100">
+            <Button asChild size="lg" className="bg-[#263f6b] text-white hover:bg-[#1e3356]">
               <Link href="/contact">
                 Enroll Now <ArrowRight aria-hidden="true" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white/70 bg-transparent text-white hover:bg-white/10">
+            <Button asChild size="lg" variant="outline" className="border-[#263f6b]/40 bg-white text-[#263f6b] hover:bg-slate-100 hover:text-[#1e3356]">
               <Link href="/academic-pillar">
                 <ArrowLeft aria-hidden="true" /> Back to Courses
               </Link>

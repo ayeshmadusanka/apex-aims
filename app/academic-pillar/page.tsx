@@ -1,8 +1,10 @@
+import { ArrowRight, Clock3, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SectionLabel from "@/components/section-label";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { PillarHero } from "@/components/pillar-hero";
 type Course = {
   title: string;
@@ -15,37 +17,42 @@ type Course = {
 function CourseCard({
   course,
   href,
-  badgeColor,
 }: {
   course: Course;
   href: string;
-  badgeColor: string;
 }) {
   return (
-    <Link href={href} className="group block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
-      <Card className="h-full overflow-hidden border border-gray-200 bg-white transition-shadow duration-200 group-hover:shadow-lg">
-        <div className="relative aspect-square bg-gray-100">
-          <Image
-            src={course.image}
-            alt={course.title}
-            fill
-            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover"
-          />
-        </div>
-        <CardContent className="flex min-h-44 flex-col p-5">
-          <Badge className={`mb-3 w-fit text-xs text-white ${badgeColor}`}>
-            {course.duration}
-          </Badge>
-          <h3 className="text-base font-semibold leading-snug text-gray-900 group-hover:text-blue-700">
-            {course.title}
-          </h3>
-          <p className="mt-2 text-sm leading-relaxed text-gray-600">
-            {course.description}
-          </p>
-        </CardContent>
-      </Card>
-    </Link>
+    <Card className="group flex h-full flex-col overflow-hidden border-slate-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+      <div className="relative aspect-square overflow-hidden bg-white">
+        <Image
+          src={course.image}
+          alt={course.title}
+          fill
+          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+          className="object-contain"
+        />
+      </div>
+      <CardContent className="flex flex-1 flex-col p-5">
+        <span className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+          <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+          {course.duration}
+        </span>
+        <h3 className="text-base font-semibold leading-snug text-slate-900">
+          {course.title}
+        </h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+          {course.description}
+        </p>
+        <Button
+          asChild
+          className="mt-5 h-11 w-full rounded-lg bg-[#263f6b] font-semibold text-white hover:bg-[#1e3356]"
+        >
+          <Link href={href} aria-label={`View details for ${course.title}`}>
+            View details <ArrowRight aria-hidden="true" />
+          </Link>
+        </Button>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -58,10 +65,16 @@ export default function AcademicPillarPage() {
         title="Academic Pillar"
       />
 
-      <section className="bg-white border-t border-slate-200 py-14 sm:py-16">
-        <div className="container mx-auto px-4">
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-8 max-w-3xl text-center">
+            <SectionLabel icon={GraduationCap}>Study at AIMS</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Practical learning for <span className="text-[#263f6b]">career growth</span>
+            </h2>
+          </header>
           <div className="mx-auto max-w-3xl">
-            <p className="text-base leading-8 text-gray-700 sm:text-lg">
+            <p className="text-base leading-8 text-slate-600 sm:text-lg">
               Join the Academic Pillar of AIMS and kickstart your career in the
               manufacturing industry! Our mission is to help professionals and
               school leavers smoothly transition into this exciting field by
@@ -77,45 +90,49 @@ export default function AcademicPillarPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              Our Programs
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+            <SectionLabel icon={GraduationCap}>Browse courses</SectionLabel>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Our <span className="text-[#263f6b]">Programs</span>
             </h2>
-          </div>
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
+              Explore certificate, university, diploma and Lean programmes.
+            </p>
+          </header>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="mx-auto max-w-6xl">
             <Tabs defaultValue="certificate" className="w-full">
-              <TabsList className="mb-10 grid h-auto w-full grid-cols-2 gap-2 bg-gray-100 p-2 sm:mb-12 md:grid-cols-4">
+              <TabsList className="mb-8 grid h-auto w-full grid-cols-2 gap-2 rounded-xl border border-slate-200 bg-slate-50 p-1.5 sm:mb-10 md:grid-cols-4">
                 <TabsTrigger
                   value="certificate"
-                  className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                  className="min-h-11 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 data-[state=active]:bg-[#263f6b] data-[state=active]:text-white data-[state=active]:shadow-sm"
                 >
                   Certificate
                 </TabsTrigger>
                 <TabsTrigger
                   value="university"
-                  className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 data-[state=active]:bg-green-600 data-[state=active]:text-white"
+                  className="min-h-11 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 data-[state=active]:bg-[#263f6b] data-[state=active]:text-white data-[state=active]:shadow-sm"
                 >
                   University
                 </TabsTrigger>
                 <TabsTrigger
                   value="diploma"
-                  className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 data-[state=active]:bg-red-600 data-[state=active]:text-white"
+                  className="min-h-11 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 data-[state=active]:bg-[#263f6b] data-[state=active]:text-white data-[state=active]:shadow-sm"
                 >
                   Diploma
                 </TabsTrigger>
                 <TabsTrigger
                   value="lean"
-                  className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 data-[state=active]:bg-green-600 data-[state=active]:text-white"
+                  className="min-h-11 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 data-[state=active]:bg-[#263f6b] data-[state=active]:text-white data-[state=active]:shadow-sm"
                 >
                   Lean
                 </TabsTrigger>
               </TabsList>
 
               <TabsContent value="certificate" className="space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {[
                     { title: "Certificate in Work Study", slug: "certificate-in-work-study", image: "/images/academic-pillar/certificate-courses/certificate-in-work-study.webp", duration: "12 Weeks", description: "Comprehensive training in work measurement and method study techniques" },
                     { title: "Workstudy NVQ Level 4", slug: "workstudy-nvq-level-4", image: "/images/academic-pillar/certificate-courses/workstudy-nvq-level-4.webp", duration: "06 Months", description: "NVQ Level 4 qualification in work study methodologies" },
@@ -129,14 +146,13 @@ export default function AcademicPillarPage() {
                       key={course.slug}
                       course={course}
                       href={`/academic-pillar/certificate/${course.slug}`}
-                      badgeColor="bg-blue-600 border-blue-600"
                     />
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="university" className="space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {[
                     { title: "Industrial Engineering and Process Excellence", slug: "industrial-engineering-process-excellence", image: "/images/academic-pillar/university-courses/industrial-engineering-process-excellence.webp", duration: "45 days", description: "Industrial engineering principles and process optimization techniques" },
                     { title: "Certified PMTS & Costing Practitioner Program", slug: "certified-pmts-costing-practitioner", image: "/images/academic-pillar/university-courses/certified-pmts-costing-practitioner.webp", duration: "50 Hours", description: "Predetermined motion time systems and accurate costing methods" },
@@ -147,14 +163,13 @@ export default function AcademicPillarPage() {
                       key={course.slug}
                       course={course}
                       href={`/academic-pillar/university/${course.slug}`}
-                      badgeColor="bg-green-600 border-green-600"
                     />
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="diploma" className="space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {[
                     { title: "Diploma in Industrial Engineering", slug: "diploma-in-industrial-engineering", image: "/images/academic-pillar/diploma-courses/industrial-engineering.webp", duration: "56 Weeks", description: "Advanced industrial engineering and process optimization" },
                     { title: "Diploma in Industrial Management", slug: "diploma-in-industrial-management", image: "/images/academic-pillar/diploma-courses/industrial-management.webp", duration: "56 Weeks", description: "Comprehensive industrial operations and strategic management" },
@@ -167,14 +182,13 @@ export default function AcademicPillarPage() {
                       key={course.slug}
                       course={course}
                       href={`/academic-pillar/diploma/${course.slug}`}
-                      badgeColor="bg-red-600 border-red-600"
                     />
                   ))}
                 </div>
               </TabsContent>
 
               <TabsContent value="lean" className="space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {[
                     { title: "Lean Certified White Belt Practitioner", slug: "lean-certified-white-belt-practitioner", image: "/images/academic-pillar/lean/white-belt.webp", duration: "Flexible", description: "Foundation level lean principles and basic improvement tools" },
                     { title: "Lean Certified Yellow Belt Practitioner", slug: "lean-certified-yellow-belt-practitioner", image: "/images/academic-pillar/lean/yellow-belt.webp", duration: "6 days (24 Hrs)", description: "Foundation lean certification with practical application" },
@@ -187,7 +201,6 @@ export default function AcademicPillarPage() {
                       key={course.slug}
                       course={course}
                       href={`/academic-pillar/lean/${course.slug}`}
-                      badgeColor="bg-green-600 border-green-600"
                     />
                   ))}
                 </div>
