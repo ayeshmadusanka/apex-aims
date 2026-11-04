@@ -138,13 +138,6 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
           <div>
             <SectionHeading eyebrow="Programme overview" title="Practical learning for your next step" />
             <p className="text-base leading-8 text-slate-600 sm:text-lg">{course.description}</p>
-            {overviewDetails.length > 0 && (
-              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
-                {overviewDetails.map(({ label, value, icon: Icon }) => (
-                  <FactCard key={label} icon={Icon} label={label} value={value} />
-                ))}
-              </dl>
-            )}
           </div>
           <div className="mx-auto w-full max-w-xl lg:max-w-none">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
@@ -161,8 +154,27 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
         </div>
       </section>
 
+      {requirements.length > 0 && (
+        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
+          <div className="mx-auto max-w-5xl">
+            <SectionHeading eyebrow="Before you apply" title="Entry requirements" />
+            <dl className="grid gap-x-10 sm:grid-cols-2">
+              {requirements.map(({ label, value, icon: Icon }) => (
+                <div key={label} className="border-t border-slate-200 py-5">
+                  <dt className="flex items-center gap-2 text-sm font-medium text-slate-500">
+                    <Icon aria-hidden="true" className="size-4 text-[#263f6b]" />
+                    {label}
+                  </dt>
+                  <dd className="mt-2 text-base leading-relaxed text-slate-700">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
+
       {course.courseContent && course.courseContent.length > 0 && (
-        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16">
+        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
           <div className="mx-auto max-w-5xl">
             <SectionHeading eyebrow="What you will learn" title="Course content" />
             <ol className="divide-y divide-slate-200 border-y border-slate-200">
@@ -180,18 +192,18 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
         </section>
       )}
 
-      {requirements.length > 0 && (
-        <section className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
+      {overviewDetails.length > 0 && (
+        <section className="border-t border-slate-200 bg-slate-50/60 px-5 py-12 sm:px-8 sm:py-16">
           <div className="mx-auto max-w-5xl">
-            <SectionHeading eyebrow="Before you apply" title="Entry requirements" />
-            <dl className="grid gap-x-10 sm:grid-cols-2">
-              {requirements.map(({ label, value, icon: Icon }) => (
-                <div key={label} className="border-t border-slate-200 py-5">
-                  <dt className="flex items-center gap-2 text-sm font-medium text-slate-500">
-                    <Icon aria-hidden="true" className="size-4 text-[#263f6b]" />
+            <SectionHeading eyebrow="Course details" title="Plan your study" />
+            <dl className="divide-y divide-slate-200 border-y border-slate-200">
+              {overviewDetails.map(({ label, value, icon: Icon }) => (
+                <div key={label} className="grid gap-2 py-4 sm:grid-cols-[minmax(12rem,0.7fr)_1.3fr] sm:gap-6">
+                  <dt className="flex items-center gap-3 text-sm font-semibold text-[#263f6b]">
+                    <Icon aria-hidden="true" className="size-5 shrink-0" />
                     {label}
                   </dt>
-                  <dd className="mt-2 text-base leading-relaxed text-slate-700">{value}</dd>
+                  <dd className="pl-8 text-sm leading-relaxed text-slate-700 sm:pl-0">{value}</dd>
                 </div>
               ))}
             </dl>
