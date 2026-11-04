@@ -315,14 +315,15 @@ export default function ProjectPillarPage() {
                   key={company.logo}
                   className="group flex h-28 items-center justify-center rounded-xl border border-slate-200 bg-white p-3 transition-shadow duration-200 hover:shadow-sm"
                 >
-                  <Image
-                    src={company.logo}
-                    alt={company.name}
-                    width={180}
-                    height={120}
-                    sizes="(min-width: 1280px) 180px, (min-width: 768px) 18vw, 40vw"
-                    className="max-h-full max-w-full object-contain"
-                  />
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={company.logo}
+                      alt={company.name}
+                      fill
+                      sizes="(min-width: 1280px) 180px, (min-width: 768px) 18vw, 40vw"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

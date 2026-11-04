@@ -1,9 +1,13 @@
 import Image from "next/image"
 
-const partnerLogos = Array.from({ length: 41 }, (_, index) => ({
-  src: `/images/company/company-logo-${100 + index}.webp`,
+const partnerLogoNumbers = [
+  ...Array.from({ length: 21 }, (_, index) => 100 + index),
+  ...Array.from({ length: 19 }, (_, index) => 122 + index),
+]
+
+const partnerLogos = partnerLogoNumbers.map((number, index) => ({
+  src: `/images/company/company-logo-${number}.webp`,
   alt: `Partner organization ${index + 1}`,
-  scale: index === 21 ? "scale-[3.5]" : "",
 }))
 
 export default function PartnerLogoCarousel() {
@@ -25,17 +29,19 @@ export default function PartnerLogoCarousel() {
             {partnerLogos.map((partner) => (
               <div
                 key={`${copy}-${partner.src}`}
-                className="flex h-24 w-44 shrink-0 items-center justify-center px-4 sm:h-28 sm:w-52 sm:px-5 lg:h-32"
+                className="flex h-24 w-44 shrink-0 items-center justify-center sm:h-28 sm:w-52 lg:h-32"
               >
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={300}
-                  height={160}
-                  loading="lazy"
-                  unoptimized
-                  className={`h-full w-full object-contain ${partner.scale}`}
-                />
+                <div className="relative h-full w-full px-4 sm:px-5">
+                  <Image
+                    src={partner.src}
+                    alt={partner.alt}
+                    fill
+                    sizes="(min-width: 640px) 168px, 144px"
+                    loading="lazy"
+                    unoptimized
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
