@@ -161,7 +161,7 @@ export default function SuccessStoriesCarousel() {
       </div>
 
       <Dialog open={selectedStory !== null} onOpenChange={(open) => !open && setSelectedStory(null)}>
-        <DialogContent className="w-fit max-h-[94vh] max-w-[min(96vw,960px)] overflow-visible border-0 bg-transparent p-0 shadow-none sm:rounded-none [&>button:last-child]:right-2 [&>button:last-child]:top-2 [&>button:last-child]:z-10 [&>button:last-child]:flex [&>button:last-child]:size-7 [&>button:last-child]:items-center [&>button:last-child]:justify-center [&>button:last-child]:rounded-full [&>button:last-child]:border [&>button:last-child]:border-white/80 [&>button:last-child]:bg-white [&>button:last-child]:text-[#263f6b] [&>button:last-child]:opacity-100 [&>button:last-child]:shadow-lg [&>button:last-child]:transition-transform [&>button:last-child]:hover:scale-105 [&>button:last-child]:focus:ring-[#263f6b] [&>button:last-child>svg]:size-3.5">
+        <DialogContent className="w-[calc(100vw-1rem)] max-h-[96dvh] max-w-[960px] overflow-visible border-0 bg-transparent p-0 shadow-none sm:rounded-none [&>button:last-child]:right-2 [&>button:last-child]:top-2 [&>button:last-child]:z-10 [&>button:last-child]:flex [&>button:last-child]:size-7 [&>button:last-child]:items-center [&>button:last-child]:justify-center [&>button:last-child]:rounded-full [&>button:last-child]:border [&>button:last-child]:border-white/80 [&>button:last-child]:bg-white [&>button:last-child]:text-[#263f6b] [&>button:last-child]:opacity-100 [&>button:last-child]:shadow-lg [&>button:last-child]:transition-transform [&>button:last-child]:hover:scale-105 [&>button:last-child]:focus:ring-[#263f6b] [&>button:last-child>svg]:size-3.5">
           {selectedStory && (
             <>
               <DialogTitle className="sr-only">{selectedStory.alt}</DialogTitle>
@@ -173,7 +173,7 @@ export default function SuccessStoriesCarousel() {
                 height={1080}
                 loading="lazy"
                 unoptimized
-                className="mx-auto max-h-[88vh] w-auto max-w-full rounded-xl object-contain"
+                className="mx-auto block h-auto max-h-[96dvh] w-full max-w-full rounded-xl object-contain"
               />
             </>
           )}
