@@ -81,6 +81,7 @@ export default function UniversityPillarPage() {
                     width={220}
                     height={120}
                     sizes="220px"
+                    loading="lazy"
                     className="max-h-full w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
                   />
                 </div>

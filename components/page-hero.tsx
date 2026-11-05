@@ -13,7 +13,8 @@ export default function PageHero({ title }: PageHeroProps) {
         fill
         sizes="100vw"
         className="object-cover opacity-25"
-        priority
+        loading="eager"
+        fetchPriority="high"
       />
       <h1 className="relative max-w-5xl text-center text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] sm:text-5xl">
         {title}

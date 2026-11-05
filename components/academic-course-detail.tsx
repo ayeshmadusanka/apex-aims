@@ -118,7 +118,7 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <section className="relative isolate flex min-h-[320px] w-full items-center justify-center overflow-hidden bg-[#15233a] px-5 py-14 sm:aspect-[18/5] sm:min-h-[300px] sm:px-8 md:min-h-[360px]">
-        <Image src="/images/academic-pillar/header.webp" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/images/academic-pillar/header.webp" alt="" fill loading="eager" fetchPriority="high" sizes="100vw" className="object-cover" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#15233a]/90 via-[#15233a]/65 to-[#15233a]/40" />
         <div className="relative mx-auto w-full max-w-5xl text-center">
           <Badge className="mb-5 border border-white/35 bg-white/15 px-4 py-1.5 text-sm text-white backdrop-blur-sm">
@@ -149,6 +149,7 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
                 width={1000}
                 height={1000}
                 sizes="(max-width: 1023px) 100vw, 50vw"
+                loading="lazy"
                 className="aspect-square h-auto w-full rounded-xl object-contain"
               />
             </div>

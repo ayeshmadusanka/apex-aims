@@ -129,6 +129,7 @@ export default function ProjectPillarPage() {
                     alt={solution.title}
                     width={800}
                     height={520}
+                    loading="lazy"
                     sizes="(min-width: 1280px) 368px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
                     className="h-auto w-full object-contain"
                   />
@@ -168,6 +169,7 @@ export default function ProjectPillarPage() {
                       alt="Hirdaramani Logo"
                       width={64}
                       height={64}
+                      loading="lazy"
                       className="rounded-sm object-contain"
                     />
                   </div>
@@ -198,6 +200,7 @@ export default function ProjectPillarPage() {
                       alt="Tucking Trading Company Logo"
                       width={64}
                       height={64}
+                      loading="lazy"
                       className="object-contain"
                     />
                   </div>
@@ -230,6 +233,7 @@ export default function ProjectPillarPage() {
                       alt="Ru Salu Clothing Logo"
                       width={64}
                       height={64}
+                      loading="lazy"
                       className="object-contain"
                     />
                   </div>

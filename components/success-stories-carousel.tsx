@@ -171,6 +171,7 @@ export default function SuccessStoriesCarousel() {
                 alt={selectedStory.alt}
                 width={1080}
                 height={1080}
+                loading="lazy"
                 unoptimized
                 className="mx-auto max-h-[88vh] w-auto max-w-full rounded-xl object-contain"
               />

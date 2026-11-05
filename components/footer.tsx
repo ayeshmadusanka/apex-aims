@@ -22,6 +22,7 @@ export default function Footer() {
                 alt="Apex Institute of Management Services"
                 width={270}
                 height={97}
+                loading="lazy"
                 className="h-14 w-auto object-contain sm:h-16"
               />
             </a>

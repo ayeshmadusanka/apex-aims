@@ -71,7 +71,7 @@ export default function AboutPage() {
                 height={400}
                 sizes="(max-width: 1023px) 100vw, 50vw"
                 className="h-auto w-full rounded-xl object-cover"
-                priority
+                loading="lazy"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
             {PRINCIPLES.map(({ title, image, description }) => (
               <article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
                 <div className="mb-6 flex items-center gap-4">
-                  <Image src={image} alt="" width={64} height={64} className="h-16 w-16 object-contain" />
+                  <Image src={image} alt="" width={64} height={64} loading="lazy" className="h-16 w-16 object-contain" />
                   <h3 className="text-2xl font-semibold tracking-tight text-[#263f6b] sm:text-3xl">{title}</h3>
                 </div>
                 <p className="text-base leading-7 text-slate-600">{description}</p>
