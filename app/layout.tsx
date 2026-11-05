@@ -50,9 +50,6 @@ export const metadata = {
     creator: '@apex_institute',
     site: '@apex_institute',
   },
-  alternates: {
-    canonical: 'https://apexinstituteedu.com/',
-  },
   other: {
     'apple-mobile-web-app-title': 'AIMS',
     'application-name': 'AIMS',

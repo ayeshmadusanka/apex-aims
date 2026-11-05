@@ -70,6 +70,7 @@ export default function HomePage() {
                 height={300}
                 className="h-auto w-full rounded-xl object-cover"
                 sizes="(max-width: 1023px) 100vw, 50vw"
+                loading="eager"
               />
             </div>
           </div>

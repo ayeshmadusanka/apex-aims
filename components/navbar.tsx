@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -161,6 +162,9 @@ export default function Navbar() {
                 side="right"
                 className="w-[min(88vw,400px)] border-slate-200 bg-white p-6 text-slate-900"
               >
+                <SheetDescription className="sr-only">
+                  Navigate to AIMS pages and student services.
+                </SheetDescription>
                 <div className="mb-8 border-b border-slate-200 pb-6">
                   <SheetTitle className="mb-4 text-left text-slate-900">Explore AIMS</SheetTitle>
                   <a href="/" onClick={() => setIsOpen(false)}>
