@@ -103,42 +103,10 @@
   animation: success-story-enter 240ms ease-out both;
 }
 
-@keyframes partner-logo-marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.partner-logo-track {
-  animation: partner-logo-marquee 110s linear infinite;
-}
-
-.partner-logo-viewport:hover .partner-logo-track,
-.partner-logo-viewport:focus-within .partner-logo-track {
-  animation-play-state: paused;
-}
-
-.partner-logo-viewport {
-  scrollbar-width: none;
-}
-
-.partner-logo-viewport::-webkit-scrollbar {
-  display: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .home-metric,
   .success-story-appear {
     animation: none;
-  }
-
-  .partner-logo-track {
-    animation: none;
-  }
-
-  .partner-logo-viewport {
-    overflow-x: auto;
-    overflow-y: hidden;
   }
 }
 

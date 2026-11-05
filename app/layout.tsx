@@ -16,7 +16,6 @@ export const metadata = {
   creator: "AIMS - Apex Institute of Management Services",
   publisher: "AIMS - Apex Institute of Management Services",
   robots: "index, follow",
-  language: "en",
   icons: {
     icon: [
       { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },

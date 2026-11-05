@@ -15,7 +15,6 @@ const navigation = [
   { name: "About Us", href: "/about" },
   {
     name: "Our Programs",
-    href: "#",
     children: [
       { name: "Academic Pillar", href: "/academic-pillar" },
       { name: "University Pillar", href: "/university-pillar" },
@@ -89,7 +88,6 @@ export default function Navbar() {
                   <div key={item.name} className="relative" ref={dropdownRef}>
                     <button
                       type="button"
-                      aria-haspopup="menu"
                       aria-expanded={dropdownOpen}
                       onClick={() => setDropdownOpen((open) => !open)}
                       className="inline-flex items-center gap-1 py-2 text-sm font-medium text-slate-700 transition-colors hover:text-[#263f6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#263f6b]"

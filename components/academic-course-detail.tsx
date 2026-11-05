@@ -8,6 +8,7 @@ import {
   CreditCard,
   DollarSign,
   GraduationCap,
+  Phone,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -15,7 +16,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import FactCard from "@/components/fact-card";
 
 type CourseLogistics = {
   duration?: string;
@@ -70,20 +70,22 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
 
 function asList(value: string | string[] | undefined) {
   if (!value) return [];
-  return Array.isArray(value) ? value : [value];
+  return (Array.isArray(value) ? value : [value]).filter(
+    (item) => item.trim().length > 0,
+  );
 }
 
 export default function AcademicCourseDetail({ course }: { course?: AcademicCourse }) {
   if (!course) {
     return (
-      <main className="flex min-h-[60vh] items-center justify-center bg-white px-4">
+      <div className="flex min-h-[60vh] items-center justify-center bg-white px-4">
         <div className="text-center">
           <h1 className="text-2xl font-semibold text-slate-900">Course Not Found</h1>
           <Button asChild className="mt-5 bg-[#263f6b] hover:bg-[#1f3459]">
             <Link href="/academic-pillar">Back to Courses</Link>
           </Button>
         </div>
-      </main>
+      </div>
     );
   }
 
@@ -94,7 +96,7 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
     { label: "Facilitation", value: course.logistics?.facilitation ?? "", icon: GraduationCap },
     { label: "Investment", value: course.logistics?.investment ?? "", icon: DollarSign },
     { label: "Payment", value: course.logistics?.payment ?? "", icon: CreditCard },
-    { label: "Contact", value: course.logistics?.contact ?? "", icon: CalendarDays },
+    { label: "Contact", value: course.logistics?.contact ?? "", icon: Phone },
   ].filter((item) => item.value.trim().length > 0);
 
   const requirements: DetailItem[] = [
@@ -114,7 +116,7 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
   ];
 
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900">
       <section className="relative isolate flex min-h-[320px] w-full items-center justify-center overflow-hidden bg-[#15233a] px-5 py-14 sm:aspect-[18/5] sm:min-h-[300px] sm:px-8 md:min-h-[360px]">
         <Image src="/images/academic-pillar/header.webp" alt="" fill priority sizes="100vw" className="object-cover" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#15233a]/90 via-[#15233a]/65 to-[#15233a]/40" />
@@ -267,6 +269,6 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

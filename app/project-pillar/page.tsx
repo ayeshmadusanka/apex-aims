@@ -3,6 +3,7 @@ import { BriefcaseBusiness, Building2, Handshake } from "lucide-react"
 import Image from "next/image"
 import { PillarHero } from "@/components/pillar-hero";
 import SectionLabel from "@/components/section-label"
+import CompanyLogoGrid from "@/components/company-logo-grid"
 
 export default function ProjectPillarPage() {
   return (
@@ -153,7 +154,7 @@ export default function ProjectPillarPage() {
           <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
             <SectionLabel icon={Handshake}>Selected Projects</SectionLabel>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Our Major <span className="text-[#263f6b]">Assistance</span>
+              Our Project <span className="text-[#263f6b]">Contributions</span>
             </h2>
           </header>
 
@@ -167,7 +168,7 @@ export default function ProjectPillarPage() {
                       alt="Hirdaramani Logo"
                       width={64}
                       height={64}
-                      className="object-contain"
+                      className="rounded-sm object-contain"
                     />
                   </div>
                   <div className="min-w-0">
@@ -260,74 +261,14 @@ export default function ProjectPillarPage() {
           <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
             <SectionLabel icon={Building2}>Our Partners</SectionLabel>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Our Assistance in <span className="text-[#263f6b]">Leading Companies</span>
+              Our Assistance to <span className="text-[#263f6b]">Leading Companies</span>
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
               Trusted by industry leaders across various sectors
             </p>
           </header>
 
-          <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
-              {[
-                { name: "Company 100", logo: "/images/company/company-logo-100.webp" },
-                { name: "Company 101", logo: "/images/company/company-logo-101.webp" },
-                { name: "Company 102", logo: "/images/company/company-logo-102.webp" },
-                { name: "Company 103", logo: "/images/company/company-logo-103.webp" },
-                { name: "Company 104", logo: "/images/company/company-logo-104.webp" },
-                { name: "Company 105", logo: "/images/company/company-logo-105.webp" },
-                { name: "Company 106", logo: "/images/company/company-logo-106.webp" },
-                { name: "Company 107", logo: "/images/company/company-logo-107.webp" },
-                { name: "Company 108", logo: "/images/company/company-logo-108.webp" },
-                { name: "Company 109", logo: "/images/company/company-logo-109.webp" },
-                { name: "Company 110", logo: "/images/company/company-logo-110.webp" },
-                { name: "Company 111", logo: "/images/company/company-logo-111.webp" },
-                { name: "Company 112", logo: "/images/company/company-logo-112.webp" },
-                { name: "Company 113", logo: "/images/company/company-logo-113.webp" },
-                { name: "Company 114", logo: "/images/company/company-logo-114.webp" },
-                { name: "Company 115", logo: "/images/company/company-logo-115.webp" },
-                { name: "Company 116", logo: "/images/company/company-logo-116.webp" },
-                { name: "Company 117", logo: "/images/company/company-logo-117.webp" },
-                { name: "Company 118", logo: "/images/company/company-logo-118.webp" },
-                { name: "Company 119", logo: "/images/company/company-logo-119.webp" },
-                { name: "Company 120", logo: "/images/company/company-logo-120.webp" },                
-                { name: "Company 122", logo: "/images/company/company-logo-122.webp" },
-                { name: "Company 123", logo: "/images/company/company-logo-123.webp" },
-                { name: "Company 124", logo: "/images/company/company-logo-124.webp" },
-                { name: "Company 125", logo: "/images/company/company-logo-125.webp" },
-                { name: "Company 126", logo: "/images/company/company-logo-126.webp" },
-                { name: "Company 127", logo: "/images/company/company-logo-127.webp" },
-                { name: "Company 128", logo: "/images/company/company-logo-128.webp" },
-                { name: "Company 129", logo: "/images/company/company-logo-129.webp" },
-                { name: "Company 130", logo: "/images/company/company-logo-130.webp" },
-                { name: "Company 131", logo: "/images/company/company-logo-131.webp" },
-                { name: "Company 132", logo: "/images/company/company-logo-132.webp" },
-                { name: "Company 133", logo: "/images/company/company-logo-133.webp" },
-                { name: "Company 134", logo: "/images/company/company-logo-134.webp" },
-                { name: "Company 135", logo: "/images/company/company-logo-135.webp" },
-                { name: "Company 136", logo: "/images/company/company-logo-136.webp" },
-                { name: "Company 137", logo: "/images/company/company-logo-137.webp" },
-                { name: "Company 138", logo: "/images/company/company-logo-138.webp" },
-                { name: "Company 139", logo: "/images/company/company-logo-139.webp" },
-                { name: "Company 140", logo: "/images/company/company-logo-140.webp" },
-              ].map((company) => (
-                <div
-                  key={company.logo}
-                  className="group flex h-28 items-center justify-center rounded-xl border border-slate-200 bg-white p-3 transition-shadow duration-200 hover:shadow-sm"
-                >
-                  <div className="relative h-full w-full">
-                    <Image
-                      src={company.logo}
-                      alt={company.name}
-                      fill
-                      sizes="(min-width: 1280px) 180px, (min-width: 768px) 18vw, 40vw"
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <CompanyLogoGrid label="Organizations supported by AIMS" />
         </div>
       </section>
     </div>

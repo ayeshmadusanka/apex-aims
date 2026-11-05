@@ -11,7 +11,7 @@ import Link from "next/link"
 import type { ReactNode } from "react"
 import HomeHero from "@/components/home-hero"
 import ImpactMetrics from "@/components/impact-metrics"
-import PartnerLogoCarousel from "@/components/partner-logo-carousel"
+import CompanyLogoGrid from "@/components/company-logo-grid"
 import SectionLabel from "@/components/section-label"
 import SuccessStoriesCarousel from "@/components/success-stories-carousel"
 
@@ -38,7 +38,7 @@ export default function HomePage() {
     <div className="bg-white text-slate-900">
       <HomeHero />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white pb-16 pt-4 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="order-2 space-y-6 lg:order-1">
             <div>
@@ -89,19 +89,6 @@ export default function HomePage() {
           </header>
 
           <ImpactMetrics />
-
-          <div className="mx-auto mt-14 max-w-6xl border-t border-slate-300 pt-12">
-            <header className="mb-8 text-center">
-              <SectionLabel icon={Handshake}>Our Partners</SectionLabel>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Trusted by <span className="text-[#263f6b]">leading organizations</span>
-              </h3>
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-                AIMS works with organizations that value practical learning and professional development.
-              </p>
-            </header>
-            <PartnerLogoCarousel />
-          </div>
         </div>
       </section>
 
@@ -143,6 +130,21 @@ export default function HomePage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto mb-8 max-w-2xl text-center">
+            <SectionLabel icon={Handshake}>Our Partners</SectionLabel>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Trusted by <span className="text-[#263f6b]">leading organizations</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+              AIMS works with organizations that value practical learning and professional development.
+            </p>
+          </header>
+          <CompanyLogoGrid />
         </div>
       </section>
 

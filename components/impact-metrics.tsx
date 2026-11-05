@@ -3,6 +3,7 @@
 import { Award, BookOpen, Globe, GraduationCap, UserCheck } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import FactCard from "@/components/fact-card"
 
 const metrics: Array<{
   value: string
@@ -19,7 +20,7 @@ const metrics: Array<{
 ]
 
 export default function ImpactMetrics() {
-  const metricsRef = useRef<HTMLDivElement>(null)
+  const metricsRef = useRef<HTMLDListElement>(null)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -61,9 +62,9 @@ export default function ImpactMetrics() {
   }, [])
 
   return (
-    <div
+    <dl
       ref={metricsRef}
-      className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3 lg:grid-cols-5"
+      className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5"
     >
       {metrics.map(({ value, target, suffix = "", label, icon: Icon }) => {
         const currentValue = target === undefined
@@ -71,21 +72,17 @@ export default function ImpactMetrics() {
           : `${Math.round(target * progress).toLocaleString("en-US")}${suffix}`
 
         return (
-          <div
+          <FactCard
             key={label}
-            className="home-metric group flex min-h-36 flex-col items-center justify-center bg-white px-3 py-6 text-center sm:min-h-40 sm:px-4"
-          >
-            <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#eef3f9] text-[#263f6b] transition-colors duration-300 group-hover:bg-[#263f6b] group-hover:text-white">
-              <Icon className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <span aria-hidden="true" className={`tabular-nums font-semibold tracking-tight text-slate-900 ${value.length > 8 ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>
-              {currentValue}
-            </span>
-            <span className="sr-only">{value}</span>
-            <span className="mt-1.5 text-xs font-medium text-slate-600 sm:text-sm">{label}</span>
-          </div>
+            icon={Icon}
+            label={label}
+            value={currentValue}
+            accessibleValue={value}
+            className="home-metric"
+            labelClassName="lg:text-[10px] lg:tracking-normal"
+          />
         )
       })}
-    </div>
+    </dl>
   )
 }

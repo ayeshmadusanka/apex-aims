@@ -75,7 +75,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <dl className="grid grid-cols-2 gap-3 sm:gap-4">
+            <dl className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
               {STORY_MILESTONES.map(({ value, label, icon: Icon }) => (
                 <FactCard key={label} icon={Icon} label={label} value={value} />
               ))}
