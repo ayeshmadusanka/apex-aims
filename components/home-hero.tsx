@@ -13,6 +13,7 @@ const slides = [
 
 export default function HomeHero() {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const slide = slides[activeSlide]
@@ -32,6 +33,7 @@ export default function HomeHero() {
     if (rotationPaused) return
 
     const timer = window.setInterval(() => {
+      setIsImageLoaded(false)
       setActiveSlide((current) => (current + 1) % slides.length)
     }, 7000)
 
@@ -41,14 +43,26 @@ export default function HomeHero() {
   return (
     <section id="hero" aria-label="Featured AIMS programmes" className="relative bg-white">
       <div className="relative aspect-[16/5] w-full overflow-hidden bg-white">
+        {!isImageLoaded && (
+          <div
+            role="status"
+            aria-label="Loading featured image"
+            className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-blue-50"
+          >
+            <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#263f6b]/20 border-t-[#263f6b]" />
+          </div>
+        )}
         <Image
           key={slide.image}
           src={slide.image}
           alt={slide.title}
           fill
-          preload={activeSlide === 0}
+          loading="eager"
+          fetchPriority="high"
+          onLoad={() => setIsImageLoaded(true)}
+          onError={() => setIsImageLoaded(true)}
           sizes="100vw"
-          className="object-contain"
+          className={`object-contain transition-opacity duration-300 ${isImageLoaded ? "opacity-100" : "opacity-0"}`}
         />
       </div>
       <div
@@ -80,7 +94,11 @@ export default function HomeHero() {
               type="button"
               aria-label={`Show slide ${index + 1}: ${item.title}`}
               aria-current={index === activeSlide ? "true" : undefined}
-              onClick={() => setActiveSlide(index)}
+              onClick={() => {
+                if (index === activeSlide) return
+                setIsImageLoaded(false)
+                setActiveSlide(index)
+              }}
               className="group flex h-4 w-4 items-center justify-center rounded-full border border-white/35 bg-white/10 transition-colors hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] sm:h-8 sm:w-8"
             >
               <span
