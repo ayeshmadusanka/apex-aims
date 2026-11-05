@@ -33,7 +33,7 @@ export default function AboutPage() {
 
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
-          <div className="order-2 space-y-6 lg:order-1">
+          <div className="order-1 space-y-6 lg:order-1">
             <div>
               <SectionLabel icon={Award}>Who We Are</SectionLabel>
               <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl">
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="order-1 space-y-6 lg:order-2">
+          <div className="order-2 space-y-6 lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
               <Image
                 src="/images/about/aims-team.webp"

@@ -56,7 +56,7 @@ export default function HomeHero() {
         aria-label="Hero slide controls"
         className="relative z-10 flex justify-center px-2 py-1 sm:absolute sm:inset-x-0 sm:bottom-3 sm:py-0"
       >
-        <div className="flex items-center gap-1 rounded-full border border-white/45 bg-[#263f6b]/90 p-1 shadow-md backdrop-blur-xl sm:gap-1.5 sm:p-1.5">
+        <div className="flex items-center gap-0.5 rounded-full border border-white/45 bg-[#263f6b]/90 p-0.5 shadow-md backdrop-blur-xl sm:gap-1.5 sm:p-1.5">
           <button
             type="button"
             onClick={() => setIsPaused((paused) => !paused)}
@@ -69,11 +69,11 @@ export default function HomeHero() {
             }
             aria-pressed={rotationPaused}
             disabled={prefersReducedMotion}
-            className="flex h-7 w-7 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] disabled:cursor-not-allowed disabled:opacity-60 sm:h-8 sm:w-8"
+            className="flex h-4 w-4 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] disabled:cursor-not-allowed disabled:opacity-60 sm:h-8 sm:w-8"
           >
-            {rotationPaused ? <Play className="h-3.5 w-3.5" aria-hidden="true" /> : <Pause className="h-3.5 w-3.5" aria-hidden="true" />}
+            {rotationPaused ? <Play className="h-2 w-2 sm:h-3.5 sm:w-3.5" aria-hidden="true" /> : <Pause className="h-2 w-2 sm:h-3.5 sm:w-3.5" aria-hidden="true" />}
           </button>
-          <span aria-hidden="true" className="mx-0.5 h-5 w-px bg-white/30" />
+          <span aria-hidden="true" className="mx-0.5 h-3.5 w-px bg-white/30 sm:h-5" />
           {slides.map((item, index) => (
             <button
               key={item.image}
@@ -81,10 +81,10 @@ export default function HomeHero() {
               aria-label={`Show slide ${index + 1}: ${item.title}`}
               aria-current={index === activeSlide ? "true" : undefined}
               onClick={() => setActiveSlide(index)}
-              className="group flex h-7 w-7 items-center justify-center rounded-full border border-white/35 bg-white/10 transition-colors hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] sm:h-8 sm:w-8"
+              className="group flex h-4 w-4 items-center justify-center rounded-full border border-white/35 bg-white/10 transition-colors hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#263f6b] sm:h-8 sm:w-8"
             >
               <span
-                className={`h-1.5 w-1.5 rounded-full transition-all sm:h-2 sm:w-2 ${
+                className={`h-[3px] w-[3px] rounded-full transition-all sm:h-2 sm:w-2 ${
                   index === activeSlide ? "bg-white opacity-100" : "bg-white opacity-55 group-hover:opacity-90"
                 }`}
               />
