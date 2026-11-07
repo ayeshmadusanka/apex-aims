@@ -25,7 +25,6 @@ export const metadata = {
       { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' }
     ],
   },
-  manifest: '/manifest.json',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -49,11 +48,6 @@ export const metadata = {
     images: ['/web-app-manifest-512x512.png'],
     creator: '@apex_institute',
     site: '@apex_institute',
-  },
-  other: {
-    'apple-mobile-web-app-title': 'AIMS',
-    'application-name': 'AIMS',
-    'msapplication-TileColor': '#0056B3',
   },
 }
 

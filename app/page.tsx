@@ -93,7 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="border-t border-slate-200 bg-white py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="order-1 space-y-7 lg:order-1">
             <div>

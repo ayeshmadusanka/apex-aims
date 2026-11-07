@@ -1,5 +1,4 @@
 import {
-  ArrowUpRight,
   Building2,
   Facebook,
   Linkedin,
@@ -10,7 +9,6 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import ContactForm from "@/components/contact-form"
-import { Button } from "@/components/ui/button"
 import PageHero from "@/components/page-hero"
 import SectionLabel from "@/components/section-label"
 import {
@@ -134,20 +132,8 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <div className="flex flex-col gap-3 border-t border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <div className="border-t border-slate-200 px-5 py-4 sm:px-6">
               <p className="text-sm text-slate-600">{INSTITUTE_ADDRESS}</p>
-              <Button
-                asChild
-                className="min-h-12 rounded-lg bg-[#263f6b] px-5 font-semibold text-white hover:bg-[#1e3356]"
-              >
-                <a
-                  href={MAP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open directions <ArrowUpRight aria-hidden="true" />
-                </a>
-              </Button>
             </div>
           </div>
         </div>

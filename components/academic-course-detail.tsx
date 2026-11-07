@@ -135,7 +135,7 @@ export default function AcademicCourseDetail({ course }: { course?: AcademicCour
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white px-5 py-12 sm:px-8 sm:py-16">
+      <section className="bg-white px-5 py-12 sm:px-8 sm:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
             <SectionHeading eyebrow="Programme overview" title="Practical learning for your next step" />
