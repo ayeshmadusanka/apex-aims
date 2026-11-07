@@ -6,11 +6,13 @@ import "./globals.css"
 import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
+const siteDescription =
+  "Explore practical certificate, diploma, and Lean Six Sigma courses at AIMS in Sri Lanka, plus management training and consulting for organizations."
 
 export const metadata = {
   metadataBase: new URL("https://apexinstituteedu.com"),
   title: "AIMS - Apex Institute of Management Services",
-  description: "Premier management institute offering professional courses, Lean Six Sigma certification, and operational excellence programs. Transform your career with industry-leading training.",
+  description: siteDescription,
   keywords: "Management Institute, Professional Education, Leadership Training, Apex Institute, AIMS, Management Courses, Business Education, Professional Development, Corporate Training, Skills Development, Management Certification, Lean courses, Lean manufacturing, Process Improvement, Quality Management",
   authors: [{ name: "AIMS - Apex Institute of Management Services" }],
   creator: "AIMS - Apex Institute of Management Services",
@@ -18,11 +20,11 @@ export const metadata = {
   robots: "index, follow",
   icons: {
     icon: [
-      { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' }
+      { url: '/images/about/aims-icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/about/aims-icon-512x512.png', sizes: '512x512', type: 'image/png' }
     ],
     apple: [
-      { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' }
+      { url: '/images/about/aims-icon-192x192.png', sizes: '192x192', type: 'image/png' }
     ],
   },
   openGraph: {
@@ -30,13 +32,11 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://apexinstituteedu.com/',
     title: "AIMS - Apex Institute of Management Services",
-    description: "Premier management institute offering professional courses, Lean Six Sigma certification, and operational excellence programs. Transform your career with industry-leading training.",
+    description: siteDescription,
     siteName: 'AIMS - Apex Institute of Management Services',
     images: [
       {
-        url: '/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
+        url: '/images/about/aims-logo.webp',
         alt: 'AIMS - Apex Institute of Management Services',
       },
     ],
@@ -44,8 +44,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "AIMS - Apex Institute of Management Services",
-    description: "Premier management institute offering professional courses, Lean Six Sigma certification, and operational excellence programs. Transform your career with industry-leading training.",
-    images: ['/web-app-manifest-512x512.png'],
+    description: siteDescription,
+    images: ['/images/about/aims-logo.webp'],
     creator: '@apex_institute',
     site: '@apex_institute',
   },
